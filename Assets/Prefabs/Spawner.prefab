@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 8269141981611887200}
   - component: {fileID: 4573567525970742556}
   - component: {fileID: 2352291937307486067}
-  - component: {fileID: 114124296802209108}
   - component: {fileID: 7478516845013758127}
   m_Layer: 0
   m_Name: Spawner
@@ -133,30 +132,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3635641433290907421}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0af9b288c38a49647bd4afe46b507c11, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &114124296802209108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3635641433290907421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd858167d436fc48a3275f065b2398e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  free: 0
-  defenses:
-  - {fileID: 4639428402138612495, guid: fcd0e73e8b0ba054783f5f82cf32b47a, type: 3}
-  - {fileID: 4639428402138612495, guid: 795a07adf206ffd4f844cfd7c05f0dfc, type: 3}
-  - {fileID: 4639428402138612495, guid: ab5c410d8089e5e4e99d9e56f45ec498, type: 3}
-  inputs: 
 --- !u!114 &7478516845013758127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,12 +147,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3635641433290907421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd858167d436fc48a3275f065b2398e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b11fa1a089ccd444b5b8db67102a374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  free: 1
-  defenses:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  inputs: 790000007500000069000000
+  defenses: []
+  myInputs: 

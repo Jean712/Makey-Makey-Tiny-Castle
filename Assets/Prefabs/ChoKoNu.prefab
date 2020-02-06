@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1265242324245004021}
   - component: {fileID: 7704932820909924033}
   - component: {fileID: 7578084177120216750}
-  - component: {fileID: 54236293357166056}
+  - component: {fileID: 54855066537464230}
   m_Layer: 0
-  m_Name: Catapult
+  m_Name: ChoKoNu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 385c475e3b8f301459ae69145ce5848b, type: 2}
+  - {fileID: 2100000, guid: 9db3f90d574a3da4893f2ece458f534e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &54236293357166056
+--- !u!54 &54855066537464230
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

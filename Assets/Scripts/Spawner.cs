@@ -4,23 +4,54 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public bool free = true;
-
     public GameObject[] defenses;
-    public KeyCode[] inputs;
+    //private GameObject[] instDefenses = new GameObject[4];
+    public Transform[] defensesLocation;
 
-    void Start()
-    {
+    public KeyCode[] myInputs;
 
-    }
+    private bool free;
+
+    //void Update()
+    //{
+    //    for (int i = 0; i < defenses.Length; i++)
+    //    {
+    //        if (Input.GetKeyDown(myInputs[i]) && free)
+    //        {
+    //            instDefenses[i] = Instantiate(defenses[i], new Vector3(transform.position.x, transform.position.y + 5, transform.position.z), transform.rotation);
+    //        }
+
+    //        if (Input.GetKeyUp(myInputs[i]))
+    //        {
+    //            Destroy(instDefenses[i]);
+    //            free = true;
+    //        }
+
+    //        if (Input.GetKey(myInputs[i]))
+    //        {
+    //            free = false;
+    //        }
+    //    }
+    //}
 
     void Update()
     {
-        if (free)
+        for (int i = 0; i < defenses.Length; i++)
         {
-            if (Input.GetKeyDown(inputs[0]))
+            if (Input.GetKeyDown(myInputs[i]) && free)
             {
-                defenses[0].transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+                defenses[i].transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+            }
+
+            if (Input.GetKeyUp(myInputs[i]))
+            {
+                defenses[i].transform.position = defensesLocation[i].position;
+                free = true;
+            }
+
+            if (Input.GetKey(myInputs[i]))
+            {
+                free = false;
             }
         }
     }
