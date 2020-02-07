@@ -11,6 +11,17 @@ public class Slot : MonoBehaviour
     public GameObject[] defenses;
     public Transform[] defensesLocation;
     public KeyCode[] myInputs;
+    public GameObject myZone;
+
+    public List<GameObject> enemyQueue;
+
+    private void Awake()
+    {
+        if (myZone != null)
+        {
+            myZone.GetComponent<TriggerLaneZone>().mySlot = gameObject;
+        }
+    }
 
     private void Update()
     {
@@ -25,7 +36,6 @@ public class Slot : MonoBehaviour
 
             if (Input.GetKey(myInputs[i]))
             {
-                defenses[i].GetComponent<Defense>().active = true;
                 free = false;
 
                 // Refroidisseur.
@@ -33,10 +43,16 @@ public class Slot : MonoBehaviour
                 {
                     defenses[i].GetComponent<Defense>().onCooler = true;
                 }
+                else
+                {
+                    myZone.GetComponent<TriggerLaneZone>().myDefense = defenses[i];
+                    defenses[i].GetComponent<Defense>().active = true;
+                }
             }
 
             if (Input.GetKeyUp(myInputs[i]))
             {
+                myZone.GetComponent<TriggerLaneZone>().myDefense = null;
                 defenses[i].GetComponent<Defense>().active = false;
                 defenses[i].transform.position = defensesLocation[i].position;
                 free = true;

@@ -34,4 +34,9 @@ public class Defense : MonoBehaviour
 
         heat = Mathf.Clamp(heat, 0, 100);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
