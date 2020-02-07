@@ -4,39 +4,38 @@ using UnityEngine;
 
 public class Defense : MonoBehaviour
 {
+    public bool active;
+    public List<GameObject> enemiesToKill;
+
+    //[Header("Basic Configuration")]
+    //public Component myWeaponScript;
     public KeyCode[] myInputs;
 
-    public bool active;
-
-    public float heat;
+    [Header("Statistics")]
+    public float heat = 100;
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
     public bool onCooler;
 
     void Update()
     {
-        // Surchauffe.
+        // Visée.
         if (active)
         {
-            
+
         }
 
         // Refroidissement.
         if (!active)
         {
-            heat -= coolingSpeed;
+            heat -= coolingSpeed * Time.deltaTime;
         }
 
         if (onCooler)
         {
-            heat -= coolingSpeedOnBooster;
+            heat -= coolingSpeedOnBooster * Time.deltaTime;
         }
 
         heat = Mathf.Clamp(heat, 0, 100);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
     }
 }

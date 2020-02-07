@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GizmoCreator : MonoBehaviour
 {
-    [Range(1, 4)]
+    [Range(1, 5)]
     public int gizmoAspect = 1;
 
     [Range(0.1f, 1)]
@@ -35,6 +35,10 @@ public class GizmoCreator : MonoBehaviour
 
             case 4:
                 Gizmos.DrawWireCube(transform.position, cubeSize);
+                break;
+
+            case 5:
+                Gizmos.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * gizmoSize);
                 break;
         }
     }

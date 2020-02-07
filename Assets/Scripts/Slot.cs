@@ -7,13 +7,13 @@ public class Slot : MonoBehaviour
     private bool free = true;
     public bool isACooler = false;
 
+    public List<GameObject> enemyQueue;
+
     [Header("Basic Configuration")]
     public GameObject[] defenses;
     public Transform[] defensesLocation;
     public KeyCode[] myInputs;
     public GameObject myZone;
-
-    public List<GameObject> enemyQueue;
 
     private void Awake()
     {
@@ -46,6 +46,7 @@ public class Slot : MonoBehaviour
                 else
                 {
                     myZone.GetComponent<TriggerLaneZone>().myDefense = defenses[i];
+                    defenses[i].GetComponent<Defense>().enemiesToKill = enemyQueue;
                     defenses[i].GetComponent<Defense>().active = true;
                 }
             }
@@ -54,6 +55,8 @@ public class Slot : MonoBehaviour
             {
                 myZone.GetComponent<TriggerLaneZone>().myDefense = null;
                 defenses[i].GetComponent<Defense>().active = false;
+                defenses[i].GetComponent<Defense>().onCooler = false;
+                defenses[i].GetComponent<Defense>().enemiesToKill = null;
                 defenses[i].transform.position = defensesLocation[i].position;
                 free = true;
             }
