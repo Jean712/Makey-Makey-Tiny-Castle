@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class d_Canon : MonoBehaviour
+public class D_Canon : MonoBehaviour
 {
     private GameObject enemyTarget;
 
@@ -22,17 +22,17 @@ public class d_Canon : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (GetComponent<Defense>().enemiesToKill.Count >= 1)
+        if (GetComponent<Defense>().active && GetComponent<Defense>().enemyToKill != null)
         {
-            enemyTarget = GetComponent<Defense>().enemiesToKill[0];
+            enemyTarget = GetComponent<Defense>().enemyToKill;
             shootingPlace.transform.LookAt(enemyTarget.transform);
-        }
 
-        if (timer <= 0)
-        {
-            Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
+            if (timer <= 0)
+            {
+                Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
 
-            timer = shootingCooldown;
+                timer = shootingCooldown;
+            }
         }
     }
 }

@@ -11,6 +11,6 @@ public class TriggerLaneZone : MonoBehaviour
     {
         GameObject enemy = other.gameObject;
 
-        mySlot.GetComponent<Slot>().enemyQueue.Add(enemy);
+        mySlot.GetComponent<Slot>().enemyQueue.Enqueue(enemy);
     }
 }

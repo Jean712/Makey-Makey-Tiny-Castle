@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class b_Cannonball : MonoBehaviour
+public class B_Cannonball : MonoBehaviour
 {
     private Rigidbody rgbd;
+    public float damages;
     public float bulletSpeed = 100;
 
-    void Start()
+    private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
+    }
 
-        rgbd.AddForce(Vector3.forward * bulletSpeed);
+    private void Update()
+    {
+        rgbd.velocity = gameObject.transform.forward * bulletSpeed;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.GetComponent<Enemy>() != null)
+        {
+            other.GetComponent<Enemy>().health -= damages;
+            Destroy(gameObject);
+        }
     }
 }

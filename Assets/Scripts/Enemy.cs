@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody rgbd;
 
+    public float health;
+
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
@@ -14,5 +16,10 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         rgbd.velocity = -Vector3.forward;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

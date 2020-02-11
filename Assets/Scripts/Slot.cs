@@ -5,26 +5,32 @@ using UnityEngine;
 public class Slot : MonoBehaviour
 {
     private bool free = true;
-    public bool isACooler = false;
 
-    public List<GameObject> enemyQueue;
+    public Queue<GameObject> enemyQueue;
+    private GameObject actualEnemy;
 
     [Header("Basic Configuration")]
     public GameObject[] defenses;
-    public Transform[] defensesLocation;
     public KeyCode[] myInputs;
     public GameObject myZone;
+    public bool isACooler = false;
 
     private void Awake()
     {
         if (myZone != null)
         {
+            enemyQueue = new Queue<GameObject>();
             myZone.GetComponent<TriggerLaneZone>().mySlot = gameObject;
         }
     }
 
     private void Update()
     {
+        if (actualEnemy == null && enemyQueue.Count >= 1)
+        {
+            actualEnemy = enemyQueue.Dequeue();
+        }
+
         // Appartition de la défense.
         for (int i = 0; i < defenses.Length; i++)
         {
@@ -37,6 +43,7 @@ public class Slot : MonoBehaviour
             if (Input.GetKey(myInputs[i]))
             {
                 free = false;
+                defenses[i].GetComponent<Defense>().onSlot = true;
 
                 // Refroidisseur.
                 if (isACooler)
@@ -46,18 +53,17 @@ public class Slot : MonoBehaviour
                 else
                 {
                     myZone.GetComponent<TriggerLaneZone>().myDefense = defenses[i];
-                    defenses[i].GetComponent<Defense>().enemiesToKill = enemyQueue;
-                    defenses[i].GetComponent<Defense>().active = true;
+                    defenses[i].GetComponent<Defense>().enemyToKill = actualEnemy;
                 }
             }
 
             if (Input.GetKeyUp(myInputs[i]))
             {
                 myZone.GetComponent<TriggerLaneZone>().myDefense = null;
-                defenses[i].GetComponent<Defense>().active = false;
+                defenses[i].GetComponent<Defense>().onSlot = false;
                 defenses[i].GetComponent<Defense>().onCooler = false;
-                defenses[i].GetComponent<Defense>().enemiesToKill = null;
-                defenses[i].transform.position = defensesLocation[i].position;
+                defenses[i].GetComponent<Defense>().enemyToKill = null;
+                defenses[i].transform.position = defenses[i].GetComponent<Defense>().myLocation.position;
                 free = true;
             }
         }

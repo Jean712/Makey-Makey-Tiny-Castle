@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 3635641433290907421, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4573567525970742556, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
@@ -843,6 +843,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114772774159512868, guid: 795a07adf206ffd4f844cfd7c05f0dfc,
+        type: 3}
+      propertyPath: myLocation
+      value: 
+      objectReference: {fileID: 401456460}
+    - target: {fileID: 114772774159512868, guid: 795a07adf206ffd4f844cfd7c05f0dfc,
+        type: 3}
+      propertyPath: timeBeforeShooting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: 795a07adf206ffd4f844cfd7c05f0dfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -918,6 +928,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114614775757620720, guid: ab5c410d8089e5e4e99d9e56f45ec498,
+        type: 3}
+      propertyPath: myLocation
+      value: 
+      objectReference: {fileID: 63263883}
     - target: {fileID: 225917510060462069, guid: ab5c410d8089e5e4e99d9e56f45ec498,
         type: 3}
       propertyPath: m_RootOrder
@@ -982,6 +997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: d_Canon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982685418142738628, guid: ab5c410d8089e5e4e99d9e56f45ec498,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab5c410d8089e5e4e99d9e56f45ec498, type: 3}
@@ -1219,6 +1239,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114185620089939082, guid: fcd0e73e8b0ba054783f5f82cf32b47a,
+        type: 3}
+      propertyPath: myLocation
+      value: 
+      objectReference: {fileID: 187686273}
+    - target: {fileID: 114185620089939082, guid: fcd0e73e8b0ba054783f5f82cf32b47a,
+        type: 3}
+      propertyPath: timeBeforeShooting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: fcd0e73e8b0ba054783f5f82cf32b47a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1302,7 +1332,7 @@ PrefabInstance:
     - target: {fileID: 3635641433290907421, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5453854213350110369, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
@@ -1664,7 +1694,6 @@ GameObject:
   - component: {fileID: 2102932860}
   - component: {fileID: 2102932859}
   - component: {fileID: 2102932858}
-  - component: {fileID: 2102932861}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1736,18 +1765,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 37.5, y: 0, z: 0}
---- !u!114 &2102932861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102932857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327340931765cac4f976491ded7ba7bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2138871409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1755,6 +1772,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114154564513946700, guid: 7cf9fb788b7fcc14bbd037e3ec32f2f6,
+        type: 3}
+      propertyPath: myLocation
+      value: 
+      objectReference: {fileID: 752203131}
+    - target: {fileID: 114154564513946700, guid: 7cf9fb788b7fcc14bbd037e3ec32f2f6,
+        type: 3}
+      propertyPath: timeBeforeShooting
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: 7cf9fb788b7fcc14bbd037e3ec32f2f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1834,7 +1861,6 @@ GameObject:
   - component: {fileID: 2147399113}
   - component: {fileID: 2147399112}
   - component: {fileID: 2147399111}
-  - component: {fileID: 2147399110}
   - component: {fileID: 2147399114}
   m_Layer: 0
   m_Name: ProtoSpawner1
@@ -1843,20 +1869,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &2147399110
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147399109}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &2147399111
 MeshRenderer:
   m_ObjectHideFlags: 0

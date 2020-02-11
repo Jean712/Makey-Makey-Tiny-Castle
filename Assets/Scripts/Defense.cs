@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Defense : MonoBehaviour
 {
-    public bool active;
-    public List<GameObject> enemiesToKill;
+    public bool onSlot;
+    public bool active = false;
+    public GameObject enemyToKill;
 
-    //[Header("Basic Configuration")]
-    //public Component myWeaponScript;
+    [Header("Basic Configuration")]
+    public float timeBeforeShooting = 1f;
+    private float timer;
+    public Transform myLocation;
     public KeyCode[] myInputs;
 
     [Header("Statistics")]
@@ -17,12 +20,34 @@ public class Defense : MonoBehaviour
     public float coolingSpeedOnBooster = 2;
     public bool onCooler;
 
+    private void Awake()
+    {
+        timer = timeBeforeShooting;
+    }
+
     void Update()
     {
-        // Visée.
-        if (active)
+        // Activation et désactivation.
+        for (int i = 0; i < myInputs.Length; i++)
         {
+            if (onSlot)
+            {
+                if (Input.GetKey(myInputs[i]))
+                {
+                    timer -= Time.deltaTime;
 
+                    if (timer <= 0)
+                    {
+                        active = true;
+                    }
+                }
+            }
+
+            if (Input.GetKeyUp(myInputs[i]))
+            {
+                active = false;
+                timer = timeBeforeShooting;
+            }
         }
 
         // Refroidissement.
