@@ -9,12 +9,12 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] enemies;
 
-    void Start()
+    private void Awake()
     {
         timer = cooldown;
     }
 
-    void Update()
+    private void Update()
     {
         timer -= Time.deltaTime;
 

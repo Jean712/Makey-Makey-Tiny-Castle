@@ -25,7 +25,7 @@ public class Defense : MonoBehaviour
         timer = timeBeforeShooting;
     }
 
-    void Update()
+    private void Update()
     {
         // Activation et désactivation.
         for (int i = 0; i < myInputs.Length; i++)

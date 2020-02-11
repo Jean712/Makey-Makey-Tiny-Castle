@@ -12,13 +12,13 @@ public class D_Canon : MonoBehaviour
     public float shootingCooldown = 1;
     private float timer;
 
-    private void Start()
+    private void Awake()
     {
         timer = shootingCooldown;
         shootingPlace = transform.Find("ShootingPlace").gameObject;
     }
 
-    void Update()
+    private void Update()
     {
         timer -= Time.deltaTime;
 
