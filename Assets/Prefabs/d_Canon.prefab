@@ -130,9 +130,10 @@ MonoBehaviour:
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 610000007500000063000000
-  heat: 100
+  heat: 0
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
+  overheatedCancelTime: 10
   onCooler: 0
 --- !u!114 &3061594258362972718
 MonoBehaviour:
@@ -147,7 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: 913c21758001a164d823a345fe185472, type: 3}
-  shootingCooldown: 1
+  shootingCooldown: 2.85
+  heatingSpeed: 14.3
 --- !u!1 &6167575821204213489
 GameObject:
   m_ObjectHideFlags: 0

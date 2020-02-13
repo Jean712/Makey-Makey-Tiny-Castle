@@ -58,8 +58,9 @@ GameObject:
   - component: {fileID: 7578084177120216750}
   - component: {fileID: 54855066537464230}
   - component: {fileID: 114772774159512868}
+  - component: {fileID: 2389112357253869134}
   m_Layer: 0
-  m_Name: d_ChoKoNu
+  m_Name: d_SuperCrossbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,14 +124,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1865127860c04b4fb9f0cdf4362bdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSlot: 0
   active: 0
-  enemiesToKill: []
+  enemyToKill: {fileID: 0}
+  timeBeforeShooting: 1
   myLocation: {fileID: 0}
-  myInputs: 
-  heat: 100
+  myInputs: 650000006900000076000000
+  heat: 0
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
+  overheatedCancelTime: 10
   onCooler: 0
+--- !u!114 &2389112357253869134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639428402138612495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad7996560f8e0342bf5d7c471ca62ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3543002796520063919, guid: 03aeb8f86418f4f41b607f6d8939e768, type: 3}
+  shootingCooldown: 0.25
+  heatingSpeed: 1.25
 --- !u!1 &5843471617355019234
 GameObject:
   m_ObjectHideFlags: 0

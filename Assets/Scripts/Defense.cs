@@ -7,22 +7,27 @@ public class Defense : MonoBehaviour
     public bool onSlot;
     public bool active = false;
     public GameObject enemyToKill;
+    private bool overheated = false;
 
     [Header("Basic Configuration")]
-    public float timeBeforeShooting = 1f;
-    private float timer;
+    public float timeBeforeShooting = 1;
+    private float timer1;
     public Transform myLocation;
     public KeyCode[] myInputs;
 
     [Header("Statistics")]
-    public float heat = 100;
+    [Range(0, 100)]
+    public float heat;
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
+    public float overheatedCancelTime;
+    private float timer2;
     public bool onCooler;
 
     private void Awake()
     {
-        timer = timeBeforeShooting;
+        timer1 = timeBeforeShooting;
+        timer2 = overheatedCancelTime;
     }
 
     private void Update()
@@ -30,13 +35,13 @@ public class Defense : MonoBehaviour
         // Activation et désactivation.
         for (int i = 0; i < myInputs.Length; i++)
         {
-            if (onSlot)
+            if (onSlot && !overheated)
             {
                 if (Input.GetKey(myInputs[i]))
                 {
-                    timer -= Time.deltaTime;
+                    timer1 -= Time.deltaTime;
 
-                    if (timer <= 0)
+                    if (timer1 <= 0)
                     {
                         active = true;
                     }
@@ -46,21 +51,54 @@ public class Defense : MonoBehaviour
             if (Input.GetKeyUp(myInputs[i]))
             {
                 active = false;
-                timer = timeBeforeShooting;
+                timer1 = timeBeforeShooting;
             }
         }
 
-        // Refroidissement.
-        if (!active)
+        // Surchauffe et refroidissement.
+        if (timer2 == overheatedCancelTime)
         {
-            heat -= coolingSpeed * Time.deltaTime;
+            if (!active)
+            {
+                heat -= coolingSpeed * Time.deltaTime;
+            }
+
+            if (onCooler)
+            {
+                heat -= coolingSpeedOnBooster * Time.deltaTime;
+            }
+
+            if (heat < 0)
+            {
+                heat = 0;
+            }
+
+            if (heat >= 100)
+            {
+                overheated = true;
+            }
         }
 
-        if (onCooler)
+        // Récupération.
+        if (!overheated)
         {
-            heat -= coolingSpeedOnBooster * Time.deltaTime;
+            timer2 = overheatedCancelTime;
         }
 
-        heat = Mathf.Clamp(heat, 0, 100);
+        if (overheated)
+        {
+            active = false;
+
+            if (!onSlot)
+            {
+                timer2 -= Time.deltaTime;
+
+                if (timer2 <= 0)
+                {
+                    heat = 0;
+                    overheated = false;
+                }
+            }
+        }
     }
 }

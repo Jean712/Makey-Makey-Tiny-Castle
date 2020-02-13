@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec870e412fe1ef54e8f6fc074234b1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmoAspect: 1
   gizmoSize: 0.25
   gizmoColor: {r: 0, g: 1, b: 0.69423604, a: 1}
 --- !u!1 &3635641433290907421
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 2352291937307486067}
   - component: {fileID: 7478516845013758127}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,5 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b11fa1a089ccd444b5b8db67102a374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenses: []
+  defenses:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   myInputs: 
+  myZone: {fileID: 0}
+  isACooler: 0

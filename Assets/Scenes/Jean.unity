@@ -645,6 +645,11 @@ PrefabInstance:
       objectReference: {fileID: 752203131}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
+      propertyPath: isACooler
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
+        type: 3}
       propertyPath: myInputs.Array.data[0]
       value: 99
       objectReference: {fileID: 0}
@@ -662,11 +667,6 @@ PrefabInstance:
         type: 3}
       propertyPath: myInputs.Array.data[3]
       value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
-        type: 3}
-      propertyPath: isACooler
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12537dbefe41acc4dad143527fb8129a, type: 3}
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 401456460}
   - component: {fileID: 401456461}
   m_Layer: 0
-  m_Name: ChoKoNuLocation
+  m_Name: SuperCrossbowLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -848,11 +848,6 @@ PrefabInstance:
       propertyPath: myLocation
       value: 
       objectReference: {fileID: 401456460}
-    - target: {fileID: 114772774159512868, guid: 795a07adf206ffd4f844cfd7c05f0dfc,
-        type: 3}
-      propertyPath: timeBeforeShooting
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: 795a07adf206ffd4f844cfd7c05f0dfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -911,7 +906,7 @@ PrefabInstance:
     - target: {fileID: 4639428402138612495, guid: 795a07adf206ffd4f844cfd7c05f0dfc,
         type: 3}
       propertyPath: m_Name
-      value: d_ChoKoNu
+      value: d_SuperCrossbow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 795a07adf206ffd4f844cfd7c05f0dfc, type: 3}
@@ -1244,11 +1239,6 @@ PrefabInstance:
       propertyPath: myLocation
       value: 
       objectReference: {fileID: 187686273}
-    - target: {fileID: 114185620089939082, guid: fcd0e73e8b0ba054783f5f82cf32b47a,
-        type: 3}
-      propertyPath: timeBeforeShooting
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: fcd0e73e8b0ba054783f5f82cf32b47a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1383,11 +1373,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
-        type: 3}
-      propertyPath: defenses.Array.size
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
@@ -1777,11 +1762,6 @@ PrefabInstance:
       propertyPath: myLocation
       value: 
       objectReference: {fileID: 752203131}
-    - target: {fileID: 114154564513946700, guid: 7cf9fb788b7fcc14bbd037e3ec32f2f6,
-        type: 3}
-      propertyPath: timeBeforeShooting
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: 7cf9fb788b7fcc14bbd037e3ec32f2f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2195,6 +2175,11 @@ PrefabInstance:
       objectReference: {fileID: 752203131}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
+      propertyPath: myZone
+      value: 
+      objectReference: {fileID: 956984995}
+    - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
+        type: 3}
       propertyPath: myInputs.Array.data[0]
       value: 97
       objectReference: {fileID: 0}
@@ -2213,10 +2198,5 @@ PrefabInstance:
       propertyPath: myInputs.Array.data[3]
       value: 114
       objectReference: {fileID: 0}
-    - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
-        type: 3}
-      propertyPath: myZone
-      value: 
-      objectReference: {fileID: 956984995}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12537dbefe41acc4dad143527fb8129a, type: 3}

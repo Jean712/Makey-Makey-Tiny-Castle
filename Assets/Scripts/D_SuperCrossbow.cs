@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class D_Canon : MonoBehaviour
+public class D_SuperCrossbow : MonoBehaviour
 {
     private GameObject enemyTarget;
 

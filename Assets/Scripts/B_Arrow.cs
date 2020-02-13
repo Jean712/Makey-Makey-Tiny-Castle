@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class B_Cannonball : MonoBehaviour
+public class B_Arrow : MonoBehaviour
 {
     private Rigidbody rgbd;
     public float damages;

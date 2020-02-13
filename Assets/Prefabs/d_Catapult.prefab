@@ -200,13 +200,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1865127860c04b4fb9f0cdf4362bdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSlot: 0
   active: 0
-  enemiesToKill: []
+  enemyToKill: {fileID: 0}
+  timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 
-  heat: 100
+  heat: 0
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
+  overheatedCancelTime: 10
   onCooler: 0
 --- !u!1 &5601479905391672640
 GameObject:

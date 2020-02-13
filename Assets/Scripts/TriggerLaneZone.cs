@@ -9,8 +9,11 @@ public class TriggerLaneZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject enemy = other.gameObject;
+        if (other.tag == "WalkingEnemy" || other.tag == "FlyingEnemy")
+        {
+            GameObject enemy = other.gameObject;
 
-        mySlot.GetComponent<Slot>().enemyQueue.Enqueue(enemy);
+            mySlot.GetComponent<Slot>().enemyQueue.Enqueue(enemy);
+        }
     }
 }
