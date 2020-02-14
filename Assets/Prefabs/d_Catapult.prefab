@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 7578084177120216750}
   - component: {fileID: 54236293357166056}
   - component: {fileID: 114185620089939082}
+  - component: {fileID: 8667365533814119462}
   m_Layer: 0
   m_Name: d_Catapult
   m_TagString: Untagged
@@ -205,12 +206,27 @@ MonoBehaviour:
   enemyToKill: {fileID: 0}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
-  myInputs: 
+  myInputs: 7a0000006900000076000000
   heat: 0
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
   overheatedCancelTime: 10
   onCooler: 0
+--- !u!114 &8667365533814119462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639428402138612495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f647ccf39229bb945ae4a33378e53806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6905838584920914721, guid: cec23f654ce647b4ca955b8ed34d3363, type: 3}
+  shootingCooldown: 1
+  heatingSpeed: 10
 --- !u!1 &5601479905391672640
 GameObject:
   m_ObjectHideFlags: 0

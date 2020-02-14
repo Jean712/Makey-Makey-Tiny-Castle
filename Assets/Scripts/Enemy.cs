@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rgbd;
 
     public float health;
+    public float damages;
 
     private void Awake()
     {
@@ -19,6 +20,15 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Castle>() != null)
+        {
+            other.GetComponent<Castle>().health -= damages;
             Destroy(gameObject);
         }
     }

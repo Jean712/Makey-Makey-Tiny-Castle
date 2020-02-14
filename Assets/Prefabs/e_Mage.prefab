@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8565730604410438303}
   - component: {fileID: 6440642958868677492}
   - component: {fileID: 2493907585149360650}
-  - component: {fileID: 1502315697550629734}
   - component: {fileID: 54432353270436650}
+  - component: {fileID: 1502315697550629734}
   m_Layer: 0
   m_Name: e_Mage
   m_TagString: WalkingEnemy
@@ -94,19 +94,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1502315697550629734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3076609739664121088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd50a19d3ab475409d1a3759885a5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
 --- !u!54 &54432353270436650
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,3 +110,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!114 &1502315697550629734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3076609739664121088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd50a19d3ab475409d1a3759885a5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damages: 50

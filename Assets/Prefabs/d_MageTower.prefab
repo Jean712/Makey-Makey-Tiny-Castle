@@ -82,7 +82,7 @@ MonoBehaviour:
   enemyToKill: {fileID: 0}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
-  myInputs: 
+  myInputs: 72000000700000006e000000
   heat: 0
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
