@@ -5,6 +5,7 @@ using UnityEngine;
 public class D_Catapult : MonoBehaviour
 {
     private GameObject enemyTarget;
+    public static float d_CatapultDistance;
 
     [Header("Basic Configuration")]
     public GameObject bullet;
@@ -22,13 +23,11 @@ public class D_Catapult : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
-
+        
         // Tir.
         if (GetComponent<Defense>().active && GetComponent<Defense>().enemyToKill != null)
         {
             enemyTarget = GetComponent<Defense>().enemyToKill;
-            shootingPlace.transform.LookAt(enemyTarget.transform);
-            shootingPlace.transform.Rotate(-50, 0, 0);
 
             if (timer <= 0)
             {
@@ -38,5 +37,12 @@ public class D_Catapult : MonoBehaviour
                 timer = shootingCooldown;
             }
         }
+
+        if (enemyTarget != null)
+        {
+            d_CatapultDistance = enemyTarget.transform.position.z - transform.position.z;
+        }
+
+        Debug.Log(d_CatapultDistance);
     }
 }

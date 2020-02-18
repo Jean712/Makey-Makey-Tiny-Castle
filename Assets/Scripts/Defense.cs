@@ -7,6 +7,7 @@ public class Defense : MonoBehaviour
     public bool onSlot;
     public bool active = false;
     public GameObject enemyToKill;
+    public bool canHeat = false;
     private bool overheated = false;
 
     [Header("Basic Configuration")]
@@ -55,48 +56,51 @@ public class Defense : MonoBehaviour
             }
         }
 
-        // Surchauffe et refroidissement.
-        if (timer2 == overheatedCancelTime)
+        //Surchauffe et refroidissement.
+        if (canHeat)
         {
-            if (!active)
+            if (timer2 == overheatedCancelTime)
             {
-                heat -= coolingSpeed * Time.deltaTime;
-            }
+                if (!active)
+                {
+                    heat -= coolingSpeed * Time.deltaTime;
+                }
 
-            if (onCooler)
-            {
-                heat -= coolingSpeedOnBooster * Time.deltaTime;
-            }
+                if (onCooler)
+                {
+                    heat -= coolingSpeedOnBooster * Time.deltaTime;
+                }
 
-            if (heat < 0)
-            {
-                heat = 0;
-            }
-
-            if (heat >= 100)
-            {
-                overheated = true;
-            }
-        }
-
-        // Récupération.
-        if (!overheated)
-        {
-            timer2 = overheatedCancelTime;
-        }
-
-        if (overheated)
-        {
-            active = false;
-
-            if (!onSlot)
-            {
-                timer2 -= Time.deltaTime;
-
-                if (timer2 <= 0)
+                if (heat < 0)
                 {
                     heat = 0;
-                    overheated = false;
+                }
+
+                if (heat >= 100)
+                {
+                    overheated = true;
+                }
+            }
+
+            // Récupération.
+            if (!overheated)
+            {
+                timer2 = overheatedCancelTime;
+            }
+
+            if (overheated)
+            {
+                active = false;
+
+                if (!onSlot)
+                {
+                    timer2 -= Time.deltaTime;
+
+                    if (timer2 <= 0)
+                    {
+                        heat = 0;
+                        overheated = false;
+                    }
                 }
             }
         }

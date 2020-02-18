@@ -6,12 +6,14 @@ public class B_Boulder : MonoBehaviour
 {
     private Rigidbody rgbd;
     public float damages;
-    public float initialForce = 75;
+    private float initialForce;
+    public float initialBoost;
 
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
 
+        initialForce = Mathf.Sqrt(D_Catapult.d_CatapultDistance * Physics.gravity.magnitude) * initialBoost;
         rgbd.AddForce(transform.forward * initialForce);
     }
 

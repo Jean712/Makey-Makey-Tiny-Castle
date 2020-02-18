@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damages: 3
-  initialForce: 2400
+  initialBoost: 125
