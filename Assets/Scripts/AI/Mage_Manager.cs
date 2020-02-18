@@ -7,10 +7,11 @@ public class Mage_Manager : MonoBehaviour
     public float _speed = 2;
     public float _life = 10;
     public float _damege = 10;
+    public float _rateOffFire = 0;
 
-    public GameObject Projectile_Attaque;
-    public GameObject DeathParticules;
-    public GameObject MageZoneAttack;
+    public GameObject g_Projectile_Attaque;
+    public GameObject g_DeathParticules;
+    public GameObject g_pointSpawnProjectile;
 
     public Rigidbody MageRigidbody;
 
@@ -29,19 +30,9 @@ public class Mage_Manager : MonoBehaviour
     
     void Update()
     {
+        DeathMage();
+        MageAttack();
 
-        if(_life < 1)
-        {
-            IsDying = true;
-            // Placer animation. Durée 1s avant le despawn + Instancier les particules + les dispawn après X temps. 
-            Destroy(gameObject, 1);
-        }
-
-        if(IsFighting == true)
-        {
-            Instantiate(Projectile_Attaque, transform.position, transform.rotation);
-        }
-     
     }
 
     void OnTriggerEnter(Collider collider)
@@ -51,6 +42,34 @@ public class Mage_Manager : MonoBehaviour
             IsFighting = true;
             MageRigidbody.velocity = new Vector3(0, 0, 0);
             DistanceMinionAnimator.SetFloat("Speed", 0);
+        }
+    }
+
+    // FUCTIONS
+
+    void MageAttack()
+    {
+
+        if(IsFighting == true)
+        {
+            Debug.Log("jme tape");
+            _rateOffFire += 1 * Time.deltaTime;
+        }
+        if (_rateOffFire > 2.5f)
+        {
+            Debug.Log("Lavitesse d'attaque est à 1 dude");
+            Instantiate(g_Projectile_Attaque, g_pointSpawnProjectile.transform.position, g_pointSpawnProjectile.transform.rotation);
+            _rateOffFire = 0;
+        }
+    }
+
+    void DeathMage()
+    {
+        if (_life < 1)
+        {
+            IsDying = true;
+            // Placer animation. Durée 1s avant le despawn + Instancier les particules + les dispawn après X temps. 
+            Destroy(gameObject, 1);
         }
     }
 
