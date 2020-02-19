@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [Header("Variables")]
     public float health;
     public float damages;
+    public bool flying;
 
     [Header("Animator")]
     public Animator a_EnemyAnimator;
