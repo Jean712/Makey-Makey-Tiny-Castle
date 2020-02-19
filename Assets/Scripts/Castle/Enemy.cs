@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Rigidbody rgbd;
 
+    [Header("Variables")]
     public float health;
     public float damages;
 
+    [Header("Animator")]
+    public Animator a_EnemyAnimator;
+
+    [Header("Rigidbody")]
+    private Rigidbody r_EnemyRigidbody;
+
     private void Awake()
     {
-        rgbd = GetComponent<Rigidbody>();
+        r_EnemyRigidbody = GetComponent<Rigidbody>();
+        a_EnemyAnimator = GetComponent<Animator>();
     }
-
     private void Update()
     {
-        rgbd.velocity = -Vector3.forward;
-
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
     }
 
@@ -29,7 +33,17 @@ public class Enemy : MonoBehaviour
         if (other.GetComponent<Castle>() != null)
         {
             other.GetComponent<Castle>().health -= damages;
-            Destroy(gameObject);
+
         }
+    }
+
+
+    private void Death()
+    {
+        // Boss
+        a_EnemyAnimator.SetBool("Dead", true);
+        r_EnemyRigidbody.velocity = new Vector3(0, 0, 0);
+
+        Destroy(gameObject, 4f);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_Boss_Enemy : MonoBehaviour
+public class E_Boss : MonoBehaviour
 {
     [Header("Variables")]
     public float f_speedBoss = 1;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mage_Manager : MonoBehaviour
+public class E_Mage : MonoBehaviour
 {
     public float _speed = 2;
     public float _life = 10;
@@ -25,7 +25,8 @@ public class Mage_Manager : MonoBehaviour
     void Start()
     {
         MageRigidbody.velocity += new Vector3(0, 0, 1) * _speed;
-        DistanceMinionAnimator.SetFloat("Speed", 1);     
+        DistanceMinionAnimator.SetFloat("Speed", 1);
+        DistanceMinionAnimator.SetBool("Dead", false);
     }
 
     
@@ -57,7 +58,7 @@ public class Mage_Manager : MonoBehaviour
             //Debug.Log("jme tape");
             _rateOffFire += 1 * Time.deltaTime;
         }
-        if (_rateOffFire > 2.5f)
+        if (_rateOffFire > 2.4f)
         {
             //Debug.Log("Lavitesse d'attaque est à 1 dude");
             Instantiate(g_Projectile_Attaque, g_pointSpawnProjectile.transform.position, g_pointSpawnProjectile.transform.rotation);
