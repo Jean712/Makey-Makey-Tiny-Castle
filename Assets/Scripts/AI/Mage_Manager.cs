@@ -52,12 +52,12 @@ public class Mage_Manager : MonoBehaviour
 
         if(IsFighting == true)
         {
-            Debug.Log("jme tape");
+            //Debug.Log("jme tape");
             _rateOffFire += 1 * Time.deltaTime;
         }
         if (_rateOffFire > 2.5f)
         {
-            Debug.Log("Lavitesse d'attaque est à 1 dude");
+            //Debug.Log("Lavitesse d'attaque est à 1 dude");
             Instantiate(g_Projectile_Attaque, g_pointSpawnProjectile.transform.position, g_pointSpawnProjectile.transform.rotation);
             _rateOffFire = 0;
         }
