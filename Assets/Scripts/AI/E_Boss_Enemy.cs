@@ -6,7 +6,7 @@ public class E_Boss_Enemy : MonoBehaviour
 {
     [Header("Variables")]
     public float f_BossLife = 70;
-    public float f_speedBoss = 50;
+    public float f_speedBoss = 1;
 
     [Header("Booleans")]
     public bool b_RecoveryOn = false;
@@ -54,10 +54,10 @@ public class E_Boss_Enemy : MonoBehaviour
             BossTransition_Walk_to_Invoc();
             Invoke("InvocSpell_Particule",1.8f);
             Invoke("Spell",3.8f);
-            Debug.Log("je compte jusqu'à 7 et je passe la bool à vrai pour qu'il se lève ce fdp");
+            //Debug.Log("je compte jusqu'à 7 et je passe la bool à vrai pour qu'il se lève ce fdp");
             Invoke("RecoveryOn", 7);
 
-            Debug.Log("je compte jusqu'à 8 et je passe la bool à vrai pour qu'il court ce fdp");
+            //Debug.Log("je compte jusqu'à 8 et je passe la bool à vrai pour qu'il court ce fdp");
             Invoke("BossWalking", 8);
         }
 
@@ -84,7 +84,7 @@ public class E_Boss_Enemy : MonoBehaviour
     {
         a_BossAnimator.SetFloat("Boss_Speed", 1);
         a_BossAnimator.SetBool("Spell_Used", false);
-        r_BossRigidbody.velocity = new Vector3(0, 0, 1) * Time.deltaTime * f_speedBoss;
+        r_BossRigidbody.velocity = new Vector3(0, 0, 1) * f_speedBoss;
         Instantiate(g_RecoveryDone_Particules, transform.position, transform.rotation);
 
     }
