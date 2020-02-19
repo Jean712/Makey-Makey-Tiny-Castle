@@ -6,7 +6,6 @@ public class E_Boss_Enemy : MonoBehaviour
 {
     [Header("Variables")]
     public float f_speedBoss = 1;
-    public float damages = 100;
 
     [Header("Booleans")]
     public bool b_RecoveryOn = false;
@@ -58,11 +57,6 @@ public class E_Boss_Enemy : MonoBehaviour
             Invoke("BossWalking", 8);
         }
 
-        //if (collider.getcomponent<castle>() != null)
-        //{
-        //    collider.getcomponent<castle>().health -= damages;
-        //    destroy(gameobject);
-        //}
     }
 
 
