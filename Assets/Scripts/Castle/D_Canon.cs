@@ -24,9 +24,9 @@ public class D_Canon : MonoBehaviour
         timer -= Time.deltaTime;
 
         // Tir.
-        if (GetComponent<Defense>().active && GetComponent<Defense>().enemyToKill != null)
+        if (GetComponent<Defense>().active && GetComponent<Defense>().walkingEnemyToKill != null)
         {
-            enemyTarget = GetComponent<Defense>().enemyToKill;
+            enemyTarget = GetComponent<Defense>().walkingEnemyToKill;
             shootingPlace.transform.LookAt(enemyTarget.transform);
 
             if (timer <= 0)

@@ -6,8 +6,12 @@ public class Slot : MonoBehaviour
 {
     private bool free = true;
 
-    public Queue<GameObject> enemyQueue;
+    public Queue<GameObject> enemiesQueue;
+    public Queue<GameObject> walkingEnemiesQueue;
+    public Queue<GameObject> flyingEnemiesQueue;
     private GameObject actualEnemy;
+    private GameObject actualWalkingEnemy;
+    private GameObject actualFlyingEnemy;
 
     [Header("Basic Configuration")]
     public GameObject[] defenses;
@@ -19,16 +23,29 @@ public class Slot : MonoBehaviour
     {
         if (myZone != null)
         {
-            enemyQueue = new Queue<GameObject>();
+            enemiesQueue = new Queue<GameObject>();
+            walkingEnemiesQueue = new Queue<GameObject>();
+            flyingEnemiesQueue = new Queue<GameObject>();
+
             myZone.GetComponent<TriggerLaneZone>().mySlot = gameObject;
         }
     }
 
     private void Update()
     {
-        if (actualEnemy == null && enemyQueue.Count >= 1)
+        if (actualEnemy == null && enemiesQueue.Count >= 1)
         {
-            actualEnemy = enemyQueue.Dequeue();
+            actualEnemy = enemiesQueue.Dequeue();
+        }
+
+        if (actualWalkingEnemy == null && walkingEnemiesQueue.Count >= 1)
+        {
+            actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+        }
+
+        if (actualFlyingEnemy == null && flyingEnemiesQueue.Count >= 1)
+        {
+            actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
         }
 
         // Appartition de la défense.
@@ -53,7 +70,10 @@ public class Slot : MonoBehaviour
                 else
                 {
                     myZone.GetComponent<TriggerLaneZone>().myDefense = defenses[i];
+
                     defenses[i].GetComponent<Defense>().enemyToKill = actualEnemy;
+                    defenses[i].GetComponent<Defense>().walkingEnemyToKill = actualWalkingEnemy;
+                    defenses[i].GetComponent<Defense>().flyingEnemyToKill = actualFlyingEnemy;
                 }
             }
 
@@ -62,7 +82,11 @@ public class Slot : MonoBehaviour
                 myZone.GetComponent<TriggerLaneZone>().myDefense = null;
                 defenses[i].GetComponent<Defense>().onSlot = false;
                 defenses[i].GetComponent<Defense>().onCooler = false;
+
                 defenses[i].GetComponent<Defense>().enemyToKill = null;
+                defenses[i].GetComponent<Defense>().walkingEnemyToKill = null;
+                defenses[i].GetComponent<Defense>().flyingEnemyToKill = null;
+
                 defenses[i].transform.position = defenses[i].GetComponent<Defense>().myLocation.position;
                 free = true;
             }

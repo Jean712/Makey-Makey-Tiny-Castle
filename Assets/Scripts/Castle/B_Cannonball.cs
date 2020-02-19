@@ -5,8 +5,9 @@ using UnityEngine;
 public class B_Cannonball : MonoBehaviour
 {
     private Rigidbody rgbd;
+    public float bulletSpeed;
+
     public float damages;
-    public float bulletSpeed = 75;
 
     private void Awake()
     {

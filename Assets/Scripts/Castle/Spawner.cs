@@ -20,7 +20,17 @@ public class Spawner : MonoBehaviour
 
         if (timer <= 0)
         {
-            Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity);
+            int index = Random.Range(0, enemies.Length);
+
+            if (enemies[index].GetComponent<Enemy>().flying)
+            {
+                Instantiate(enemies[index], new Vector3(transform.position.x, transform.position.y + 3, transform.position.z - 1), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(enemies[index], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity);
+            }
+
             timer = cooldown;
         }
     }

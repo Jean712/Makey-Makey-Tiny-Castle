@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody rgbd;
 
+    public bool flying;
     public float health;
     public float damages;
 

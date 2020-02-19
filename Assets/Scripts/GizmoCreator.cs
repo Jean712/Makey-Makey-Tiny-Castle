@@ -7,7 +7,7 @@ public class GizmoCreator : MonoBehaviour
     [Range(1, 5)]
     public int gizmoAspect = 1;
 
-    [Range(0.1f, 1)]
+    [Range(0.1f, 10)]
     public float gizmoSize = 0.25f;
     public Color gizmoColor = Color.green;
 

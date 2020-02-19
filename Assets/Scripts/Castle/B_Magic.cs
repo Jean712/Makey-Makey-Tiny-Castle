@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class B_Boulder : MonoBehaviour
+public class B_Magic : MonoBehaviour
 {
     private Rigidbody rgbd;
-    private float initialForce;
-    public float initialBoost;
-    [Range(0, -90)]
-    public float shootingPlaceAngle;
+    public float bulletSpeed;
 
     public float damages;
     public float blastRadius;
@@ -16,12 +13,14 @@ public class B_Boulder : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<GizmoCreator>().gizmoSize = blastRadius;
-
         rgbd = GetComponent<Rigidbody>();
 
-        initialForce = Mathf.Sqrt((D_Catapult.d_CatapultDistance / Mathf.Sin(2 * shootingPlaceAngle)) * Physics.gravity.magnitude) * initialBoost;
-        rgbd.AddForce(transform.forward * initialForce, ForceMode.Impulse);
+        GetComponent<GizmoCreator>().gizmoSize = blastRadius;
+    }
+
+    private void Update()
+    {
+        rgbd.velocity = gameObject.transform.forward * bulletSpeed;
     }
 
     private void OnTriggerEnter(Collider other)

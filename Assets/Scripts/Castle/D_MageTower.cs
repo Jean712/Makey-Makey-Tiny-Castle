@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class D_Catapult : MonoBehaviour
+public class D_MageTower : MonoBehaviour
 {
     private GameObject enemyTarget;
-    public static float d_CatapultDistance;
 
     [Header("Basic Configuration")]
     public GameObject bullet;
@@ -25,14 +24,18 @@ public class D_Catapult : MonoBehaviour
         timer -= Time.deltaTime;
 
         // Tir.
-        if (GetComponent<Defense>().active && GetComponent<Defense>().walkingEnemyToKill != null)
+        if (GetComponent<Defense>().active && GetComponent<Defense>().enemyToKill != null)
         {
-            enemyTarget = GetComponent<Defense>().walkingEnemyToKill;
-
-            if (enemyTarget != null)
+            if (GetComponent<Defense>().flyingEnemyToKill != null)
             {
-                d_CatapultDistance = enemyTarget.transform.position.z - transform.position.z;
+                enemyTarget = GetComponent<Defense>().flyingEnemyToKill;
             }
+            else
+            {
+                enemyTarget = GetComponent<Defense>().enemyToKill;
+            }
+
+            shootingPlace.transform.LookAt(enemyTarget.transform);
 
             if (timer <= 0)
             {

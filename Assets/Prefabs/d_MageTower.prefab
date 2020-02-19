@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7578084177120216750}
   - component: {fileID: 54855066537464230}
   - component: {fileID: 114154564513946700}
+  - component: {fileID: 430932700048789558}
   m_Layer: 0
   m_Name: d_MageTower
   m_TagString: Untagged
@@ -80,6 +81,7 @@ MonoBehaviour:
   onSlot: 0
   active: 0
   enemyToKill: {fileID: 0}
+  canHeat: 0
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 72000000700000006e000000
@@ -88,6 +90,21 @@ MonoBehaviour:
   coolingSpeedOnBooster: 2
   overheatedCancelTime: 10
   onCooler: 0
+--- !u!114 &430932700048789558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639428402138612495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfa429e96ae3c54fbc37aa399757e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6905838584920914721, guid: 960feab19855b334b85866c81e7ab7ef, type: 3}
+  shootingCooldown: 1
+  heatingSpeed: 5
 --- !u!1 &5703302092670691789
 GameObject:
   m_ObjectHideFlags: 0

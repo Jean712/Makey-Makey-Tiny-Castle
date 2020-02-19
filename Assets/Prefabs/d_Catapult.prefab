@@ -204,6 +204,7 @@ MonoBehaviour:
   onSlot: 0
   active: 0
   enemyToKill: {fileID: 0}
+  flyingEnemyToKill: {fileID: 0}
   canHeat: 0
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: cec23f654ce647b4ca955b8ed34d3363, type: 3}
-  shootingCooldown: 1
+  shootingCooldown: 2
   heatingSpeed: 10
 --- !u!1 &5601479905391672640
 GameObject:

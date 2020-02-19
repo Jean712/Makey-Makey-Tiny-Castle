@@ -7,6 +7,8 @@ public class Defense : MonoBehaviour
     public bool onSlot;
     public bool active = false;
     public GameObject enemyToKill;
+    public GameObject walkingEnemyToKill;
+    public GameObject flyingEnemyToKill;
     public bool canHeat = false;
     private bool overheated = false;
 
