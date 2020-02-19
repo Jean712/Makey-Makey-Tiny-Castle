@@ -42,7 +42,5 @@ public class D_Catapult : MonoBehaviour
         {
             d_CatapultDistance = enemyTarget.transform.position.z - transform.position.z;
         }
-
-        Debug.Log(d_CatapultDistance);
     }
 }

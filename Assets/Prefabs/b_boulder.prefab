@@ -122,4 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damages: 3
-  initialBoost: 125
+  shootingPlaceAngle: -65
+  initialBoost: 2.83

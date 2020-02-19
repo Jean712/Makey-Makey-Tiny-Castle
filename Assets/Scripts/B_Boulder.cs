@@ -5,16 +5,19 @@ using UnityEngine;
 public class B_Boulder : MonoBehaviour
 {
     private Rigidbody rgbd;
-    public float damages;
     private float initialForce;
+    public float damages;
+    public float blastRadius;
     public float initialBoost;
+    [Range(0, -90)]
+    public float shootingPlaceAngle;
 
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
 
-        initialForce = Mathf.Sqrt(D_Catapult.d_CatapultDistance * Physics.gravity.magnitude) * initialBoost;
-        rgbd.AddForce(transform.forward * initialForce);
+        initialForce = Mathf.Sqrt((D_Catapult.d_CatapultDistance / Mathf.Sin(2 * shootingPlaceAngle)) * Physics.gravity.magnitude) * initialBoost;
+        rgbd.AddForce(transform.forward * initialForce, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,5 +27,10 @@ public class B_Boulder : MonoBehaviour
             other.GetComponent<Enemy>().health -= damages;
             Destroy(gameObject);
         }
+    }
+
+    private void AOE()
+    {
+
     }
 }
