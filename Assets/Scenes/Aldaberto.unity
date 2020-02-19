@@ -1167,8 +1167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9370acae514d7034e924fe80f024adcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  f_BossLife: 70
   f_speedBoss: 1.2
+  damages: 100
   b_RecoveryOn: 1
   a_BossAnimator: {fileID: 1505656793}
   r_BossRigidbody: {fileID: 1505656796}
@@ -1184,6 +1184,23 @@ MonoBehaviour:
     type: 3}
   g_RecoveryDone_Particules: {fileID: 6174677676330411252, guid: 7900d77fa3d68d444bca44bad53f737c,
     type: 3}
+--- !u!114 &1505656798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505656792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca640f5038c1c0f488cd0a24f65cbcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  a_BossAnimator: {fileID: 1505656793}
+  a_MageAnimator: {fileID: 0}
+  r_BossRigidbody: {fileID: 1505656796}
+  r_MageRigidbody: {fileID: 0}
 --- !u!1001 &1511412501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1665,6 +1682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930651934574334247, guid: 7bf201eb93a64ab47857ce81b796a258,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5930651934574334249, guid: 7bf201eb93a64ab47857ce81b796a258,
         type: 3}
@@ -2161,7 +2183,7 @@ PrefabInstance:
     - target: {fileID: 3092190128950161343, guid: e0960780dd5501145a559473fa337b0b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.64
+      value: -7.61
       objectReference: {fileID: 0}
     - target: {fileID: 3092190128950161343, guid: e0960780dd5501145a559473fa337b0b,
         type: 3}
@@ -2171,7 +2193,7 @@ PrefabInstance:
     - target: {fileID: 3092190128950161343, guid: e0960780dd5501145a559473fa337b0b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.15
+      value: 10.01
       objectReference: {fileID: 0}
     - target: {fileID: 3092190128950161343, guid: e0960780dd5501145a559473fa337b0b,
         type: 3}
@@ -2218,8 +2240,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: MageDistance
       objectReference: {fileID: 0}
+    - target: {fileID: 3092190128950260703, guid: e0960780dd5501145a559473fa337b0b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092190128950293772, guid: e0960780dd5501145a559473fa337b0b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092190128950293779, guid: e0960780dd5501145a559473fa337b0b,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0960780dd5501145a559473fa337b0b, type: 3}
+--- !u!1 &3092190129426758084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3092190128950260703, guid: e0960780dd5501145a559473fa337b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3092190129426758083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3092190129426758085 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3092190128950293779, guid: e0960780dd5501145a559473fa337b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3092190129426758083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3092190129426758086 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3092190128959766639, guid: e0960780dd5501145a559473fa337b0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3092190129426758083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3092190129426758087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092190129426758084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca640f5038c1c0f488cd0a24f65cbcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  a_BossAnimator: {fileID: 3092190129426758086}
+  a_MageAnimator: {fileID: 3092190129426758086}
+  r_BossRigidbody: {fileID: 3092190129426758085}
+  r_MageRigidbody: {fileID: 3092190129426758085}
 --- !u!1001 &3661444757733948176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2304,7 +2376,7 @@ PrefabInstance:
     - target: {fileID: 5494831759488603311, guid: 6aeca26e312591947b90420047bb5169,
         type: 3}
       propertyPath: m_TagString
-      value: g_canonBullet
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5500208695572624497, guid: 6aeca26e312591947b90420047bb5169,
         type: 3}

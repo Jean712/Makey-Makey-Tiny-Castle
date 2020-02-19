@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy_Mage
   - TriggerZone_MageAttackZone
   - TriggerZone_BossInvoc
-  - g_canonBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +18,7 @@ TagManager:
   - 
   - PostProcessing
   - Enemies
-  - Trigger_Boss_Invoc
+  - 
   - 
   - 
   - 

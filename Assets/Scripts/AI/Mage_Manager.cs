@@ -20,6 +20,7 @@ public class Mage_Manager : MonoBehaviour
     public bool IsDying = false;
 
     public Animator DistanceMinionAnimator;
+    
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class Mage_Manager : MonoBehaviour
             MageRigidbody.velocity = new Vector3(0, 0, 0);
             DistanceMinionAnimator.SetFloat("Speed", 0);
         }
+
     }
 
     // FUCTIONS

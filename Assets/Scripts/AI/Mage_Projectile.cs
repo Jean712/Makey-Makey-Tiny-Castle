@@ -7,6 +7,7 @@ public class Mage_Projectile : MonoBehaviour
     public Rigidbody r_MageProjectile;
 
     public float _projectileSpeed = 10;
+    public float damages = 1;
 
 
 
@@ -19,5 +20,16 @@ public class Mage_Projectile : MonoBehaviour
     void Update()
     {
         Destroy(gameObject, 2);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (other.GetComponent<Castle>() != null)
+        //{
+        //    other.GetComponent<Castle>().health -= damages;
+        //    Destroy(gameObject);
+        //}
+        
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class E_Boss_Enemy : MonoBehaviour
 {
     [Header("Variables")]
-    public float f_BossLife = 70;
     public float f_speedBoss = 1;
+    public float damages = 100;
 
     [Header("Booleans")]
     public bool b_RecoveryOn = false;
@@ -54,23 +54,16 @@ public class E_Boss_Enemy : MonoBehaviour
             BossTransition_Walk_to_Invoc();
             Invoke("InvocSpell_Particule",1.8f);
             Invoke("Spell",3.8f);
-            //Debug.Log("je compte jusqu'à 7 et je passe la bool à vrai pour qu'il se lève ce fdp");
             Invoke("RecoveryOn", 7);
-
-            //Debug.Log("je compte jusqu'à 8 et je passe la bool à vrai pour qu'il court ce fdp");
             Invoke("BossWalking", 8);
         }
 
-        if(collider.gameObject.tag == "g_canonBullet")// a modifier avec chaque projectiles des tourelles.
-        {
-            f_BossLife -= 70;
-            if (f_BossLife <= 0)
-            {
-                Death();
-            }
-        }
+        //if (collider.getcomponent<castle>() != null)
+        //{
+        //    collider.getcomponent<castle>().health -= damages;
+        //    destroy(gameobject);
+        //}
     }
-
 
 
 
@@ -121,10 +114,10 @@ public class E_Boss_Enemy : MonoBehaviour
             a_BossAnimator.SetBool("Spell_Used", true);
     }
 
-    private void Death()
-    {
-        a_BossAnimator.SetBool("Dead", true);
-        r_BossRigidbody.velocity = new Vector3(0, 0, 0);
-        Destroy(gameObject, 4f);//faire une instance privé du gameobject.
-    }
+    //private void Death()
+    //{
+    //    a_BossAnimator.SetBool("Dead", true);
+    //    r_BossRigidbody.velocity = new Vector3(0, 0, 0);
+    //    Destroy(gameObject, 4f);
+    //}
 }
