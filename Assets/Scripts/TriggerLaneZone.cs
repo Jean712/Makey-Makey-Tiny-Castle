@@ -9,7 +9,7 @@ public class TriggerLaneZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "WalkingEnemy" || other.tag == "FlyingEnemy")
+        if (other.CompareTag("Enemy"))
         {
             GameObject enemy = other.gameObject;
 
