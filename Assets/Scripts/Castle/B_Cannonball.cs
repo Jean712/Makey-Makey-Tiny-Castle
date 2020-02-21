@@ -23,7 +23,11 @@ public class B_Cannonball : MonoBehaviour
     {
         if (other.GetComponent<Enemy>() != null)
         {
-            other.GetComponent<Enemy>().health -= damages;
+            if (!other.GetComponent<E_Dragon>())
+            {
+                other.GetComponent<Enemy>().health -= damages;
+            }
+
             Destroy(gameObject);
         }
     }

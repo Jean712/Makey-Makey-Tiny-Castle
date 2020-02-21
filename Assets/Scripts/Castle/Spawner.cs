@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public float cooldown = 5;
+    public float cooldown = 3;
     private float timer;
 
+    public Transform target;
     public GameObject[] enemies;
 
     private void Awake()
@@ -24,11 +25,11 @@ public class Spawner : MonoBehaviour
 
             if (enemies[index].GetComponent<Enemy>().flying)
             {
-                Instantiate(enemies[index], new Vector3(transform.position.x, transform.position.y + 3, transform.position.z - 1), Quaternion.identity);
+                Instantiate(enemies[index], target.transform.position + transform.forward * 2, transform.rotation);
             }
             else
             {
-                Instantiate(enemies[index], new Vector3(transform.position.x, transform.position.y, transform.position.z - 1), Quaternion.identity);
+                Instantiate(enemies[index], transform.position + transform.forward * 2, transform.rotation);
             }
 
             timer = cooldown;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3661444758476292138}
   - component: {fileID: 3661444758476292137}
   m_Layer: 10
-  m_Name: TriggerZone_BossInvocUnits
+  m_Name: tz_BossInvocUnits
   m_TagString: TriggerZone_BossInvoc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

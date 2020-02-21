@@ -23,7 +23,15 @@ public class B_Arrow : MonoBehaviour
     {
         if (other.GetComponent<Enemy>() != null)
         {
-            other.GetComponent<Enemy>().health -= damages;
+            if (other.GetComponent<E_Shield>())
+            {
+                //other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            }
+            else
+            {
+                other.GetComponent<Enemy>().health -= damages;
+            }
+
             Destroy(gameObject);
         }
     }

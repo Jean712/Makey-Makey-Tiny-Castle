@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     [Header("Variables")]
-    public float health;
-    public float damages;
+    public float health = 1;
+    public float damages = 1;
+    public float speed = 1;
     public bool flying;
 
-    [Header("Animator")]
-    public Animator a_EnemyAnimator;
+    [HideInInspector]
+    public Animator amtr;
 
-    [Header("Rigidbody")]
-    private Rigidbody r_EnemyRigidbody;
+    [HideInInspector]
+    public Rigidbody rgbd;
 
     private void Awake()
     {
-        r_EnemyRigidbody = GetComponent<Rigidbody>();
-        a_EnemyAnimator = GetComponent<Animator>();
+        rgbd = GetComponent<Rigidbody>();
+        amtr = GetComponent<Animator>();
+
+        amtr.SetBool("Dead", false);
+        amtr.SetFloat("Speed", 1);
+
+        rgbd.velocity += Vector3.forward * -speed;
     }
+
     private void Update()
     {
         if (health <= 0)
@@ -38,13 +44,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
     private void Death()
     {
-        // Boss
-        a_EnemyAnimator.SetBool("Dead", true);
-        r_EnemyRigidbody.velocity = new Vector3(0, 0, 0);
+        amtr.SetBool("Dead", true);
+        rgbd.velocity = new Vector3(0, 0, 0);
 
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 2f);
     }
 }

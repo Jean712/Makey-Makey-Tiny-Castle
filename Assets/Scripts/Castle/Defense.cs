@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class Defense : MonoBehaviour
 {
+    [HideInInspector]
     public bool onSlot;
+    [HideInInspector]
+    public bool onCooler;
+    [HideInInspector]
     public bool active = false;
+    [HideInInspector]
     public GameObject enemyToKill;
+    [HideInInspector]
     public GameObject walkingEnemyToKill;
+    [HideInInspector]
     public GameObject flyingEnemyToKill;
+
+    [Header("Developer Only")]
     public bool canHeat = false;
+    [Range(0, 100)]
+    public float heat;
     private bool overheated = false;
 
     [Header("Basic Configuration")]
@@ -19,13 +30,10 @@ public class Defense : MonoBehaviour
     public KeyCode[] myInputs;
 
     [Header("Statistics")]
-    [Range(0, 100)]
-    public float heat;
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
     public float overheatedCancelTime;
     private float timer2;
-    public bool onCooler;
 
     private void Awake()
     {

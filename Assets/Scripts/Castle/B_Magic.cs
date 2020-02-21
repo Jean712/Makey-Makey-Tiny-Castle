@@ -27,7 +27,15 @@ public class B_Magic : MonoBehaviour
     {
         if (other.GetComponent<Enemy>() != null)
         {
-            other.GetComponent<Enemy>().health -= damages;
+            if (other.GetComponent<E_Mage>())
+            {
+                //other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+            }
+            else
+            {
+                other.GetComponent<Enemy>().health -= damages;
+            }
+
             AOE();
 
             Destroy(gameObject);
@@ -47,7 +55,7 @@ public class B_Magic : MonoBehaviour
 
         foreach (GameObject item in allEnemies)
         {
-            if (blastRadius >= Vector3.Distance(transform.position, item.transform.position))
+            if (blastRadius >= Vector3.Distance(transform.position, item.transform.position) && !item.GetComponent<E_Mage>())
             {
                 item.GetComponent<Enemy>().health -= damages;
             }

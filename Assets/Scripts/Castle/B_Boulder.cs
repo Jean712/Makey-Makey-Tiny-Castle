@@ -28,7 +28,11 @@ public class B_Boulder : MonoBehaviour
     {
         if (other.GetComponent<Enemy>() != null)
         {
-            other.GetComponent<Enemy>().health -= damages;
+            if (!other.GetComponent<E_Dragon>())
+            {
+                other.GetComponent<Enemy>().health -= damages;
+            }
+
             AOE();
 
             Destroy(gameObject);
@@ -48,7 +52,7 @@ public class B_Boulder : MonoBehaviour
 
         foreach (GameObject item in allEnemies)
         {
-            if (blastRadius >= Vector3.Distance(transform.position, item.transform.position))
+            if (blastRadius >= Vector3.Distance(transform.position, item.transform.position) && !item.GetComponent<E_Dragon>())
             {
                 item.GetComponent<Enemy>().health -= damages;
             }

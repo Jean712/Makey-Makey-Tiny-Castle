@@ -4,76 +4,45 @@ using UnityEngine;
 
 public class E_Mage : MonoBehaviour
 {
-    public float _speed = 2;
-    public float _life = 10;
-    public float _damege = 10;
-    public float _rateOffFire = 0;
+    public float rOF = 0;
 
-    public GameObject g_Projectile_Attaque;
-    public GameObject g_DeathParticules;
-    public GameObject g_pointSpawnProjectile;
+    public GameObject attackProjectile;
+    public GameObject deathParticules;
+    public GameObject pointSpawnProjectile;
 
-    public Rigidbody MageRigidbody;
+    public bool fighting = false;
 
-    public bool IsMouving = false;
-    public bool IsFighting = false;
-    public bool IsDying = false;
-
-    public Animator DistanceMinionAnimator;
-    
-
-    void Start()
+    private void Update()
     {
-        MageRigidbody.velocity += new Vector3(0, 0, 1) * _speed;
-        DistanceMinionAnimator.SetFloat("Speed", 1);
-        DistanceMinionAnimator.SetBool("Dead", false);
-    }
-
-    
-    void Update()
-    {
-        DeathMage();
         MageAttack();
-
     }
 
-    void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.tag == "TriggerZone_MageAttackZone")
+        if (collider.gameObject.name == "tz_MageStopToMove")
         {
-            IsFighting = true;
-            MageRigidbody.velocity = new Vector3(0, 0, 0);
-            DistanceMinionAnimator.SetFloat("Speed", 0);
+            fighting = true;
+            GetComponent<Enemy>().rgbd.velocity = Vector3.zero;
+            GetComponent<Enemy>().amtr.SetFloat("Speed", 0);
         }
-
     }
 
-    // FUCTIONS
+    // FONCTIONS
 
-    void MageAttack()
+    private void MageAttack()
     {
 
-        if(IsFighting == true)
+        if (fighting == true)
         {
             //Debug.Log("jme tape");
-            _rateOffFire += 1 * Time.deltaTime;
+            rOF += 1 * Time.deltaTime;
         }
-        if (_rateOffFire > 2.4f)
+
+        if (rOF > 2.4f)
         {
             //Debug.Log("Lavitesse d'attaque est à 1 dude");
-            Instantiate(g_Projectile_Attaque, g_pointSpawnProjectile.transform.position, g_pointSpawnProjectile.transform.rotation);
-            _rateOffFire = 0;
+            Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
+            rOF = 0;
         }
     }
-
-    void DeathMage()
-    {
-        if (_life < 1)
-        {
-            IsDying = true;
-            // Placer animation. Durée 1s avant le despawn + Instancier les particules + les dispawn après X temps. 
-            Destroy(gameObject, 1);
-        }
-    }
-
 }

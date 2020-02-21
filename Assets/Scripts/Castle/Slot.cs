@@ -6,14 +6,18 @@ public class Slot : MonoBehaviour
 {
     private bool free = true;
 
+    [HideInInspector]
     public Queue<GameObject> enemiesQueue;
+    [HideInInspector]
     public Queue<GameObject> walkingEnemiesQueue;
+    [HideInInspector]
     public Queue<GameObject> flyingEnemiesQueue;
-    private GameObject actualEnemy;
-    private GameObject actualWalkingEnemy;
-    private GameObject actualFlyingEnemy;
+    public GameObject actualEnemy;
+    public GameObject actualWalkingEnemy;
+    public GameObject actualFlyingEnemy;
 
     [Header("Basic Configuration")]
+    public Transform target;
     public GameObject[] defenses;
     public KeyCode[] myInputs;
     public GameObject myZone;
@@ -33,27 +37,72 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
-        if (actualEnemy == null && enemiesQueue.Count >= 1)
+        if (enemiesQueue.Count >= 1)
         {
-            actualEnemy = enemiesQueue.Dequeue();
+            if (actualEnemy != null)
+            {
+                if (actualEnemy.GetComponent<Enemy>().health <= 0)
+                {
+                    actualEnemy = enemiesQueue.Dequeue();
+                }
+            }
+            else
+            {
+                actualEnemy = enemiesQueue.Dequeue();
+            }
         }
 
-        if (actualWalkingEnemy == null && walkingEnemiesQueue.Count >= 1)
+        if (walkingEnemiesQueue.Count >= 1)
         {
-            actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+            if (actualWalkingEnemy != null)
+            {
+                if (actualWalkingEnemy.GetComponent<Enemy>().health <= 0)
+                {
+                    actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+                }
+            }
+            else
+            {
+                actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+            }
         }
 
-        if (actualFlyingEnemy == null && flyingEnemiesQueue.Count >= 1)
+        if (flyingEnemiesQueue.Count >= 1)
         {
-            actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+            if (actualFlyingEnemy != null)
+            {
+                if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
+                {         
+                    actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+                }
+            }
+            else
+            {
+                actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+            }
         }
+
+        //if (actualEnemy == null && enemiesQueue.Count >= 1)
+        //{
+        //    actualEnemy = enemiesQueue.Dequeue();
+        //}
+
+        //if (actualWalkingEnemy == null && walkingEnemiesQueue.Count >= 1)
+        //{
+        //    actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+        //}
+
+        //if (actualFlyingEnemy == null && flyingEnemiesQueue.Count >= 1)
+        //{
+        //    actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+        //}
 
         // Appartition de la défense.
         for (int i = 0; i < defenses.Length; i++)
         {
             if (Input.GetKeyDown(myInputs[i]) && free)
             {
-                defenses[i].transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+                defenses[i].transform.position = target.position;
                 defenses[i].GetComponentInChildren<ParticleSystem>().Play();
             }
 
