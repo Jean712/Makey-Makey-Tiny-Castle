@@ -4,114 +4,76 @@ using UnityEngine;
 
 public class E_Boss : MonoBehaviour
 {
-    [Header("Variables")]
-    public float f_speedBoss = 1;
-
     [Header("Booleans")]
-    public bool b_RecoveryOn = false;
-
-    [Header("Animator")]
-    public Animator a_BossAnimator;
-
-    [Header("Rigidbody")]
-    public Rigidbody r_BossRigidbody;
+    public bool recovery = false;
 
     [Header("GameObject_ToSpawn")]
-    public GameObject g_Mage;
-    public GameObject g_Shield;
-    public GameObject g_Fantassin;
-   
+    public GameObject[] enemies;
 
     [Header("GameObject_SpawnPoints")]
-    public GameObject g_SpawnPoint_1;
-    public GameObject g_SpawnPoint_2;
-    public GameObject g_SpawnPoint_3;
-    public GameObject g_SpawnPoint_4;
-    public GameObject g_SpawnPoint_InvocParticules;
+    public GameObject[] spawnPoints;
+    public GameObject spawnPointParticules;
 
     [Header("Particules")]
-    public GameObject g_InvocSpell_Particules;
-    public GameObject g_RecoveryDone_Particules;
-
+    public GameObject invocSpell_Particules;
+    public GameObject recoveryDone_Particules;
 
     void Start()
     {
         Invoke("BossWalking", 1);
-        a_BossAnimator.SetBool("Dead", false);
-    }
-
-   
-    void Update()
-    {
-    
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.tag == "TriggerZone_BossInvoc")
+        if (collider.gameObject.name == "tz_BossInvoc")
         {
             BossTransition_Walk_to_Invoc();
-            Invoke("InvocSpell_Particule",1.8f);
-            Invoke("Spell",3.8f);
+            Invoke("InvocSpellParticule", 1.8f);
+            Invoke("Spell", 3.8f);
             Invoke("RecoveryOn", 7);
             Invoke("BossWalking", 8);
         }
-
     }
 
+    // FONCTIONS
 
-
-    // FONCTIONS //
-
-
-
-
-    // fonction permettant au boss de se déplacer.
+    // Fonction permettant au boss de se déplacer.
     private void BossWalking()
     {
-        a_BossAnimator.SetFloat("Boss_Speed", 1);
-        a_BossAnimator.SetBool("Spell_Used", false);
-        r_BossRigidbody.velocity = new Vector3(0, 0, 1) * f_speedBoss;
-        Instantiate(g_RecoveryDone_Particules, transform.position, transform.rotation);
+        GetComponent<Enemy>().amtr.SetFloat("Boss_Speed", 1);
+        GetComponent<Enemy>().amtr.SetBool("Spell_Used", false);
 
+        GetComponent<Enemy>().rgbd.velocity += Vector3.forward * GetComponent<Enemy>().speed;
+
+        Instantiate(recoveryDone_Particules, transform.position, transform.rotation);
     }
+
     // Fonction de transition d'animation dans laquelle on appelle la fonction de spawn des Ennemis.
     private void BossTransition_Walk_to_Invoc()
     {
-        
-        r_BossRigidbody.velocity = new Vector3(0, 0, 0);
-        a_BossAnimator.SetFloat("Boss_Speed", 0);
-        a_BossAnimator.SetBool("Spell_Used", false);
-       
+        GetComponent<Enemy>().rgbd.velocity = Vector3.zero;
+
+        GetComponent<Enemy>().amtr.SetFloat("Boss_Speed", 0);
+        GetComponent<Enemy>().amtr.SetBool("Spell_Used", false);
     }
 
-    //Fonction du sort d'incation du Boss.
+    // Fonction du sort d'incation du Boss.
     private void Spell()
     {
-        
-        Instantiate(g_Mage, g_SpawnPoint_1.transform.position, g_SpawnPoint_1.transform.rotation);
-        Instantiate(g_Mage, g_SpawnPoint_2.transform.position, g_SpawnPoint_2.transform.rotation);
-        Instantiate(g_Mage, g_SpawnPoint_3.transform.position, g_SpawnPoint_3.transform.rotation);
-        Instantiate(g_Mage, g_SpawnPoint_4.transform.position, g_SpawnPoint_4.transform.rotation);
-        
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            Instantiate(enemies[i], spawnPoints[i].transform.position, spawnPoints[i].transform.rotation);
+        }
     }
 
-    private void InvocSpell_Particule()
+    private void InvocSpellParticule()
     {
         Debug.Log("particules apparaissent");
-        Instantiate(g_InvocSpell_Particules, g_SpawnPoint_InvocParticules.transform.position, g_SpawnPoint_InvocParticules.transform.rotation);
-        //Destroy(g_InvocSpell_Particules, 2); // TO DO: créer une instance avec un private gameobject de la particule. comme proto
+        Instantiate(invocSpell_Particules, spawnPointParticules.transform.position, spawnPointParticules.transform.rotation);
     }
 
     private void RecoveryOn()
     {
-            a_BossAnimator.SetBool("Spell_Used", true);
+        GetComponent<Enemy>().amtr.SetBool("Spell_Used", true);
     }
-
-    //private void Death()
-    //{
-    //    a_BossAnimator.SetBool("Dead", true);
-    //    r_BossRigidbody.velocity = new Vector3(0, 0, 0);
-    //    Destroy(gameObject, 4f);
-    //}
 }

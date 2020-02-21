@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6281494247575931473}
   - component: {fileID: 6281494247575931472}
   m_Layer: 0
-  m_Name: TriggerZone_MageStopToMove
-  m_TagString: TriggerZone_MageAttackZone
+  m_Name: tz_MageStopToMove
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

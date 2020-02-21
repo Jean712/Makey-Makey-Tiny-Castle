@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3377780502177150346}
   - component: {fileID: 7332229639830042581}
   m_Layer: 9
-  m_Name: E_ProjectileMage
+  m_Name: p_Mage
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
