@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Mage : MonoBehaviour
+public class P_Dragon : MonoBehaviour
 {
     public Rigidbody rgbd;
 

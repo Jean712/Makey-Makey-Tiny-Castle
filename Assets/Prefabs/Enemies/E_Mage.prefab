@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1915211974}
   - component: {fileID: 1915211973}
   - component: {fileID: 1915211972}
+  - component: {fileID: 1531425111}
   m_Layer: 0
   m_Name: PointSpawnProjectile
   m_TagString: Untagged
@@ -91,6 +92,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1531425111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915211970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec870e412fe1ef54e8f6fc074234b1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoAspect: 1
+  gizmoSize: 0.25
+  gizmoColor: {r: 0.5326905, g: 0, b: 1, a: 1}
 --- !u!1 &3092190128950260641
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +905,7 @@ GameObject:
   - component: {fileID: 8939609976312537470}
   - component: {fileID: 612354589}
   m_Layer: 9
-  m_Name: e_Mage
+  m_Name: E_Mage
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,7 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd50a19d3ab475409d1a3759885a5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 3
   damages: 0
   speed: 1
   flying: 0
@@ -991,10 +1007,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec49b922190903a42a2c7f3816fcbd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rOF: 0
-  attackProjectile: {fileID: 0}
+  rOF: 1
+  attackProjectile: {fileID: 934659683928157186, guid: af17a31cb86c57148a4c80626d06eb9e,
+    type: 3}
   deathParticules: {fileID: 0}
-  pointSpawnProjectile: {fileID: 0}
+  pointSpawnProjectile: {fileID: 1915211970}
   fighting: 0
 --- !u!1001 &2631013732132961670
 PrefabInstance:
