@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour
 
         amtr.SetBool("Dead", false);
         amtr.SetFloat("Speed", 1);
-
-        rgbd.velocity += Vector3.forward * -speed;
     }
 
     private void Update()
     {
+        rgbd.velocity = Vector3.forward * -speed;
+
         if (health <= 0)
         {
             Death();

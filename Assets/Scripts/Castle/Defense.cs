@@ -17,11 +17,11 @@ public class Defense : MonoBehaviour
     [HideInInspector]
     public GameObject flyingEnemyToKill;
 
-    [Header("Developer Only")]
-    public bool canHeat = false;
-    [Range(0, 100)]
-    public float heat;
-    private bool overheated = false;
+    [Header("Developer Only")]          // Developer Only //
+    public bool canHeat = false;        // Developer Only //
+    [Range(0, 100)]                     // Developer Only //
+    public float heat;                  // Developer Only //
+    public bool overheated = false;     // Developer Only //
 
     [Header("Basic Configuration")]
     public float timeBeforeShooting = 1;
@@ -67,7 +67,7 @@ public class Defense : MonoBehaviour
         }
 
         //Surchauffe et refroidissement.
-        if (canHeat)
+        if (canHeat)                                                    // Developer Only //
         {
             if (timer2 == overheatedCancelTime)
             {
@@ -113,6 +113,6 @@ public class Defense : MonoBehaviour
                     }
                 }
             }
-        }
+        }                                                               //Developer Only //
     }
 }

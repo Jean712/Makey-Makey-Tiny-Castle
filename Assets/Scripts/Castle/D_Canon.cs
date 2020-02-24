@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class D_Canon : MonoBehaviour
 {
-    private GameObject enemyTarget;
+    public GameObject enemyTarget;
 
     [Header("Basic Configuration")]
     public GameObject bullet;
@@ -27,7 +27,7 @@ public class D_Canon : MonoBehaviour
         if (GetComponent<Defense>().active && GetComponent<Defense>().walkingEnemyToKill != null)
         {
             enemyTarget = GetComponent<Defense>().walkingEnemyToKill;
-            shootingPlace.transform.LookAt(enemyTarget.transform);
+            shootingPlace.transform.LookAt(enemyTarget.transform.Find("ShootingTarget").transform);
 
             if (timer <= 0)
             {

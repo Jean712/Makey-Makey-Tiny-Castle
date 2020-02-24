@@ -217,6 +217,36 @@ Transform:
   m_Father: {fileID: 3936121736813336825}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &794033493213741257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2765226809442875370}
+  m_Layer: 0
+  m_Name: ShootingTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2765226809442875370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794033493213741257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7039784002336816490}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069433598300616039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1391,7 @@ Transform:
   m_Children:
   - {fileID: 601465137891915386}
   - {fileID: 2068244708128180726}
+  - {fileID: 2765226809442875370}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1428,8 +1459,8 @@ MonoBehaviour:
   damages: 1
   speed: 1
   flying: 0
-  a_EnemyAnimator: {fileID: 8245073313534534780}
-  r_EnemyRigidbody: {fileID: 0}
+  amtr: {fileID: 0}
+  rgbd: {fileID: 0}
 --- !u!114 &114405408997358668
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class D_MageTower : MonoBehaviour
                 enemyTarget = GetComponent<Defense>().enemyToKill;
             }
 
-            shootingPlace.transform.LookAt(enemyTarget.transform);
+            shootingPlace.transform.LookAt(enemyTarget.transform.Find("ShootingTarget").transform);
 
             if (timer <= 0)
             {

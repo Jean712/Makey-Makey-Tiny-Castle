@@ -19,6 +19,7 @@ public class Slot : MonoBehaviour
     [Header("Basic Configuration")]
     public Transform target;
     public GameObject[] defenses;
+    public GameObject myBellows;
     public KeyCode[] myInputs;
     public GameObject myZone;
     public bool isACooler = false;
@@ -37,6 +38,7 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
+        // Liste des ennemis.
         if (enemiesQueue.Count >= 1)
         {
             if (actualEnemy != null)
@@ -72,7 +74,7 @@ public class Slot : MonoBehaviour
             if (actualFlyingEnemy != null)
             {
                 if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
-                {         
+                {
                     actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
                 }
             }
@@ -140,5 +142,9 @@ public class Slot : MonoBehaviour
                 free = true;
             }
         }
+
+        // Soufflet.
+        myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
+        myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
     }
 }

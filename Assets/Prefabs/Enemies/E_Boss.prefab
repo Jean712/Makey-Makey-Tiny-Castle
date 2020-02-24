@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &696349233960191714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138073380354520767}
+  m_Layer: 0
+  m_Name: ShootingTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2138073380354520767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696349233960191714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5211264008640421449}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882444729613115431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1565,7 @@ GameObject:
   - component: {fileID: 1882444730867695493}
   - component: {fileID: 1882444730867695494}
   m_Layer: 9
-  m_Name: e_Boss
+  m_Name: E_Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,6 +1589,7 @@ Transform:
   - {fileID: 1882444729613115611}
   - {fileID: 1882444731118289966}
   - {fileID: 1882444730284925899}
+  - {fileID: 2138073380354520767}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1626,8 +1657,8 @@ MonoBehaviour:
   damages: 100
   speed: 1
   flying: 0
-  a_EnemyAnimator: {fileID: 5211264009011151096}
-  r_EnemyRigidbody: {fileID: 0}
+  amtr: {fileID: 0}
+  rgbd: {fileID: 0}
 --- !u!114 &1882444730867695494
 MonoBehaviour:
   m_ObjectHideFlags: 0
