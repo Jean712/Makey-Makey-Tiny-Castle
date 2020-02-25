@@ -20,6 +20,7 @@ public class Slot : MonoBehaviour
     public Transform target;
     public GameObject[] defenses;
     public GameObject myBellows;
+    public GameObject cauldron;
     public KeyCode[] myInputs;
     public GameObject myZone;
     public bool isACooler = false;
@@ -38,50 +39,70 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
-        // Liste des ennemis.
-        if (enemiesQueue.Count >= 1)
+        if (!isACooler)
         {
-            if (actualEnemy != null)
+            // Liste des ennemis.
+            if (enemiesQueue.Count >= 1)
             {
-                if (actualEnemy.GetComponent<Enemy>().health <= 0)
+                if (actualEnemy != null)
+                {
+                    if (actualEnemy.GetComponent<Enemy>().health <= 0)
+                    {
+                        actualEnemy = enemiesQueue.Dequeue();
+                    }
+                }
+                else
                 {
                     actualEnemy = enemiesQueue.Dequeue();
                 }
             }
-            else
-            {
-                actualEnemy = enemiesQueue.Dequeue();
-            }
-        }
 
-        if (walkingEnemiesQueue.Count >= 1)
-        {
-            if (actualWalkingEnemy != null)
+            if (walkingEnemiesQueue.Count >= 1)
             {
-                if (actualWalkingEnemy.GetComponent<Enemy>().health <= 0)
+                if (actualWalkingEnemy != null)
+                {
+                    if (actualWalkingEnemy.GetComponent<Enemy>().health <= 0)
+                    {
+                        actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+                    }
+                }
+                else
                 {
                     actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
                 }
             }
-            else
-            {
-                actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
-            }
-        }
 
-        if (flyingEnemiesQueue.Count >= 1)
-        {
-            if (actualFlyingEnemy != null)
+            if (flyingEnemiesQueue.Count >= 1)
             {
-                if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
+                if (actualFlyingEnemy != null)
+                {
+                    if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
+                    {
+                        actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+                    }
+                }
+                else
                 {
                     actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
                 }
             }
-            else
+
+            // Soufflet.
+            myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
+            myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
+
+            // Chaudron.
+            if (gameObject.name == "Slot1")
             {
-                actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+                cauldron.GetComponent<D_Cauldron>().actualEnemy1 = actualEnemy;
             }
+
+            if (gameObject.name == "Slot2")
+            {
+                cauldron.GetComponent<D_Cauldron>().actualEnemy2 = actualEnemy;
+            }
+
+            cauldron.GetComponent<D_Cauldron>().enemies = enemiesQueue.ToArray();
         }
 
         //if (actualEnemy == null && enemiesQueue.Count >= 1)
@@ -142,9 +163,5 @@ public class Slot : MonoBehaviour
                 free = true;
             }
         }
-
-        // Soufflet.
-        myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
-        myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
     }
 }

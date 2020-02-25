@@ -14,28 +14,32 @@ public class D_Bellows : MonoBehaviour
     public KeyCode myInput;
     public float baseSpeed;
     public float speedReduction;
-    public float maxCapacity;
+    public float cooldown;
+    private float timer;
+    public float maxActivation;
+    private float activation;
 
     [Header("Developer Only")]  // Developer Only //
     public bool infinite;       // Developer Only //
-    [Range(0, 45)]              // Developer Only //
-    public float capacity;      // Developer Only //
 
     private void Awake()
     {
-        capacity = maxCapacity;
+        timer = cooldown;
+        activation = maxActivation;
     }
 
     private void Update()
     {
-        if (capacity >= maxCapacity)
+        if (timer >= cooldown)
         {
-            capacity = maxCapacity;
+            timer = cooldown;
         }
 
         // Ralentissement.
-        if (Input.GetKeyDown(myInput))
+        if (Input.GetKeyDown(myInput) && !active)
         {
+            activation = (timer * 100 / cooldown) * maxActivation;
+
             active = true;
         }
 
@@ -51,16 +55,16 @@ public class D_Bellows : MonoBehaviour
                 item.GetComponent<Enemy>().speed = speedReduction;
             }
 
-            capacity -= Time.deltaTime;
+            activation -= Time.deltaTime;
         }
         else
         {
-            capacity += Time.deltaTime;
+            timer += Time.deltaTime;
         }
 
         if (infinite)                                                       // Developer Only //
         {                                                                   // Developer Only //
-            capacity = maxCapacity;                                         // Developer Only //
+            activation = maxActivation;                                     // Developer Only //
 
             if (Input.GetKeyUp(myInput))                                    // Developer Only //
             {                                                               // Developer Only //
@@ -76,20 +80,24 @@ public class D_Bellows : MonoBehaviour
                     item.GetComponent<Enemy>().speed = baseSpeed;           // Developer Only //
                 }                                                           // Developer Only //
             }                                                               // Developer Only //
-
         }                                                                   // Developer Only //
         else                                                                // Developer Only //
         {                                                                   // Developer Only //
-            if (capacity <= 0)
+            if (activation <= 0)
             {
-                active = false;
-
-                actualEnemy.GetComponent<Enemy>().speed = baseSpeed;
+                if (actualEnemy != null)
+                {
+                    actualEnemy.GetComponent<Enemy>().speed = baseSpeed;
+                }
 
                 foreach (GameObject item in enemies)
                 {
                     item.GetComponent<Enemy>().speed = baseSpeed;
                 }
+
+                timer = 0;
+
+                active = false;
             }
         }                                                                   // Developer Only //
     }
