@@ -202,18 +202,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSlot: 0
+  onCooler: 0
   active: 0
   enemyToKill: {fileID: 0}
+  walkingEnemyToKill: {fileID: 0}
   flyingEnemyToKill: {fileID: 0}
   canHeat: 0
+  heat: 0
+  overheated: 0
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 7a0000006900000076000000
-  heat: 0
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
+  heatAfterCancel: 20
   overheatedCancelTime: 10
-  onCooler: 0
 --- !u!114 &8667365533814119462
 MonoBehaviour:
   m_ObjectHideFlags: 0

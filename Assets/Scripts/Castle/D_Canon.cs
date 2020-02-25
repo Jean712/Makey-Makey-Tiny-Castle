@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class D_Canon : MonoBehaviour
 {
-    public GameObject enemyTarget;
+    private GameObject enemyTarget;
 
     [Header("Basic Configuration")]
     public GameObject bullet;

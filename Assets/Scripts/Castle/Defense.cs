@@ -28,10 +28,9 @@ public class Defense : MonoBehaviour
     private float timer1;
     public Transform myLocation;
     public KeyCode[] myInputs;
-
-    [Header("Statistics")]
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
+    public float heatAfterCancel;
     public float overheatedCancelTime;
     private float timer2;
 
@@ -108,7 +107,7 @@ public class Defense : MonoBehaviour
 
                     if (timer2 <= 0)
                     {
-                        heat = 0;
+                        heat = heatAfterCancel;
                         overheated = false;
                     }
                 }
