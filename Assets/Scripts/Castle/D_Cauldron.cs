@@ -25,6 +25,8 @@ public class D_Cauldron : MonoBehaviour
     {
         timer = cooldown;
         enemiesToCheck = new List<GameObject>();
+
+        transform.Find("Target").GetComponent<GizmoCreator>().gizmoSize = distance;    // Developer Only //
     }
 
     private void Update()
@@ -38,7 +40,7 @@ public class D_Cauldron : MonoBehaviour
 
         if (Input.GetKeyDown(myInput))
         {
-            damages = (timer * 100 / cooldown) * maxDamages;
+            damages = timer / cooldown * maxDamages;
 
             foreach (GameObject item in enemies)
             {

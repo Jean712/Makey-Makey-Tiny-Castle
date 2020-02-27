@@ -207,7 +207,7 @@ MonoBehaviour:
   enemyToKill: {fileID: 0}
   walkingEnemyToKill: {fileID: 0}
   flyingEnemyToKill: {fileID: 0}
-  canHeat: 0
+  canHeat: 1
   heat: 0
   overheated: 0
   timeBeforeShooting: 1

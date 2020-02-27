@@ -15,7 +15,7 @@ public class B_Magic : MonoBehaviour
     {
         rgbd = GetComponent<Rigidbody>();
 
-        GetComponent<GizmoCreator>().gizmoSize = blastRadius;
+        GetComponent<GizmoCreator>().gizmoSize = blastRadius;   // Developer Only //
     }
 
     private void Update()

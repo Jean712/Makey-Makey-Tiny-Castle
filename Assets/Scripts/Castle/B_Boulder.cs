@@ -16,7 +16,7 @@ public class B_Boulder : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<GizmoCreator>().gizmoSize = blastRadius;
+        GetComponent<GizmoCreator>().gizmoSize = blastRadius;   // Developer Only //
 
         rgbd = GetComponent<Rigidbody>();
 

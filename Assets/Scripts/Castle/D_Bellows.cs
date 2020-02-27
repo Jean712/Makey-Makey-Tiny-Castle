@@ -38,7 +38,7 @@ public class D_Bellows : MonoBehaviour
         // Ralentissement.
         if (Input.GetKeyDown(myInput) && !active)
         {
-            activation = (timer * 100 / cooldown) * maxActivation;
+            activation = timer / cooldown * maxActivation;
 
             active = true;
         }
@@ -98,6 +98,8 @@ public class D_Bellows : MonoBehaviour
                 timer = 0;
 
                 active = false;
+
+                activation = maxActivation;
             }
         }                                                                   // Developer Only //
     }

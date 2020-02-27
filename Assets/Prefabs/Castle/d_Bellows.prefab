@@ -95,6 +95,6 @@ MonoBehaviour:
   myInput: 100
   baseSpeed: 1
   speedReduction: 0.1
-  maxCapacity: 45
-  infinite: 1
-  capacity: 0
+  cooldown: 45
+  maxActivation: 4
+  infinite: 0
