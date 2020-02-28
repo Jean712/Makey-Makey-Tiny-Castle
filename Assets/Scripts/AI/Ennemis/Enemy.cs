@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float health = 1;
     public float damages = 1;
     public float speed = 1;
+    public float healingDelay = 0;
+
     public bool flying;
 
     [HideInInspector]
@@ -29,6 +31,12 @@ public class Enemy : MonoBehaviour
     
     private void Update()
     {
+        healingDelay += Time.deltaTime * 1;
+        if (healingDelay >= 2)
+        {
+            healingDelay = 0;
+        }
+
         if (health <= 0)
         {
             Death();
@@ -40,7 +48,15 @@ public class Enemy : MonoBehaviour
         if (other.GetComponent<Castle>() != null)
         {
             other.GetComponent<Castle>().health -= damages;
+        }
+     
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<P_Heal>() != null & healingDelay > 1.9f & healingDelay <1.91111f)
+        {
+            health += 1f;
         }
     }
 
