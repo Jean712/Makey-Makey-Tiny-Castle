@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Defense : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Defense : MonoBehaviour
     private float timer1;
     public Transform myLocation;
     public KeyCode[] myInputs;
+    public float maxHeat;
+    public GameObject cooldownBar;
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
     public float heatAfterCancel;
@@ -38,6 +41,8 @@ public class Defense : MonoBehaviour
     {
         timer1 = timeBeforeShooting;
         timer2 = overheatedCancelTime;
+
+        cooldownBar.GetComponent<Slider>().maxValue = maxHeat;
     }
 
     private void Update()
@@ -85,7 +90,7 @@ public class Defense : MonoBehaviour
                     heat = 0;
                 }
 
-                if (heat >= 100)
+                if (heat >= maxHeat)
                 {
                     overheated = true;
                 }
@@ -113,5 +118,7 @@ public class Defense : MonoBehaviour
                 }
             }
         }                                                               //Developer Only //
+
+        cooldownBar.GetComponent<Slider>().value = heat;
     }
 }

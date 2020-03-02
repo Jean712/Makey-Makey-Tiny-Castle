@@ -9,13 +9,17 @@ public class D_Canon : MonoBehaviour
     [Header("Basic Configuration")]
     public GameObject bullet;
     private GameObject shootingPlace;
-    public float shootingCooldown;
+    public float minShootingCooldown;
+    private float shootingCooldown;
+    public float maxShootingCooldown;
     public float heatingSpeed;
     private float timer;
 
     private void Awake()
     {
+        shootingCooldown = minShootingCooldown;
         timer = shootingCooldown;
+
         shootingPlace = transform.Find("ShootingPlace").gameObject;
     }
 

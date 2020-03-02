@@ -21,14 +21,14 @@ public class Enemy : MonoBehaviour
         rgbd = GetComponent<Rigidbody>();
         amtr = GetComponent<Animator>();
 
-        amtr.SetBool("Dead", false);
-        amtr.SetFloat("Speed", 1);
+        //amtr.SetBool("Dead", false);
+        //amtr.SetFloat("Speed", 1);
+
+        rgbd.velocity += Vector3.forward * -speed;
     }
 
     private void Update()
     {
-        rgbd.velocity = Vector3.forward * -speed;
-
         if (health <= 0)
         {
             Death();
@@ -40,13 +40,13 @@ public class Enemy : MonoBehaviour
         if (other.GetComponent<Castle>() != null)
         {
             other.GetComponent<Castle>().health -= damages;
-
+            other.GetComponent<Castle>().Damaged();
         }
     }
 
     private void Death()
     {
-        amtr.SetBool("Dead", true);
+        //amtr.SetBool("Dead", true);
         rgbd.velocity = new Vector3(0, 0, 0);
 
         Destroy(gameObject, 2f);

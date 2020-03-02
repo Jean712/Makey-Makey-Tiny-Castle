@@ -90,6 +90,8 @@ MonoBehaviour:
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 72000000700000006e000000
+  maxHeat: 100
+  cooldownBar: {fileID: 0}
   coolingSpeed: 1
   coolingSpeedOnBooster: 2
   heatAfterCancel: 20

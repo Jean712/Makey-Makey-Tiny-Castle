@@ -92,9 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actualEnemy: {fileID: 0}
   enemies: []
-  myInput: 100
+  myInput: 0
   baseSpeed: 1
-  speedReduction: 0.1
+  speedReduction: 0.5
   cooldown: 45
   maxActivation: 4
   infinite: 0

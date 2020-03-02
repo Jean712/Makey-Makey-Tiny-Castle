@@ -40,21 +40,21 @@ public class D_Bellows : MonoBehaviour
         {
             activation = timer / cooldown * maxActivation;
 
+            if (actualEnemy != null)
+            {
+                actualEnemy.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;
+            }
+
+            foreach (GameObject item in enemies)
+            {
+                item.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;
+            }
+
             active = true;
         }
 
         if (active)
         {
-            if (actualEnemy != null)
-            {
-                actualEnemy.GetComponent<Enemy>().speed = speedReduction;
-            }
-
-            foreach (GameObject item in enemies)
-            {
-                item.GetComponent<Enemy>().speed = speedReduction;
-            }
-
             activation -= Time.deltaTime;
         }
         else
@@ -62,37 +62,37 @@ public class D_Bellows : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if (infinite)                                                       // Developer Only //
-        {                                                                   // Developer Only //
-            activation = maxActivation;                                     // Developer Only //
+        if (infinite)                                                                                       // Developer Only //
+        {                                                                                                   // Developer Only //
+            activation = maxActivation;                                                                     // Developer Only //
 
-            if (Input.GetKeyUp(myInput))                                    // Developer Only //
-            {                                                               // Developer Only //
-                active = false;                                             // Developer Only //
+            if (Input.GetKeyUp(myInput))                                                                    // Developer Only //
+            {                                                                                               // Developer Only //
+                active = false;                                                                             // Developer Only //
 
-                if (actualEnemy != null)                                    // Developer Only //
-                {                                                           // Developer Only //
-                    actualEnemy.GetComponent<Enemy>().speed = baseSpeed;    // Developer Only //
-                }                                                           // Developer Only //
+                if (actualEnemy != null)                                                                    // Developer Only //
+                {                                                                                           // Developer Only //
+                    actualEnemy.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;    // Developer Only //
+                }                                                                                           // Developer Only //
 
-                foreach (GameObject item in enemies)                        // Developer Only //
-                {                                                           // Developer Only //
-                    item.GetComponent<Enemy>().speed = baseSpeed;           // Developer Only //
-                }                                                           // Developer Only //
-            }                                                               // Developer Only //
-        }                                                                   // Developer Only //
-        else                                                                // Developer Only //
-        {                                                                   // Developer Only //
+                foreach (GameObject item in enemies)                                                        // Developer Only //
+                {                                                                                           // Developer Only //
+                    item.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;           // Developer Only //
+                }                                                                                           // Developer Only //
+            }                                                                                               // Developer Only //
+        }                                                                                                   // Developer Only //
+        else                                                                                                // Developer Only //
+        {                                                                                                   // Developer Only //
             if (activation <= 0)
             {
                 if (actualEnemy != null)
                 {
-                    actualEnemy.GetComponent<Enemy>().speed = baseSpeed;
+                    actualEnemy.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;
                 }
 
                 foreach (GameObject item in enemies)
                 {
-                    item.GetComponent<Enemy>().speed = baseSpeed;
+                    item.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;
                 }
 
                 timer = 0;

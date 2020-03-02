@@ -12,9 +12,9 @@ public class Slot : MonoBehaviour
     public Queue<GameObject> walkingEnemiesQueue;
     [HideInInspector]
     public Queue<GameObject> flyingEnemiesQueue;
-    public GameObject actualEnemy;
-    public GameObject actualWalkingEnemy;
-    public GameObject actualFlyingEnemy;
+    private GameObject actualEnemy;
+    private GameObject actualWalkingEnemy;
+    private GameObject actualFlyingEnemy;
 
     [Header("Basic Configuration")]
     public Transform target;
@@ -22,6 +22,8 @@ public class Slot : MonoBehaviour
     public GameObject myBellows;
     public GameObject cauldron;
     public KeyCode[] myInputs;
+    public KeyCode crankInput;
+    private int crankRotation;
     public GameObject myZone;
     public bool isACooler = false;
 
@@ -87,6 +89,12 @@ public class Slot : MonoBehaviour
                 }
             }
 
+            //// Manivelle.
+            //if (Input.GetKeyDown(crankInput))
+            //{
+            //    crankRotation++;
+            //}
+
             // Soufflet.
             myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
             myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
@@ -104,21 +112,6 @@ public class Slot : MonoBehaviour
 
             cauldron.GetComponent<D_Cauldron>().enemies = enemiesQueue.ToArray();
         }
-
-        //if (actualEnemy == null && enemiesQueue.Count >= 1)
-        //{
-        //    actualEnemy = enemiesQueue.Dequeue();
-        //}
-
-        //if (actualWalkingEnemy == null && walkingEnemiesQueue.Count >= 1)
-        //{
-        //    actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
-        //}
-
-        //if (actualFlyingEnemy == null && flyingEnemiesQueue.Count >= 1)
-        //{
-        //    actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
-        //}
 
         // Appartition de la défense.
         for (int i = 0; i < defenses.Length; i++)

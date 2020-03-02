@@ -8,7 +8,7 @@ public class BulletKillZone : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
