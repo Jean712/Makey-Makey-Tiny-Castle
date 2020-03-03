@@ -1425,10 +1425,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 8.12
+    value: 1.5
   threshold:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
   softKnee:
     overrideState: 0
     value: 0.337
