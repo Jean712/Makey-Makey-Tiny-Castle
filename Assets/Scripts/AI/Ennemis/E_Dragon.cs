@@ -14,7 +14,7 @@ public class E_Dragon : MonoBehaviour
 
     void Update()
     {
-        DragonAttack();
+        //DragonAttack();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,9 +37,9 @@ public class E_Dragon : MonoBehaviour
         }
     }
 
-    void DragonAttack()
+    public void DragonAttack()
     {
-        if (fighting == true)
+        /*if (fighting == true)
         {           
             rOF += 1 * Time.deltaTime;
         }
@@ -47,7 +47,8 @@ public class E_Dragon : MonoBehaviour
         {
             Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
             rOF = 0;
-        }
+        }*/
+        Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
     }
 
     public void DeathAfterTime()
