@@ -23,8 +23,8 @@ public class Defense : MonoBehaviour
     [Header("Developer Only")]          // Developer Only //
     public bool canHeat = false;        // Developer Only //
     [Range(0, 100)]                     // Developer Only //
-    public float heat;                  // Developer Only //
-    public bool overheated = false;     // Developer Only //
+    public float heat;
+    public bool overheated = false;
 
     [Header("Basic Configuration")]
     public float timeBeforeShooting = 1;
