@@ -1540,6 +1540,7 @@ MonoBehaviour:
   health: 70
   damages: 100
   speed: 1
+  healingDelay: 0
   flying: 0
   amtr: {fileID: 0}
   rgbd: {fileID: 0}
@@ -3574,7 +3575,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f601a107b99d6f747b404182e11b997d, type: 2}
+  - {fileID: 2100000, guid: b3713f59c64cb504288a3a84cd1b881b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
