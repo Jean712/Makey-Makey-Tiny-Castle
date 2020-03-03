@@ -6,14 +6,14 @@ public class P_Mage : MonoBehaviour
 {
     public Rigidbody rgbd;
 
-    public float speed = 10;
+    public float speed = 1;
     public float damages;
 
     private void Start()
     {
         rgbd = GetComponent<Rigidbody>();
 
-        rgbd.velocity = new Vector3(0, 0, 10) * speed;
+        rgbd.velocity = new Vector3(0, 0, 1) * speed;
     }
 
     private void OnTriggerEnter(Collider other)

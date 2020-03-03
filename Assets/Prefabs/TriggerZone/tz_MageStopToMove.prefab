@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6281494247575931473}
   - component: {fileID: 6281494247575931472}
+  - component: {fileID: 114079239178117102}
   m_Layer: 0
-  m_Name: TriggerZone_MageStopToMove
-  m_TagString: TriggerZone_MageAttackZone
+  m_Name: tz_MageStopToMove
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,3 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.39, y: 2.48, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114079239178117102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281494247575931474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec870e412fe1ef54e8f6fc074234b1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoAspect: 4
+  gizmoSize: 0.91
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}

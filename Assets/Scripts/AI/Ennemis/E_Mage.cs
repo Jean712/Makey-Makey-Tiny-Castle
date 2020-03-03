@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class E_Mage : MonoBehaviour
 {
-    public float rOF = 0;
-
     public GameObject attackProjectile;
     public GameObject deathParticules;
     public GameObject pointSpawnProjectile;
 
     public bool fighting = false;
-
-    private void Update()
+   
+    void Update()
     {
-        MageAttack();
+
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -23,7 +21,9 @@ public class E_Mage : MonoBehaviour
         {
             fighting = true;
             GetComponent<Enemy>().rgbd.velocity = Vector3.zero;
+
             GetComponent<Enemy>().amtr.SetFloat("Speed", 0);
+            GetComponent<Enemy>().amtr.SetBool("Dead", false);
         }
     }
 
@@ -31,18 +31,6 @@ public class E_Mage : MonoBehaviour
 
     private void MageAttack()
     {
-
-        if (fighting == true)
-        {
-            //Debug.Log("jme tape");
-            rOF += 1 * Time.deltaTime;
-        }
-
-        if (rOF > 2.4f)
-        {
-            //Debug.Log("Lavitesse d'attaque est à 1 dude");
-            Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
-            rOF = 0;
-        }
+        Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
     }
 }

@@ -43,6 +43,8 @@ public class E_Boss : MonoBehaviour
         GetComponent<Enemy>().amtr.SetFloat("Boss_Speed", 1);
         GetComponent<Enemy>().amtr.SetBool("Spell_Used", false);
 
+        GetComponent<Enemy>().rgbd.velocity += Vector3.forward * GetComponent<Enemy>().speed;
+
         Instantiate(recoveryDone_Particules, transform.position, transform.rotation);
     }
 

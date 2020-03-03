@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float health = 1;
     public float damages = 1;
     public float speed = 1;
+    public float healingDelay = 0;
+
     public bool flying;
 
     [HideInInspector]
@@ -21,14 +23,20 @@ public class Enemy : MonoBehaviour
         rgbd = GetComponent<Rigidbody>();
         amtr = GetComponent<Animator>();
 
-        //amtr.SetBool("Dead", false);
-        //amtr.SetFloat("Speed", 1);
+        amtr.SetBool("Dead", false);
+        amtr.SetFloat("Speed", 1);
 
-        rgbd.velocity += Vector3.forward * -speed;
+        rgbd.velocity += new Vector3(0, 0, 1) * speed;
     }
-
+    
     private void Update()
     {
+        healingDelay += Time.deltaTime * 1;
+        if (healingDelay >= 2)
+        {
+            healingDelay = 0;
+        }
+
         if (health <= 0)
         {
             Death();
@@ -40,13 +48,21 @@ public class Enemy : MonoBehaviour
         if (other.GetComponent<Castle>() != null)
         {
             other.GetComponent<Castle>().health -= damages;
-            other.GetComponent<Castle>().Damaged();
+        }
+     
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<P_Heal>() != null & healingDelay > 1.9f & healingDelay <1.91111f)
+        {
+            health += 1f;
         }
     }
 
     private void Death()
     {
-        //amtr.SetBool("Dead", true);
+        amtr.SetBool("Dead", true);
         rgbd.velocity = new Vector3(0, 0, 0);
 
         Destroy(gameObject, 2f);
