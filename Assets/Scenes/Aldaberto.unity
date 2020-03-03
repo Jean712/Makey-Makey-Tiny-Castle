@@ -1655,7 +1655,7 @@ PrefabInstance:
     - target: {fileID: 1325278094638919384, guid: 1a63095974cddec49816b31d0e0b0610,
         type: 3}
       propertyPath: m_Name
-      value: E_Healer
+      value: e_Healer
       objectReference: {fileID: 0}
     - target: {fileID: 9047934686259996090, guid: 1a63095974cddec49816b31d0e0b0610,
         type: 3}
