@@ -23,7 +23,8 @@ public class Slot : MonoBehaviour
     public GameObject cauldron;
     public KeyCode[] myInputs;
     public KeyCode crankInput;
-    private int crankRotation;
+    private bool crankRotate;
+    private float timer;
     public GameObject myZone;
     public bool isACooler = false;
 
@@ -89,12 +90,6 @@ public class Slot : MonoBehaviour
                 }
             }
 
-            //// Manivelle.
-            //if (Input.GetKeyDown(crankInput))
-            //{
-            //    crankRotation++;
-            //}
-
             // Soufflet.
             myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
             myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
@@ -140,6 +135,29 @@ public class Slot : MonoBehaviour
                     defenses[i].GetComponent<Defense>().walkingEnemyToKill = actualWalkingEnemy;
                     defenses[i].GetComponent<Defense>().flyingEnemyToKill = actualFlyingEnemy;
                 }
+
+                // Manivelle.
+                timer -= Time.deltaTime;
+
+                if (Input.GetKeyDown(crankInput))
+                {
+                    timer = 1f;
+                    crankRotate = true;
+                }
+
+                if (crankRotate)
+                {
+                    defenses[i].GetComponent<Defense>().crankActive = true;
+
+                    if (timer <= 0)
+                    {
+                        crankRotate = false;
+                    }
+                }
+                else
+                {
+                    defenses[i].GetComponent<Defense>().crankActive = false;
+                }
             }
 
             if (Input.GetKeyUp(myInputs[i]))
@@ -147,6 +165,7 @@ public class Slot : MonoBehaviour
                 myZone.GetComponent<TriggerLaneZone>().myDefense = null;
                 defenses[i].GetComponent<Defense>().onSlot = false;
                 defenses[i].GetComponent<Defense>().onCooler = false;
+                defenses[i].GetComponent<Defense>().crankActive = false;
 
                 defenses[i].GetComponent<Defense>().enemyToKill = null;
                 defenses[i].GetComponent<Defense>().walkingEnemyToKill = null;

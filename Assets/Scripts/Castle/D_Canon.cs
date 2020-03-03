@@ -25,6 +25,16 @@ public class D_Canon : MonoBehaviour
 
     private void Update()
     {
+        // Manivelle.
+        if (GetComponent<Defense>().crankActive)
+        {
+            shootingCooldown = Mathf.Lerp(shootingCooldown, maxShootingCooldown, 0.07f);
+        }
+        else
+        {
+            shootingCooldown = minShootingCooldown;
+        }
+
         timer -= Time.deltaTime;
 
         // Tir.

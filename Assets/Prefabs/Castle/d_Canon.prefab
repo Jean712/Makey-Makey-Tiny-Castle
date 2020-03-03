@@ -127,6 +127,7 @@ MonoBehaviour:
   onSlot: 0
   onCooler: 0
   active: 0
+  crankActive: 0
   enemyToKill: {fileID: 0}
   walkingEnemyToKill: {fileID: 0}
   flyingEnemyToKill: {fileID: 0}
@@ -155,7 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: 913c21758001a164d823a345fe185472, type: 3}
-  shootingCooldown: 2.86
+  minShootingCooldown: 2.86
+  maxShootingCooldown: 1.68
   heatingSpeed: 14.3
 --- !u!1 &6167575821204213489
 GameObject:

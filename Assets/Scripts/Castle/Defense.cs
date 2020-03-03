@@ -12,6 +12,8 @@ public class Defense : MonoBehaviour
     [HideInInspector]
     public bool active = false;
     [HideInInspector]
+    public bool crankActive;
+    [HideInInspector]
     public GameObject enemyToKill;
     [HideInInspector]
     public GameObject walkingEnemyToKill;
