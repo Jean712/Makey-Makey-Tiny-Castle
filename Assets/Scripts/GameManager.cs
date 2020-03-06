@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [Header("Basic Configuration")]
     public KeyCode pauseInput;
     public GameObject bellows1;
-    private KeyCode resumeInput;
+    private KeyCode soundInput;
     public GameObject bellows2;
     private KeyCode mainMenuInput;
     public GameObject gameUI;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         pauseUI.SetActive(false);
 
-        resumeInput = bellows1.GetComponent<D_Bellows>().myInput;
+        soundInput = bellows1.GetComponent<D_Bellows>().myInput;
         mainMenuInput = bellows2.GetComponent<D_Bellows>().myInput;
     }
 
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         if (isPaused)
         {
-            if (Input.GetKeyDown(pauseInput) || Input.GetKeyDown(resumeInput))
+            if (Input.GetKeyDown(pauseInput))
             {
                 timeScale = 1;
 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Sound on & off.
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(soundInput))
             {
                 if (soundOn)
                 {
