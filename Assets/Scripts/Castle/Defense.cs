@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class Defense : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public bool onSlot;
-    [HideInInspector]
+    //[HideInInspector]
     public bool onCooler;
-    [HideInInspector]
+    //[HideInInspector]
     public bool active = false;
-    [HideInInspector]
+    //[HideInInspector]
     public bool crankActive;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject enemyToKill;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject walkingEnemyToKill;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject flyingEnemyToKill;
 
     [Header("Developer Only")]          // Developer Only //

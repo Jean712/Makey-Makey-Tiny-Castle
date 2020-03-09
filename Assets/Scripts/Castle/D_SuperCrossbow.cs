@@ -38,12 +38,4 @@ public class D_SuperCrossbow : MonoBehaviour
             }
         }
     }
-
-    // test à supprimer
-
-    public void Ratatata()
-    {
-
-    }
-
 }
