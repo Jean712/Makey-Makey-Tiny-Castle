@@ -1857,6 +1857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OnFireBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 6387954561770376351, guid: 857876ab55a210944a1f7a8335e35415,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857876ab55a210944a1f7a8335e35415, type: 3}
 --- !u!4 &2082800344211541030 stripped
