@@ -4923,8 +4923,8 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &7049517569346003452
-GameObject:
+--- !u!1001 &6962955239293117874
+PrefabInstance:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4943,9 +4943,9 @@ GameObject:
   m_IsActive: 0
 --- !u!4 &7982685418142738628
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2416373021568650394, guid: 55016d2f0cc99b145b239337f657313c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6962955239293117874}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7049517569346003452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
