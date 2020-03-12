@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590901684467408884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0.61, z: 1.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1957183041378319074}
@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 2216881281497552708}
   - component: {fileID: 114614775757620720}
   - component: {fileID: 3061594258362972718}
+  - component: {fileID: 9220717319389106883}
   m_Layer: 0
   m_Name: d_Canon
   m_TagString: Untagged
@@ -74,10 +75,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4639428402138612495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8168755416275917453}
+  - {fileID: 3817928793524473370}
   - {fileID: 7982685418142738628}
   - {fileID: 225917510060462069}
   - {fileID: 7935737581585335444}
@@ -160,6 +161,25 @@ MonoBehaviour:
   minShootingCooldown: 2.86
   maxShootingCooldown: 1.68
   heatingSpeed: 14.3
+--- !u!95 &9220717319389106883
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639428402138612495}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2bf8b932cc7da7946b32166662c6165e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6167575821204213489
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,7 +5037,7 @@ PrefabInstance:
     - target: {fileID: 2416373021568650394, guid: 55016d2f0cc99b145b239337f657313c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2416373021568650394, guid: 55016d2f0cc99b145b239337f657313c,
         type: 3}
@@ -5069,11 +5089,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7217462274519226381, guid: 55016d2f0cc99b145b239337f657313c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 817634204817971641, guid: 55016d2f0cc99b145b239337f657313c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55016d2f0cc99b145b239337f657313c, type: 3}
---- !u!4 &8168755416275917453 stripped
+--- !u!4 &3817928793524473370 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2416373021568650394, guid: 55016d2f0cc99b145b239337f657313c,
+  m_CorrespondingSourceObject: {fileID: 7217462274519226381, guid: 55016d2f0cc99b145b239337f657313c,
     type: 3}
   m_PrefabInstance: {fileID: 5824721880443213335}
   m_PrefabAsset: {fileID: 0}
