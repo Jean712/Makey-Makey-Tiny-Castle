@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public float cooldown = 3;
+    [Header("Basic Configuration")]
+    private int round;
+    public float roundCooldown = 3;
     private float timer;
 
-    public Transform target;
-    public GameObject[] enemies;
+    [Header("Round 1")]
+    public Transform[] targets1;
+    public GameObject[] enemies1;
+
+    [Header("Round 2")]
+    public Transform[] targets2;
+    public GameObject[] enemies2;
+
+    [Header("Round 3")]
+    public Transform[] targets3;
+    public GameObject[] enemies3;
 
     private void Awake()
     {
-        timer = cooldown;
+        round = 1;
+        timer = roundCooldown;
     }
 
     private void Update()
@@ -21,18 +33,35 @@ public class Spawner : MonoBehaviour
 
         if (timer <= 0)
         {
-            int index = Random.Range(0, enemies.Length);
-
-            if (enemies[index].GetComponent<Enemy>().flying)
+            switch (round)
             {
-                Instantiate(enemies[index], target.transform.position + transform.forward * 2, transform.rotation);
-            }
-            else
-            {
-                Instantiate(enemies[index], transform.position + transform.forward * 2, transform.rotation);
+                case 1:
+                    for (int i = 0; i < targets1.Length; i++)
+                    {
+                        Instantiate(enemies1[i], targets1[i]);
+                    }
+
+                    break;
+
+                case 2:
+                    for (int i = 0; i < targets2.Length; i++)
+                    {
+                        Instantiate(enemies2[i], targets2[i]);
+                    }
+
+                    break;
+
+                case 3:
+                    for (int i = 0; i < targets3.Length; i++)
+                    {
+                        Instantiate(enemies3[i], targets3[i]);
+                    }
+
+                    break;
             }
 
-            timer = cooldown;
+            round++;
+            timer = roundCooldown;
         }
     }
 }
