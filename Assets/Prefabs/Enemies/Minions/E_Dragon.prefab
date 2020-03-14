@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fighting: 0
-  attackProjectile: {fileID: 7511441370413773757, guid: 89edcba59849e0e46b555714044f7f81,
+  attackProjectile: {fileID: 3181016761818549210, guid: 1a8ff276c78a9334fa8ace159e86dc77,
     type: 3}
   deathParticules: {fileID: 0}
   pointSpawnProjectile: {fileID: 5191705033569689204}
