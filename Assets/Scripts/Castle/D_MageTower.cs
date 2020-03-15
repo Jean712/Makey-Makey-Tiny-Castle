@@ -9,7 +9,9 @@ public class D_MageTower : MonoBehaviour
     [Header("Basic Configuration")]
     public GameObject bullet;
     private GameObject shootingPlace;
-    public float shootingCooldown;
+    public float minShootingCooldown;
+    private float shootingCooldown;
+    public float maxShootingCooldown;
     public float heatingSpeed;
     private float timer;
 
@@ -22,6 +24,16 @@ public class D_MageTower : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
+
+        // Manivelle.
+        if (GetComponent<Defense>().crankActive)
+        {
+            shootingCooldown = Mathf.Lerp(shootingCooldown, maxShootingCooldown, 0.07f);
+        }
+        else
+        {
+            shootingCooldown = minShootingCooldown;
+        }
 
         // Tir.
         if (GetComponent<Defense>().active && GetComponent<Defense>().enemyToKill != null)

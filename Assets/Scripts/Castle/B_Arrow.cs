@@ -25,7 +25,7 @@ public class B_Arrow : MonoBehaviour
         {
             if (other.GetComponent<E_Shield>())
             {
-                //other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
             }
             else
             {

@@ -29,7 +29,7 @@ public class B_Magic : MonoBehaviour
         {
             if (other.GetComponent<E_Mage>())
             {
-                //other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
             }
             else
             {

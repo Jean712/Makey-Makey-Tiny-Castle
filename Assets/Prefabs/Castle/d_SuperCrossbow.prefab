@@ -157,7 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3543002796520063919, guid: 03aeb8f86418f4f41b607f6d8939e768, type: 3}
-  shootingCooldown: 0.25
+  amtr: {fileID: 6949348324564387890}
+  minShootingCooldown: 0.25
+  maxShootingCooldown: 0.15
   heatingSpeed: 1.25
 --- !u!1 &5843471617355019234
 GameObject:
@@ -5074,6 +5076,12 @@ PrefabInstance:
 --- !u!4 &4503800633554850872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1007510629477421121, guid: e4f0da7e41d3bb1479939255a9855058,
+    type: 3}
+  m_PrefabInstance: {fileID: 3709791008143819897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6949348324564387890 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5983832821574405195, guid: e4f0da7e41d3bb1479939255a9855058,
     type: 3}
   m_PrefabInstance: {fileID: 3709791008143819897}
   m_PrefabAsset: {fileID: 0}

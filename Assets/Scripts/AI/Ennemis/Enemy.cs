@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         amtr.SetBool("Dead", false);
         amtr.SetFloat("Speed", 1);
 
-        rgbd.velocity += new Vector3(0, 0, 1) * speed;
+        rgbd.velocity += new Vector3(0, 0, -1) * speed;
     }
     
     private void Update()

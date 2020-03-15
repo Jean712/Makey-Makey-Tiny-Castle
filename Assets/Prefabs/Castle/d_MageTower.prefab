@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: 960feab19855b334b85866c81e7ab7ef, type: 3}
-  shootingCooldown: 1
+  minShootingCooldown: 1
+  maxShootingCooldown: 0.59
   heatingSpeed: 5
 --- !u!1 &5703302092670691789
 GameObject:

@@ -9,8 +9,11 @@ public class D_Catapult : MonoBehaviour
 
     [Header("Basic Configuration")]
     public GameObject bullet;
+    public Animator amtr;
     private GameObject shootingPlace;
-    public float shootingCooldown;
+    public float minShootingCooldown;
+    private float shootingCooldown;
+    public float maxShootingCooldown;
     public float heatingSpeed;
     private float timer;
 
@@ -24,6 +27,16 @@ public class D_Catapult : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
+        // Manivelle.
+        if (GetComponent<Defense>().crankActive)
+        {
+            shootingCooldown = Mathf.Lerp(shootingCooldown, maxShootingCooldown, 0.07f);
+        }
+        else
+        {
+            shootingCooldown = minShootingCooldown;
+        }
+
         // Tir.
         if (GetComponent<Defense>().active && GetComponent<Defense>().walkingEnemyToKill != null)
         {
@@ -36,6 +49,8 @@ public class D_Catapult : MonoBehaviour
 
             if (timer <= 0)
             {
+                amtr.Play("Attack");
+
                 Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
                 GetComponent<Defense>().heat += heatingSpeed;
 
