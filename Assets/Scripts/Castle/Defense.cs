@@ -27,6 +27,7 @@ public class Defense : MonoBehaviour
     public bool overheated = false;
 
     [Header("Basic Configuration")]
+    public ParticleSystem ptcl;
     public float timeBeforeShooting = 1;
     private float timer1;
     public Transform myLocation;
@@ -122,5 +123,10 @@ public class Defense : MonoBehaviour
         }                                                               //Developer Only //
 
         cooldownBar.GetComponent<Slider>().value = heat;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ptcl.Play();
     }
 }

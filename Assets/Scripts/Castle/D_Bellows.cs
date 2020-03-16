@@ -11,6 +11,8 @@ public class D_Bellows : MonoBehaviour
     private bool active = false;
 
     [Header("Basic Configuration")]
+    public float tornadoSpeed;
+    public GameObject tornado;
     public KeyCode myInput;
     public float baseSpeed;
     public float speedReduction;
@@ -39,6 +41,8 @@ public class D_Bellows : MonoBehaviour
         if (Input.GetKeyDown(myInput) && !active)
         {
             activation = timer / cooldown * maxActivation;
+
+            tornado.GetComponent<Rigidbody>().velocity += Vector3.forward * tornadoSpeed;
 
             if (actualEnemy != null)
             {
@@ -96,6 +100,9 @@ public class D_Bellows : MonoBehaviour
                 }
 
                 timer = 0;
+
+                tornado.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                tornado.transform.position = Vector3.zero;
 
                 active = false;
 

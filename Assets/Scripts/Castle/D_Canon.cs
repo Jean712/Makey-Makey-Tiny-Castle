@@ -8,6 +8,7 @@ public class D_Canon : MonoBehaviour
 
     [Header("Basic Configuration")]
     public GameObject bullet;
+    public ParticleSystem ptcl;
     private GameObject shootingPlace;
     public float minShootingCooldown;
     private float shootingCooldown;
@@ -45,6 +46,8 @@ public class D_Canon : MonoBehaviour
 
             if (timer <= 0)
             {
+                ptcl.Play();
+
                 Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
                 GetComponent<Defense>().heat += heatingSpeed;
 

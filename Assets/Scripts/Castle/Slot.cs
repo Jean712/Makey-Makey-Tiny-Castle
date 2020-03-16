@@ -114,7 +114,6 @@ public class Slot : MonoBehaviour
             if (Input.GetKeyDown(myInputs[i]) && free)
             {
                 defenses[i].transform.position = target.position;
-                defenses[i].GetComponentInChildren<ParticleSystem>().Play();
             }
 
             if (Input.GetKey(myInputs[i]))
