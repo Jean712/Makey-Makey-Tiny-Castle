@@ -96,7 +96,7 @@ MonoBehaviour:
   actualEnemy: {fileID: 0}
   enemies: []
   tornadoSpeed: 20
-  tornadoRgbd: {fileID: 6140472432459717620}
+  tornado: {fileID: 3725421866071273172}
   myInput: 0
   baseSpeed: 1
   speedReduction: 0.5

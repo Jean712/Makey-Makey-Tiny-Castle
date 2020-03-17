@@ -5,8 +5,10 @@ using UnityEngine;
 public class B_Magic : MonoBehaviour
 {
     private Rigidbody rgbd;
-    public float bulletSpeed;
 
+    [Header("Basic Configuration")]
+    public GameObject explosionParticle;
+    public float bulletSpeed;
     public float damages;
     public float blastRadius;
     private GameObject[] allEnemies;
@@ -50,7 +52,9 @@ public class B_Magic : MonoBehaviour
     }
 
     private void AOE()
-    {
+    {   
+        Instantiate(explosionParticle, transform.position, transform.rotation);
+
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject item in allEnemies)

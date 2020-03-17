@@ -46,6 +46,52 @@ MonoBehaviour:
   gizmoAspect: 5
   gizmoSize: 1
   gizmoColor: {r: 1, g: 0.6341171, b: 0, a: 1}
+--- !u!1 &3405129035702984136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4523380736752902483}
+  - component: {fileID: 1969694741988898686}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4523380736752902483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405129035702984136}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1957183041378319074}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969694741988898686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405129035702984136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec870e412fe1ef54e8f6fc074234b1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoAspect: 3
+  gizmoSize: 0.25
+  gizmoColor: {r: 0, g: 0.9905014, b: 1, a: 1}
 --- !u!1 &4639428402138612495
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +126,7 @@ Transform:
   - {fileID: 695329147866218379}
   - {fileID: 4872285646251958193}
   - {fileID: 6211758689962886333}
+  - {fileID: 4523380736752902483}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -158,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: cec23f654ce647b4ca955b8ed34d3363, type: 3}
   amtr: {fileID: 411695971769177741}
+  target: {fileID: 4523380736752902483}
   minShootingCooldown: 2
   maxShootingCooldown: 1.18
   heatingSpeed: 10

@@ -42,7 +42,7 @@ public class D_Bellows : MonoBehaviour
         {
             activation = timer / cooldown * maxActivation;
 
-            tornado.GetComponent<Rigidbody>().velocity += Vector3.forward * tornadoSpeed;
+            StartCoroutine(TornadoMovement(5));
 
             if (actualEnemy != null)
             {
@@ -101,13 +101,20 @@ public class D_Bellows : MonoBehaviour
 
                 timer = 0;
 
-                tornado.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                tornado.transform.position = Vector3.zero;
-
                 active = false;
 
                 activation = maxActivation;
             }
-        }                                                                   // Developer Only //
+        }                                                                                                   // Developer Only //
+    }
+
+    IEnumerator TornadoMovement(float time)
+    {
+        tornado.GetComponent<Rigidbody>().velocity += Vector3.forward * tornadoSpeed;
+
+        yield return new WaitForSeconds(time);
+
+        tornado.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        tornado.transform.position = transform.position - new Vector3(0, 6, 0);
     }
 }

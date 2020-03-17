@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6330e9da36d0be46a593d5e80a620d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rgbd: {fileID: 54527112912580434}
   speed: 10
   damages: 2
 --- !u!1001 &2369554052600062107
@@ -194,7 +193,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 518645622056503278, guid: cddf118c853f9034ab42eca610ff44b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cddf118c853f9034ab42eca610ff44b0, type: 3}
 --- !u!4 &2983096694592571647 stripped
 Transform:

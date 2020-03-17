@@ -11,6 +11,7 @@ public class D_Catapult : MonoBehaviour
     public GameObject bullet;
     public Animator amtr;
     private GameObject shootingPlace;
+    public Transform target;
     public float minShootingCooldown;
     private float shootingCooldown;
     public float maxShootingCooldown;
@@ -44,7 +45,7 @@ public class D_Catapult : MonoBehaviour
 
             if (enemyTarget != null)
             {
-                d_CatapultDistance = enemyTarget.transform.position.z - transform.position.z;
+                d_CatapultDistance = enemyTarget.transform.position.z - target.position.z;
             }
 
             if (timer <= 0)

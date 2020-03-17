@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9a34795f471244cbf41c090728fb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 5292554839137995347, guid: 0813e3df61eb59a44ad37acfdc997a2d,
+    type: 3}
   initialBoost: 2.83
   shootingPlaceAngle: -40
   damages: 3

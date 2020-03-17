@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class P_Mage : MonoBehaviour
 {
-    public Rigidbody rgbd;
+    private Rigidbody rgbd;
 
+    [Header("Basic Configuration")]
     public float speed = 1;
     public float damages;
 
@@ -13,7 +14,7 @@ public class P_Mage : MonoBehaviour
     {
         rgbd = GetComponent<Rigidbody>();
 
-        rgbd.velocity = new Vector3(0, 0, 1) * speed;
+        rgbd.velocity = new Vector3(0, 0, -1) * speed;
     }
 
     private void OnTriggerEnter(Collider other)

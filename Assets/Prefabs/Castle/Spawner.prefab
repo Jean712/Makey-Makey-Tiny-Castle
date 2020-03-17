@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987288ad77dd0cb4b813ec141edb2634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundCooldown: 3
+  roundCooldown: 25
   targets1:
   - {fileID: 2627274584663490931}
   - {fileID: 2627274585651149461}

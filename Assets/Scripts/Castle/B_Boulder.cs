@@ -5,11 +5,13 @@ using UnityEngine;
 public class B_Boulder : MonoBehaviour
 {
     private Rigidbody rgbd;
+
+    [Header("Basic Configuration")]
+    public GameObject explosionParticle;
     private float initialForce;
     public float initialBoost;
     [Range(0, -90)]
     public float shootingPlaceAngle;
-
     public float damages;
     public float blastRadius;
     private GameObject[] allEnemies;
@@ -48,6 +50,8 @@ public class B_Boulder : MonoBehaviour
 
     private void AOE()
     {
+        Instantiate(explosionParticle, transform.position, transform.rotation);
+
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject item in allEnemies)

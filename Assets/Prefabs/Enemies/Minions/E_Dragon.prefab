@@ -265,6 +265,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -276,6 +277,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -566,6 +568,7 @@ MonoBehaviour:
   health: 5
   damages: 2
   speed: 1
+  healingDelay: 0
   flying: 1
   amtr: {fileID: 0}
   rgbd: {fileID: 0}
@@ -582,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fighting: 0
-  attackProjectile: {fileID: 7511441370413773757, guid: 89edcba59849e0e46b555714044f7f81,
+  attackProjectile: {fileID: 1167715497556388977, guid: cddf118c853f9034ab42eca610ff44b0,
     type: 3}
   deathParticules: {fileID: 0}
   pointSpawnProjectile: {fileID: 5191705033569689204}

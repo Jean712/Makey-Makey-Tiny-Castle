@@ -27,7 +27,6 @@ public class E_Dragon : MonoBehaviour
     {
         if(LatriggerZone.gameObject.name == "tz_DragonStopMove")
         {
-            Debug.Log("Je tape dans le fond");
             fighting = true;
 
             GetComponent<Enemy>().rgbd.velocity = Vector3.zero;

@@ -94,18 +94,18 @@ public class Slot : MonoBehaviour
             myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
             myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
 
-            // Chaudron.
-            if (gameObject.name == "Slot1")
-            {
-                cauldron.GetComponent<D_Cauldron>().actualEnemy1 = actualEnemy;
-            }
+            //// Chaudron.
+            //if (gameObject.name == "Slot1")
+            //{
+            //    cauldron.GetComponent<D_Cauldron>().actualEnemy1 = actualEnemy;
+            //}
 
-            if (gameObject.name == "Slot2")
-            {
-                cauldron.GetComponent<D_Cauldron>().actualEnemy2 = actualEnemy;
-            }
+            //if (gameObject.name == "Slot2")
+            //{
+            //    cauldron.GetComponent<D_Cauldron>().actualEnemy2 = actualEnemy;
+            //}
 
-            cauldron.GetComponent<D_Cauldron>().enemies = enemiesQueue.ToArray();
+            //cauldron.GetComponent<D_Cauldron>().enemies = enemiesQueue.ToArray();
         }
 
         // Appartition de la défense.
