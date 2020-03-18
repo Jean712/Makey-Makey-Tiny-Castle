@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("Basic Configuration")]
-    public KeyCode startInput;
+    public KeyCode[] myInputs;
     
     void Update()
     {
-        if (Input.GetKeyDown(startInput))
+        if (Input.GetKeyDown(myInputs[0]))
+        {
+            Application.Quit();
+        }
+        
+        if (Input.GetKeyDown(myInputs[1]))
         {
             SceneManager.LoadScene("Jean");
         }

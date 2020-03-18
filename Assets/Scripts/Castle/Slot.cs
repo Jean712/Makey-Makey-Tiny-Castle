@@ -42,136 +42,139 @@ public class Slot : MonoBehaviour
 
     private void Update()
     {
-        if (!isACooler)
+        if (!GameManager.isPaused)
         {
-            // Liste des ennemis.
-            if (enemiesQueue.Count >= 1)
+            if (!isACooler)
             {
-                if (actualEnemy != null)
+                // Liste des ennemis.
+                if (enemiesQueue.Count >= 1)
                 {
-                    if (actualEnemy.GetComponent<Enemy>().health <= 0)
+                    if (actualEnemy != null)
+                    {
+                        if (actualEnemy.GetComponent<Enemy>().health <= 0)
+                        {
+                            actualEnemy = enemiesQueue.Dequeue();
+                        }
+                    }
+                    else
                     {
                         actualEnemy = enemiesQueue.Dequeue();
                     }
                 }
-                else
-                {
-                    actualEnemy = enemiesQueue.Dequeue();
-                }
-            }
 
-            if (walkingEnemiesQueue.Count >= 1)
-            {
-                if (actualWalkingEnemy != null)
+                if (walkingEnemiesQueue.Count >= 1)
                 {
-                    if (actualWalkingEnemy.GetComponent<Enemy>().health <= 0)
+                    if (actualWalkingEnemy != null)
+                    {
+                        if (actualWalkingEnemy.GetComponent<Enemy>().health <= 0)
+                        {
+                            actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
+                        }
+                    }
+                    else
                     {
                         actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
                     }
                 }
-                else
-                {
-                    actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
-                }
-            }
 
-            if (flyingEnemiesQueue.Count >= 1)
-            {
-                if (actualFlyingEnemy != null)
+                if (flyingEnemiesQueue.Count >= 1)
                 {
-                    if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
+                    if (actualFlyingEnemy != null)
+                    {
+                        if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
+                        {
+                            actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+                        }
+                    }
+                    else
                     {
                         actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
                     }
                 }
-                else
-                {
-                    actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
-                }
+
+                // Soufflet.
+                myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
+                myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
+
+                //// Chaudron.
+                //if (gameObject.name == "Slot1")
+                //{
+                //    cauldron.GetComponent<D_Cauldron>().actualEnemy1 = actualEnemy;
+                //}
+
+                //if (gameObject.name == "Slot2")
+                //{
+                //    cauldron.GetComponent<D_Cauldron>().actualEnemy2 = actualEnemy;
+                //}
+
+                //cauldron.GetComponent<D_Cauldron>().enemies = enemiesQueue.ToArray();
             }
 
-            // Soufflet.
-            myBellows.GetComponent<D_Bellows>().actualEnemy = actualEnemy;
-            myBellows.GetComponent<D_Bellows>().enemies = enemiesQueue.ToArray();
-
-            //// Chaudron.
-            //if (gameObject.name == "Slot1")
-            //{
-            //    cauldron.GetComponent<D_Cauldron>().actualEnemy1 = actualEnemy;
-            //}
-
-            //if (gameObject.name == "Slot2")
-            //{
-            //    cauldron.GetComponent<D_Cauldron>().actualEnemy2 = actualEnemy;
-            //}
-
-            //cauldron.GetComponent<D_Cauldron>().enemies = enemiesQueue.ToArray();
-        }
-
-        // Appartition de la défense.
-        for (int i = 0; i < defenses.Length; i++)
-        {
-            if (Input.GetKeyDown(myInputs[i]) && free)
+            // Appartition de la défense.
+            for (int i = 0; i < defenses.Length; i++)
             {
-                defenses[i].transform.position = target.position;
-            }
-
-            if (Input.GetKey(myInputs[i]))
-            {
-                free = false;
-                defenses[i].GetComponent<Defense>().onSlot = true;
-
-                // Refroidisseur.
-                if (isACooler)
+                if (Input.GetKeyDown(myInputs[i]) && free)
                 {
-                    defenses[i].GetComponent<Defense>().onCooler = true;
-                }
-                else
-                {
-                    myZone.GetComponent<TriggerLaneZone>().myDefense = defenses[i];
-
-                    defenses[i].GetComponent<Defense>().enemyToKill = actualEnemy;
-                    defenses[i].GetComponent<Defense>().walkingEnemyToKill = actualWalkingEnemy;
-                    defenses[i].GetComponent<Defense>().flyingEnemyToKill = actualFlyingEnemy;
+                    defenses[i].transform.position = target.position;
                 }
 
-                // Manivelle.
-                timer -= Time.deltaTime;
-
-                if (Input.GetKeyDown(crankInput))
+                if (Input.GetKey(myInputs[i]))
                 {
-                    timer = 1f;
-                    crankRotate = true;
-                }
+                    free = false;
+                    defenses[i].GetComponent<Defense>().onSlot = true;
 
-                if (crankRotate)
-                {
-                    defenses[i].GetComponent<Defense>().crankActive = true;
-
-                    if (timer <= 0)
+                    // Refroidisseur.
+                    if (isACooler)
                     {
-                        crankRotate = false;
+                        defenses[i].GetComponent<Defense>().onCooler = true;
+                    }
+                    else
+                    {
+                        myZone.GetComponent<TriggerLaneZone>().myDefense = defenses[i];
+
+                        defenses[i].GetComponent<Defense>().enemyToKill = actualEnemy;
+                        defenses[i].GetComponent<Defense>().walkingEnemyToKill = actualWalkingEnemy;
+                        defenses[i].GetComponent<Defense>().flyingEnemyToKill = actualFlyingEnemy;
+                    }
+
+                    // Manivelle.
+                    timer -= Time.deltaTime;
+
+                    if (Input.GetKeyDown(crankInput))
+                    {
+                        timer = 1f;
+                        crankRotate = true;
+                    }
+
+                    if (crankRotate)
+                    {
+                        defenses[i].GetComponent<Defense>().crankActive = true;
+
+                        if (timer <= 0)
+                        {
+                            crankRotate = false;
+                        }
+                    }
+                    else
+                    {
+                        defenses[i].GetComponent<Defense>().crankActive = false;
                     }
                 }
-                else
+
+                if (Input.GetKeyUp(myInputs[i]))
                 {
+                    myZone.GetComponent<TriggerLaneZone>().myDefense = null;
+                    defenses[i].GetComponent<Defense>().onSlot = false;
+                    defenses[i].GetComponent<Defense>().onCooler = false;
                     defenses[i].GetComponent<Defense>().crankActive = false;
+
+                    defenses[i].GetComponent<Defense>().enemyToKill = null;
+                    defenses[i].GetComponent<Defense>().walkingEnemyToKill = null;
+                    defenses[i].GetComponent<Defense>().flyingEnemyToKill = null;
+
+                    defenses[i].transform.position = defenses[i].GetComponent<Defense>().myLocation.position;
+                    free = true;
                 }
-            }
-
-            if (Input.GetKeyUp(myInputs[i]))
-            {
-                myZone.GetComponent<TriggerLaneZone>().myDefense = null;
-                defenses[i].GetComponent<Defense>().onSlot = false;
-                defenses[i].GetComponent<Defense>().onCooler = false;
-                defenses[i].GetComponent<Defense>().crankActive = false;
-
-                defenses[i].GetComponent<Defense>().enemyToKill = null;
-                defenses[i].GetComponent<Defense>().walkingEnemyToKill = null;
-                defenses[i].GetComponent<Defense>().flyingEnemyToKill = null;
-
-                defenses[i].transform.position = defenses[i].GetComponent<Defense>().myLocation.position;
-                free = true;
             }
         }
     }

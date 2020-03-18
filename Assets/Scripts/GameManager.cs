@@ -10,23 +10,23 @@ public class GameManager : MonoBehaviour
     public float timeScale = 1;
 
     [Header("Basic Configuration")]
-    public KeyCode pauseInput;
+    public KeyCode leftInput;
     public GameObject bellows1;
-    private KeyCode soundInput;
+    private KeyCode rightInput;
     public GameObject bellows2;
     private KeyCode mainMenuInput;
     public GameObject gameUI;
     public GameObject pauseUI;
     public GameObject mainCamera;
-    private bool isPaused = false;
+    public static bool isPaused = false;
     private bool soundOn = true;
 
     private void Awake()
     {
         pauseUI.SetActive(false);
 
-        soundInput = bellows1.GetComponent<D_Bellows>().myInput;
-        mainMenuInput = bellows2.GetComponent<D_Bellows>().myInput;
+        mainMenuInput = bellows1.GetComponent<D_Bellows>().myInput;
+        rightInput = bellows2.GetComponent<D_Bellows>().myInput;
     }
 
     private void Update()
@@ -36,41 +36,61 @@ public class GameManager : MonoBehaviour
 
         if (isPaused)
         {
-            if (Input.GetKeyDown(pauseInput))
+            if (!Castle.loose)
             {
-                timeScale = 1;
-
-                pauseUI.SetActive(false);
-                gameUI.SetActive(true);
-
-                isPaused = false;
-            }
-
-            if (Input.GetKeyDown(mainMenuInput))
-            {
-                SceneManager.LoadScene("Main Menu");
-            }
-
-            // Sound on & off.
-            if (Input.GetKeyDown(soundInput))
-            {
-                if (soundOn)
+                if (Input.GetKeyDown(leftInput))
                 {
-                    mainCamera.GetComponent<AudioListener>().enabled = false;
+                    timeScale = 1;
 
-                    soundOn = false;
+                    pauseUI.SetActive(false);
+                    gameUI.SetActive(true);
+
+                    isPaused = false;
                 }
-                else
-                {
-                    mainCamera.GetComponent<AudioListener>().enabled = true;
 
-                    soundOn = true;
+                if (Input.GetKeyDown(mainMenuInput))
+                {
+                    SceneManager.LoadScene("Main Menu");
+                }
+
+                // Sound on & off.
+                if (Input.GetKeyDown(rightInput))
+                {
+                    if (soundOn)
+                    {
+                        mainCamera.GetComponent<AudioListener>().enabled = false;
+
+                        soundOn = false;
+                    }
+                    else
+                    {
+                        mainCamera.GetComponent<AudioListener>().enabled = true;
+
+                        soundOn = true;
+                    }
+                }
+            }
+            else
+            {
+                pauseUI.SetActive(false);
+                gameUI.SetActive(false);
+
+                if (Input.GetKeyDown(leftInput))
+                {
+                    SceneManager.LoadScene("Main Menu");
+                    Castle.loose = false;
+                }
+
+                if (Input.GetKeyDown(rightInput))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    Castle.loose = false;
                 }
             }
         }
         else
         {
-            if (Input.GetKeyDown(pauseInput))
+            if (Input.GetKeyDown(leftInput))
             {
                 timeScale = 0;
 
@@ -80,5 +100,8 @@ public class GameManager : MonoBehaviour
                 isPaused = true;
             }
         }
+
+        Debug.Log(isPaused);
+        Debug.Log(SceneManager.GetActiveScene().name);
     }
 }
