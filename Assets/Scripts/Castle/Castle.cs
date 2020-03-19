@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Castle : MonoBehaviour
 {
     [Header("Basic Configuration")]
     public float health;
     public GameObject healthBar;
-    public static bool loose = false;
-    public GameObject defeatScreen;
 
     private void Awake()
     {
-        defeatScreen.SetActive(false);
+        Scene scene = SceneManager.GetActiveScene();
+        GameManager.currentLevel = scene.buildIndex;
 
         healthBar.GetComponent<Slider>().maxValue = health;
         healthBar.GetComponent<Slider>().value = health;
@@ -23,12 +23,7 @@ public class Castle : MonoBehaviour
     {
         if (health <= 0)
         {
-            //health = 0;
-
-            defeatScreen.SetActive(true);
-
-            loose = true;
-            GameManager.isPaused = true;
+            SceneManager.LoadScene("Defeat");
         }
 
         healthBar.GetComponent<Slider>().value = health;
