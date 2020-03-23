@@ -4,29 +4,35 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Variables")]
+    [Header("Basic Configuration")]
     public float health = 1;
     public float damages = 1;
     public float speed = 1;
     public float healingDelay = 0;
-
     public bool flying;
+
+    [Header("Audio")]
+    public AudioClip attack;
+    public AudioClip parry;
 
     [HideInInspector]
     public Animator amtr;
-
     [HideInInspector]
     public Rigidbody rgbd;
+    [HideInInspector]
+    public AudioSource adsr;
+
 
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
         amtr = GetComponent<Animator>();
+        adsr = GetComponent<AudioSource>();
 
         amtr.SetBool("Dead", false);
         amtr.SetFloat("Speed", 1);
 
-        rgbd.velocity += new Vector3(0, 0, -1) * speed;
+        rgbd.velocity += new Vector3(0, 0, 1) * speed;
     }
     
     private void Update()
@@ -47,7 +53,11 @@ public class Enemy : MonoBehaviour
     {
         if (other.GetComponent<Castle>() != null)
         {
+            amtr.Play("attack_02");
+            adsr.PlayOneShot(attack);
+
             other.GetComponent<Castle>().health -= damages;
+            Destroy(gameObject, 0.5f);
         }
      
     }
@@ -64,6 +74,11 @@ public class Enemy : MonoBehaviour
     {
         amtr.SetBool("Dead", true);
         rgbd.velocity = new Vector3(0, 0, 0);
+
+        if (flying)
+        {
+            rgbd.useGravity = true;
+        }
 
         Destroy(gameObject, 2f);
     }

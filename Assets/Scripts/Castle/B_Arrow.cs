@@ -5,13 +5,22 @@ using UnityEngine;
 public class B_Arrow : MonoBehaviour
 {
     private Rigidbody rgbd;
-    public float bulletSpeed;
+    private AudioSource adsr;
+    private MeshRenderer mshr;
 
+    [Header("Basic Configuration")]
+    public float bulletSpeed;
     public float damages;
+    private bool asHit = false;
+
+    [Header("Sound")]
+    public AudioClip impact;
 
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
+        adsr = GetComponent<AudioSource>();
+        mshr = GetComponentInChildren<MeshRenderer>();
     }
 
     private void Update()
@@ -21,18 +30,27 @@ public class B_Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Enemy>() != null)
+        if (!asHit)
         {
-            if (other.GetComponent<E_Shield>())
-            {
-                other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
-            }
-            else
-            {
-                other.GetComponent<Enemy>().health -= damages;
-            }
+            adsr.PlayOneShot(impact);
 
-            Destroy(gameObject);
+            if (other.GetComponent<Enemy>() != null)
+            {
+                if (other.GetComponent<E_Shield>())
+                {
+                    other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                    other.GetComponent<Enemy>().adsr.PlayOneShot(other.GetComponent<Enemy>().parry);
+                }
+                else
+                {
+                    other.GetComponent<Enemy>().health -= damages;
+                }
+
+                mshr.enabled = false;
+                Destroy(gameObject, 3);
+            }
         }
+
+        asHit = true;
     }
 }

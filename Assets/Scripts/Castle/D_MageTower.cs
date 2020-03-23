@@ -51,6 +51,8 @@ public class D_MageTower : MonoBehaviour
 
             if (timer <= 0)
             {
+                GetComponent<Defense>().adsr.PlayOneShot(GetComponent<Defense>().shoot);
+
                 Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
                 GetComponent<Defense>().heat += heatingSpeed;
 

@@ -97,7 +97,7 @@ MonoBehaviour:
   amtr: {fileID: 7773681414559960172}
   myInput: 103
   active: 0
-  distance: 4
+  distance: 7
   maxDamages: 16
   cooldown: 60
 --- !u!1 &7655930069827554087

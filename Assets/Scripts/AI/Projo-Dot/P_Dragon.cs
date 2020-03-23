@@ -14,7 +14,7 @@ public class P_Dragon : MonoBehaviour
     {
         rgbd = GetComponent<Rigidbody>();
 
-        rgbd.velocity = new Vector3(0, 0, -1) * speed;
+        rgbd.velocity = new Vector3(0, 0, 1) * speed;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Defeat.unity
     guid: c9728f5637cc9b34fb44a2710bab6ed8
   - enabled: 1
-    path: Assets/Scenes/Jean.unity
+    path: Assets/Scenes/Level1.unity
     guid: b908b1ba5d284564c957261a6eb12f25
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: ffc6d6b1bd0e6f940b331e06114a6135
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: e7b1af72edb9fee4bb13d8b849012ac7
   m_configObjects: {}

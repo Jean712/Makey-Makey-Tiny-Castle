@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawner;
     public GameObject slot1;
     public GameObject slot2;
+    public KeyCode pauseInput;
     private KeyCode leftInput;
     public GameObject bellows1;
     private KeyCode rightInput;
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(leftInput))
+            if (Input.GetKeyDown(pauseInput))
             {
                 timeScale = 0;
 

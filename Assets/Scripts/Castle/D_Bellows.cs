@@ -48,12 +48,12 @@ public class D_Bellows : MonoBehaviour
 
                 if (actualEnemy != null)
                 {
-                    actualEnemy.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;
+                    actualEnemy.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;
                 }
 
                 foreach (GameObject item in enemies)
                 {
-                    item.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;
+                    item.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;
                 }
 
                 active = true;
@@ -78,12 +78,12 @@ public class D_Bellows : MonoBehaviour
 
                     if (actualEnemy != null)                                                                    // Developer Only //
                     {                                                                                           // Developer Only //
-                        actualEnemy.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;    // Developer Only //
+                        actualEnemy.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;    // Developer Only //
                     }                                                                                           // Developer Only //
 
                     foreach (GameObject item in enemies)                                                        // Developer Only //
                     {                                                                                           // Developer Only //
-                        item.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;           // Developer Only //
+                        item.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;           // Developer Only //
                     }                                                                                           // Developer Only //
                 }                                                                                               // Developer Only //
             }                                                                                                   // Developer Only //
@@ -93,12 +93,12 @@ public class D_Bellows : MonoBehaviour
                 {
                     if (actualEnemy != null)
                     {
-                        actualEnemy.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;
+                        actualEnemy.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;
                     }
 
                     foreach (GameObject item in enemies)
                     {
-                        item.GetComponent<Enemy>().rgbd.velocity -= Vector3.forward * speedReduction;
+                        item.GetComponent<Enemy>().rgbd.velocity += Vector3.forward * speedReduction;
                     }
 
                     timer = 0;
@@ -113,7 +113,7 @@ public class D_Bellows : MonoBehaviour
 
     IEnumerator TornadoMovement(float time)
     {
-        tornado.GetComponent<Rigidbody>().velocity += Vector3.forward * tornadoSpeed;
+        tornado.GetComponent<Rigidbody>().velocity += Vector3.back * tornadoSpeed;
 
         yield return new WaitForSeconds(time);
 

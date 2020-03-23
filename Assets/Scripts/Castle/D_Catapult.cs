@@ -51,6 +51,7 @@ public class D_Catapult : MonoBehaviour
             if (timer <= 0)
             {
                 amtr.Play("Attack");
+                GetComponent<Defense>().adsr.PlayOneShot(GetComponent<Defense>().shoot);
 
                 Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
                 GetComponent<Defense>().heat += heatingSpeed;

@@ -19,6 +19,8 @@ public class Defense : MonoBehaviour
     public GameObject walkingEnemyToKill;
     [HideInInspector]
     public GameObject flyingEnemyToKill;
+    [HideInInspector]
+    public AudioSource adsr;
 
     [Header("Developer Only")]          // Developer Only //
     public bool canHeat = false;        // Developer Only //
@@ -40,8 +42,16 @@ public class Defense : MonoBehaviour
     public float overheatedCancelTime;
     private float timer2;
 
+    [Header("Sound")]
+    public AudioClip impact;
+    public AudioClip shoot;
+    public AudioClip overheat;
+    public AudioClip recovery;
+
     private void Awake()
     {
+        adsr = GetComponent<AudioSource>();
+
         timer1 = timeBeforeShooting;
         timer2 = overheatedCancelTime;
 
@@ -95,6 +105,8 @@ public class Defense : MonoBehaviour
 
                 if (heat >= maxHeat)
                 {
+                    adsr.PlayOneShot(overheat);
+
                     overheated = true;
                 }
             }
@@ -115,6 +127,8 @@ public class Defense : MonoBehaviour
 
                     if (timer2 <= 0)
                     {
+                        adsr.PlayOneShot(recovery);
+
                         heat = heatAfterCancel;
                         overheated = false;
                     }
@@ -127,6 +141,10 @@ public class Defense : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ptcl.Play();
+        if (collision.gameObject.GetComponent<Slot>() != null)
+        {
+            ptcl.Play();
+            adsr.PlayOneShot(impact);
+        }
     }
 }

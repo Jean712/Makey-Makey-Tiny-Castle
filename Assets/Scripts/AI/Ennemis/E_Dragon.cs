@@ -12,17 +12,6 @@ public class E_Dragon : MonoBehaviour
 
     public float rOF = 0;
 
-    void Update()
-    {
-        //DragonAttack();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<Enemy>().amtr.SetBool("Dead", true);
-            Invoke("DeathAfterTime", 0.2f);
-        }
-    }
-
     private void OnTriggerEnter(Collider LatriggerZone)
     {
         if(LatriggerZone.gameObject.name == "tz_DragonStopMove")
@@ -38,15 +27,7 @@ public class E_Dragon : MonoBehaviour
 
     public void DragonAttack()
     {
-        /*if (fighting == true)
-        {           
-            rOF += 1 * Time.deltaTime;
-        }
-        if (rOF > 1.2f)
-        {
-            Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
-            rOF = 0;
-        }*/
+        GetComponent<Enemy>().adsr.PlayOneShot(GetComponent<Enemy>().attack);
         Instantiate(attackProjectile, pointSpawnProjectile.transform.position, pointSpawnProjectile.transform.rotation);
     }
 

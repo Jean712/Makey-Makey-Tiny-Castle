@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class B_Magic : MonoBehaviour
 {
+    private AudioSource adsr;
     private Rigidbody rgbd;
+    private ParticleSystem ptcl;
 
     [Header("Basic Configuration")]
     public GameObject explosionParticle;
@@ -12,10 +14,16 @@ public class B_Magic : MonoBehaviour
     public float damages;
     public float blastRadius;
     private GameObject[] allEnemies;
+    private bool asHit = false;
+
+    [Header("Sound")]
+    public AudioClip impact;
 
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
+        adsr = GetComponent<AudioSource>();
+        ptcl = GetComponentInChildren<ParticleSystem>();
 
         GetComponent<GizmoCreator>().gizmoSize = blastRadius;   // Developer Only //
     }
@@ -27,32 +35,42 @@ public class B_Magic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Enemy>() != null)
+        if (!asHit)
         {
-            if (other.GetComponent<E_Mage>())
+            adsr.PlayOneShot(impact);
+
+            if (other.GetComponent<Enemy>() != null)
             {
-                other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
-            }
-            else
-            {
-                other.GetComponent<Enemy>().health -= damages;
+                if (other.GetComponent<E_Mage>())
+                {
+                    other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                    other.GetComponent<Enemy>().adsr.PlayOneShot(other.GetComponent<Enemy>().parry);
+                }
+                else
+                {
+                    other.GetComponent<Enemy>().health -= damages;
+                }
+
+                AOE();
+
+                ptcl.Stop();
+                Destroy(gameObject, 3);
             }
 
-            AOE();
+            if (other.name == "Floor")
+            {
+                AOE();
 
-            Destroy(gameObject);
+                ptcl.Stop();
+                Destroy(gameObject, 3);
+            }
         }
 
-        if (other.name == "Floor")
-        {
-            AOE();
-
-            Destroy(gameObject);
-        }
+        asHit = true;
     }
 
     private void AOE()
-    {   
+    {
         Instantiate(explosionParticle, transform.position, transform.rotation);
 
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
