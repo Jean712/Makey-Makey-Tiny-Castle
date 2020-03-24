@@ -4,15 +4,4 @@ using UnityEngine;
 
 public class E_Infantry: MonoBehaviour
 {
- 
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
 }

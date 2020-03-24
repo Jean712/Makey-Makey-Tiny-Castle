@@ -8,6 +8,7 @@ public class D_Bellows : MonoBehaviour
     public GameObject actualEnemy;
     [HideInInspector]
     public GameObject[] enemies;
+    private AudioSource adsr;
     private bool active = false;
 
     [Header("Basic Configuration")]
@@ -24,8 +25,13 @@ public class D_Bellows : MonoBehaviour
     [Header("Developer Only")]  // Developer Only //
     public bool infinite;       // Developer Only //
 
+    [Header("Audio")]
+    public AudioClip shoot;
+
     private void Awake()
     {
+        adsr = GetComponent<AudioSource>();
+
         timer = cooldown;
         activation = maxActivation;
     }
@@ -43,6 +49,7 @@ public class D_Bellows : MonoBehaviour
             if (Input.GetKeyDown(myInput) && !active)
             {
                 activation = timer / cooldown * maxActivation;
+                adsr.PlayOneShot(shoot);
 
                 StartCoroutine(TornadoMovement(5));
 

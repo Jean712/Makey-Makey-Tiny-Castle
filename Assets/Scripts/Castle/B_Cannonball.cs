@@ -30,22 +30,22 @@ public class B_Cannonball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (!asHit)
+        if (other.GetComponent<Enemy>() != null)
         {
-            adsr.PlayOneShot(impact);
-
-            if (other.GetComponent<Enemy>() != null)
+            if (!asHit)
             {
+                adsr.PlayOneShot(impact);
+
                 if (!other.GetComponent<E_Dragon>())
                 {
                     other.GetComponent<Enemy>().health -= damages;
                 }
 
-                //mshr.enabled = false;
+                mshr.enabled = false;
                 Destroy(gameObject, 3);
             }
-        }
 
-        asHit = true;
+            asHit = true;
+        }
     }
 }

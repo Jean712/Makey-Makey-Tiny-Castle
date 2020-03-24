@@ -30,11 +30,9 @@ public class B_Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!asHit)
+        if (other.GetComponent<Enemy>() != null)
         {
-            adsr.PlayOneShot(impact);
-
-            if (other.GetComponent<Enemy>() != null)
+            if (!asHit)
             {
                 if (other.GetComponent<E_Shield>())
                 {
@@ -43,14 +41,16 @@ public class B_Arrow : MonoBehaviour
                 }
                 else
                 {
+                    adsr.PlayOneShot(impact);
+
                     other.GetComponent<Enemy>().health -= damages;
                 }
 
                 mshr.enabled = false;
                 Destroy(gameObject, 3);
             }
-        }
 
-        asHit = true;
+            asHit = true;
+        }
     }
 }

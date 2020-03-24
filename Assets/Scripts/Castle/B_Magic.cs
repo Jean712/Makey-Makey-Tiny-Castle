@@ -35,11 +35,9 @@ public class B_Magic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!asHit)
+        if (other.GetComponent<Enemy>() != null)
         {
-            adsr.PlayOneShot(impact);
-
-            if (other.GetComponent<Enemy>() != null)
+            if (!asHit)
             {
                 if (other.GetComponent<E_Mage>())
                 {
@@ -49,29 +47,35 @@ public class B_Magic : MonoBehaviour
                 else
                 {
                     other.GetComponent<Enemy>().health -= damages;
-                }
 
-                AOE();
+                    AOE();
+                }
 
                 ptcl.Stop();
                 Destroy(gameObject, 3);
             }
 
-            if (other.name == "Floor")
+            asHit = true;
+        }
+
+        if (other.name == "Floor")
+        {
+            if (!asHit)
             {
                 AOE();
 
                 ptcl.Stop();
                 Destroy(gameObject, 3);
             }
-        }
 
-        asHit = true;
+            asHit = true;
+        }
     }
 
     private void AOE()
     {
         Instantiate(explosionParticle, transform.position, transform.rotation);
+        adsr.PlayOneShot(impact);
 
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 

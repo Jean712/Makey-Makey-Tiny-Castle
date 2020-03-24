@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Victoire.
-        if (spawner.GetComponent<Spawner>().round >= 12)
+        if (spawner.GetComponent<Spawner>().round > 12)
         {
             if (slot1.GetComponent<Slot>().enemiesQueue.Count <= 0 || slot2.GetComponent<Slot>().enemiesQueue.Count <= 0)
             {
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
         if (isPaused)
         {
-            if (Input.GetKeyDown(leftInput))
+            if (Input.GetKeyDown(pauseInput))
             {
                 timeScale = 1;
 

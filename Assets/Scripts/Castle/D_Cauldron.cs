@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class D_Cauldron : MonoBehaviour
 {
+    private AudioSource adsr;
+
     [Header("Basic Configuration")]
     public GameObject lava;
     public GameObject lavaLevel;
@@ -16,8 +18,13 @@ public class D_Cauldron : MonoBehaviour
     public float cooldown;
     private float timer;
 
+    [Header("Audio")]
+    public AudioClip activation;
+
     private void Awake()
     {
+        adsr = GetComponent<AudioSource>();
+
         timer = cooldown;
 
         transform.Find("Target").GetComponent<GizmoCreator>().gizmoSize = distance;    // Developer Only //
@@ -35,6 +42,7 @@ public class D_Cauldron : MonoBehaviour
         if (Input.GetKeyDown(myInput) && !active)
         {
             amtr.Play("Attack");
+            adsr.PlayOneShot(activation);
 
             active = true;
             damages = timer / cooldown * maxDamages;

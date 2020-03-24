@@ -4,16 +4,5 @@ using UnityEngine;
 
 public class E_Shield : MonoBehaviour
 {
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-  
-    }
 }
  
