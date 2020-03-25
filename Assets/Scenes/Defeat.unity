@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputs: 640000006b000000
+  mainCamera: {fileID: 236980824}
 --- !u!4 &82552312
 Transform:
   m_ObjectHideFlags: 0
@@ -175,9 +176,9 @@ GameObject:
   m_Component:
   - component: {fileID: 236980827}
   - component: {fileID: 236980826}
+  - component: {fileID: 236980829}
   - component: {fileID: 236980825}
   - component: {fileID: 236980828}
-  - component: {fileID: 236980829}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
