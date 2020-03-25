@@ -234,6 +234,7 @@ MonoBehaviour:
   heat: 0
   overheated: 0
   ptcl: {fileID: 1376499836926213536}
+  amtr: {fileID: 6596999718576918446}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 610000007500000063000000
@@ -558,6 +559,12 @@ PrefabInstance:
 --- !u!4 &8168755416275917453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2416373021568650394, guid: 55016d2f0cc99b145b239337f657313c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5824721880443213335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6596999718576918446 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 817634204817971641, guid: 55016d2f0cc99b145b239337f657313c,
     type: 3}
   m_PrefabInstance: {fileID: 5824721880443213335}
   m_PrefabAsset: {fileID: 0}

@@ -7,13 +7,13 @@ public class B_Boulder : MonoBehaviour
     private Rigidbody rgbd;
     private AudioSource adsr;
     private MeshRenderer mshr;
+    [HideInInspector]
+    public float shootingPlaceAngle;
 
     [Header("Basic Configuration")]
     public GameObject explosionParticle;
     private float initialForce;
     public float initialBoost;
-    [Range(0, -90)]
-    public float shootingPlaceAngle;
     public float damages;
     public float blastRadius;
     private GameObject[] allEnemies;

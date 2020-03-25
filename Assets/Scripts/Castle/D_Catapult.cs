@@ -11,6 +11,7 @@ public class D_Catapult : MonoBehaviour
     public GameObject bullet;
     public Animator amtr;
     private GameObject shootingPlace;
+    public float shootingAngle;
     public Transform target;
     public float minShootingCooldown;
     private float shootingCooldown;
@@ -20,6 +21,7 @@ public class D_Catapult : MonoBehaviour
 
     private void Awake()
     {
+        shootingCooldown = minShootingCooldown;
         timer = shootingCooldown;
         shootingPlace = transform.Find("ShootingPlace").gameObject;
     }
@@ -48,12 +50,16 @@ public class D_Catapult : MonoBehaviour
                 d_CatapultDistance = enemyTarget.transform.position.z - target.position.z;
             }
 
+            target.transform.LookAt(enemyTarget.transform.Find("ShootingTarget").transform);
+            shootingPlace.transform.rotation = Quaternion.Euler(new Vector3(shootingAngle, target.rotation.eulerAngles.y, 0));
+
             if (timer <= 0)
             {
                 amtr.Play("Attack");
                 GetComponent<Defense>().adsr.PlayOneShot(GetComponent<Defense>().shoot);
 
-                Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
+                GameObject boulder = Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
+                boulder.GetComponent<B_Boulder>().shootingPlaceAngle = shootingAngle;
                 GetComponent<Defense>().heat += heatingSpeed;
 
                 timer = shootingCooldown;

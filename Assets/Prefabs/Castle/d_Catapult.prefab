@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec870e412fe1ef54e8f6fc074234b1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gizmoAspect: 3
-  gizmoSize: 0.25
+  gizmoAspect: 5
+  gizmoSize: 0.75
   gizmoColor: {r: 0, g: 0.9905014, b: 1, a: 1}
 --- !u!1 &4639428402138612495
 GameObject:
@@ -280,6 +280,7 @@ MonoBehaviour:
   heat: 0
   overheated: 0
   ptcl: {fileID: 695329147884563771}
+  amtr: {fileID: 411695971769177741}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 7a0000006900000076000000
@@ -307,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: cec23f654ce647b4ca955b8ed34d3363, type: 3}
   amtr: {fileID: 411695971769177741}
+  shootingAngle: -40
   target: {fileID: 4523380736752902483}
   minShootingCooldown: 2
   maxShootingCooldown: 1.18

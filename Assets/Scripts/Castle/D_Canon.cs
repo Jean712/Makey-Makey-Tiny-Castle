@@ -20,7 +20,6 @@ public class D_Canon : MonoBehaviour
     {
         shootingCooldown = minShootingCooldown;
         timer = shootingCooldown;
-
         shootingPlace = transform.Find("ShootingPlace").gameObject;
     }
 

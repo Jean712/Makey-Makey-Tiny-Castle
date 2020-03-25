@@ -187,6 +187,7 @@ MonoBehaviour:
   heat: 0
   overheated: 0
   ptcl: {fileID: 6303321664288768016}
+  amtr: {fileID: 5827223512696156847}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 72000000700000006e000000
@@ -213,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: 960feab19855b334b85866c81e7ab7ef, type: 3}
+  amtr: {fileID: 5827223512696156847}
   minShootingCooldown: 1
   maxShootingCooldown: 0.59
   heatingSpeed: 5
@@ -324,6 +326,12 @@ PrefabInstance:
 --- !u!4 &5827223512705223975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411524, guid: 77a599bd67f72e24999e1d5d60f433d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5827223512705600163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5827223512696156847 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9566220, guid: 77a599bd67f72e24999e1d5d60f433d0,
     type: 3}
   m_PrefabInstance: {fileID: 5827223512705600163}
   m_PrefabAsset: {fileID: 0}

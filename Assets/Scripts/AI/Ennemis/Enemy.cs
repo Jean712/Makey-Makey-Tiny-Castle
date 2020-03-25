@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         amtr.SetBool("Dead", true);
-        rgbd.velocity = new Vector3(0, 0, 0);
+        rgbd.velocity = new Vector3(0, rgbd.velocity.y, 0);
 
         if (flying)
         {

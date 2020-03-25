@@ -26,7 +26,7 @@ public class Slot : MonoBehaviour
     private bool crankRotate;
     private float timer;
     public GameObject myZone;
-    public bool isACooler = false;
+    public bool isACooler;
 
     private void Awake()
     {

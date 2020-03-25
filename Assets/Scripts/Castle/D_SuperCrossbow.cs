@@ -18,6 +18,7 @@ public class D_SuperCrossbow : MonoBehaviour
 
     private void Awake()
     {
+        shootingCooldown = minShootingCooldown;
         timer = shootingCooldown;
         shootingPlace = transform.Find("ShootingPlace").gameObject;
     }

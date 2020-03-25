@@ -10,7 +10,7 @@ public class Defense : MonoBehaviour
     [HideInInspector]
     public bool onCooler;
     [HideInInspector]
-    public bool active = false;
+    public bool active;
     [HideInInspector]
     public bool crankActive;
     [HideInInspector]
@@ -30,6 +30,7 @@ public class Defense : MonoBehaviour
 
     [Header("Basic Configuration")]
     public ParticleSystem ptcl;
+    public Animator amtr;
     public float timeBeforeShooting = 1;
     private float timer1;
     public Transform myLocation;
@@ -63,6 +64,11 @@ public class Defense : MonoBehaviour
         // Activation et désactivation.
         for (int i = 0; i < myInputs.Length; i++)
         {
+            if (Input.GetKeyDown(myInputs[i]))
+            {
+                amtr.Play("Invoke");
+            }
+
             if (onSlot && !overheated)
             {
                 if (Input.GetKey(myInputs[i]))

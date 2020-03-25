@@ -17,6 +17,7 @@ public class D_MageTower : MonoBehaviour
 
     private void Awake()
     {
+        shootingCooldown = minShootingCooldown;
         timer = shootingCooldown;
         shootingPlace = transform.Find("ShootingPlace").gameObject;
     }
