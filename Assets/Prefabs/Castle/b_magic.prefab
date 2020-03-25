@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 114337622369807000}
   - component: {fileID: 114553103506930672}
   m_Layer: 0
-  m_Name: b_Magic
+  m_Name: b_magic
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoAspect: 2
-  gizmoSize: 0.25
+  gizmoSize: 3
   gizmoColor: {r: 1, g: 0, b: 0.97981787, a: 1}
 --- !u!1001 &9112046656770048235
 PrefabInstance:

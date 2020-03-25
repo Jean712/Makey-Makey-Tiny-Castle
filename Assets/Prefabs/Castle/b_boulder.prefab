@@ -173,10 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9a34795f471244cbf41c090728fb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingPlaceAngle: -40
   explosionParticle: {fileID: 5292554839137995347, guid: 0813e3df61eb59a44ad37acfdc997a2d,
     type: 3}
   initialBoost: 2.5
-  shootingPlaceAngle: -40
   damages: 3
   blastRadius: 5
   impact: {fileID: 8300000, guid: d90913ffced1294469a6f80a3798b197, type: 3}
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoAspect: 2
-  gizmoSize: 10
+  gizmoSize: 5
   gizmoColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
 --- !u!1001 &4933621365023885448
 PrefabInstance:
