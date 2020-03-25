@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    private bool free = true;
-
     [HideInInspector]
     public Queue<GameObject> enemiesQueue;
     [HideInInspector]
@@ -15,21 +13,32 @@ public class Slot : MonoBehaviour
     private GameObject actualEnemy;
     private GameObject actualWalkingEnemy;
     private GameObject actualFlyingEnemy;
+    public AudioSource adsr;
 
     [Header("Basic Configuration")]
     public Transform target;
     public GameObject[] defenses;
     public GameObject myBellows;
     public GameObject cauldron;
+    private bool free = true;
     public KeyCode[] myInputs;
     public KeyCode crankInput;
     private bool crankRotate;
     private float timer;
     public GameObject myZone;
     public bool isACooler;
+    private GameObject coolingPtcl;
+
+    [Header("Audio")]
+    public AudioClip cooling;
 
     private void Awake()
     {
+        adsr = GetComponent<AudioSource>();
+
+        coolingPtcl = transform.Find("Cool").gameObject;
+        coolingPtcl.SetActive(false);
+
         if (myZone != null)
         {
             enemiesQueue = new Queue<GameObject>();
@@ -103,6 +112,16 @@ public class Slot : MonoBehaviour
                 if (Input.GetKeyDown(myInputs[i]) && free)
                 {
                     defenses[i].transform.position = target.position;
+
+                    if (isACooler)
+                    {
+                        coolingPtcl.SetActive(true);
+
+                        if (GameManager.soundOn)
+                        {
+                            adsr.PlayOneShot(cooling);
+                        }
+                    }
                 }
 
                 if (Input.GetKey(myInputs[i]))
@@ -154,6 +173,8 @@ public class Slot : MonoBehaviour
                     {
                         myZone.GetComponent<TriggerLaneZone>().myDefense = null;
                     }
+
+                    coolingPtcl.SetActive(false);
 
                     defenses[i].GetComponent<Defense>().onCooler = false;
                     defenses[i].GetComponent<Defense>().onSlot = false;

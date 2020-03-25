@@ -49,7 +49,11 @@ public class D_Bellows : MonoBehaviour
             if (Input.GetKeyDown(myInput) && !active)
             {
                 activation = timer / cooldown * maxActivation;
-                adsr.PlayOneShot(shoot);
+
+                if (GameManager.soundOn)
+                {
+                    adsr.PlayOneShot(shoot);
+                }
 
                 StartCoroutine(TornadoMovement(5));
 

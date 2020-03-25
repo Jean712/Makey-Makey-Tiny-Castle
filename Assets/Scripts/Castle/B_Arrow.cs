@@ -13,7 +13,7 @@ public class B_Arrow : MonoBehaviour
     public float damages;
     private bool asHit = false;
 
-    [Header("Sound")]
+    [Header("Audio")]
     public AudioClip impact;
 
     private void Awake()
@@ -37,11 +37,18 @@ public class B_Arrow : MonoBehaviour
                 if (other.GetComponent<E_Shield>())
                 {
                     other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
-                    other.GetComponent<Enemy>().adsr.PlayOneShot(other.GetComponent<Enemy>().parry);
+
+                    if (GameManager.soundOn)
+                    {
+                        other.GetComponent<Enemy>().adsr.PlayOneShot(other.GetComponent<Enemy>().parry);
+                    }
                 }
                 else
                 {
-                    adsr.PlayOneShot(impact);
+                    if (GameManager.soundOn)
+                    {
+                        adsr.PlayOneShot(impact);
+                    }
 
                     other.GetComponent<Enemy>().health -= damages;
                 }

@@ -43,11 +43,10 @@ public class Defense : MonoBehaviour
     public float overheatedCancelTime;
     private float timer2;
 
-    [Header("Sound")]
+    [Header("Audio")]
     public AudioClip impact;
     public AudioClip shoot;
     public AudioClip overheat;
-    public AudioClip recovery;
 
     private void Awake()
     {
@@ -111,7 +110,10 @@ public class Defense : MonoBehaviour
 
                 if (heat >= maxHeat)
                 {
-                    adsr.PlayOneShot(overheat);
+                    if (GameManager.soundOn)
+                    {
+                        adsr.PlayOneShot(overheat);
+                    }
 
                     overheated = true;
                 }
@@ -133,8 +135,6 @@ public class Defense : MonoBehaviour
 
                     if (timer2 <= 0)
                     {
-                        adsr.PlayOneShot(recovery);
-
                         heat = heatAfterCancel;
                         overheated = false;
                     }
@@ -150,7 +150,11 @@ public class Defense : MonoBehaviour
         if (collision.gameObject.GetComponent<Slot>() != null)
         {
             ptcl.Play();
-            adsr.PlayOneShot(impact);
+
+            if (GameManager.soundOn)
+            {
+                adsr.PlayOneShot(impact);
+            }
         }
     }
 }

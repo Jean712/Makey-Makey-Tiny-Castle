@@ -42,7 +42,11 @@ public class D_Cauldron : MonoBehaviour
         if (Input.GetKeyDown(myInput) && !active)
         {
             amtr.Play("Attack");
-            adsr.PlayOneShot(activation);
+
+            if (GameManager.soundOn)
+            {
+                adsr.PlayOneShot(activation);
+            }
 
             active = true;
             damages = timer / cooldown * maxDamages;

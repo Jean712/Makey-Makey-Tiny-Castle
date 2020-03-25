@@ -19,7 +19,7 @@ public class B_Boulder : MonoBehaviour
     private GameObject[] allEnemies;
     private bool asHit = false;
 
-    [Header("Sound")]
+    [Header("Audio")]
     public AudioClip impact;
     public AudioClip flying;
 
@@ -34,7 +34,10 @@ public class B_Boulder : MonoBehaviour
         initialForce = Mathf.Sqrt((-D_Catapult.d_CatapultDistance / Mathf.Sin(2 * shootingPlaceAngle)) * Physics.gravity.magnitude) * initialBoost;
         rgbd.AddForce(transform.forward * initialForce, ForceMode.Impulse);
 
-        adsr.PlayOneShot(flying);
+        if (GameManager.soundOn)
+        {
+            adsr.PlayOneShot(flying);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -75,7 +78,11 @@ public class B_Boulder : MonoBehaviour
     private void AOE()
     {
         Instantiate(explosionParticle, transform.position, transform.rotation);
-        adsr.PlayOneShot(impact);
+
+        if (GameManager.soundOn)
+        {
+            adsr.PlayOneShot(impact);
+        }
 
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 

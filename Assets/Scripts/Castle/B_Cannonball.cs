@@ -13,7 +13,7 @@ public class B_Cannonball : MonoBehaviour
     public float damages;
     private bool asHit = false;
 
-    [Header("Sound")]
+    [Header("Audio")]
     public AudioClip impact;
 
     private void Awake()
@@ -34,7 +34,10 @@ public class B_Cannonball : MonoBehaviour
         {
             if (!asHit)
             {
-                adsr.PlayOneShot(impact);
+                if (GameManager.soundOn)
+                {
+                    adsr.PlayOneShot(impact);
+                }
 
                 if (!other.GetComponent<E_Dragon>())
                 {

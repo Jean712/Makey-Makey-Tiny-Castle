@@ -46,7 +46,11 @@ public class D_Canon : MonoBehaviour
             if (timer <= 0)
             {
                 ptcl.Play();
-                GetComponent<Defense>().adsr.PlayOneShot(GetComponent<Defense>().shoot);
+
+                if (GameManager.soundOn)
+                {
+                    GetComponent<Defense>().adsr.PlayOneShot(GetComponent<Defense>().shoot);
+                }
 
                 Instantiate(bullet, shootingPlace.transform.position, shootingPlace.transform.rotation);
                 GetComponent<Defense>().heat += heatingSpeed;

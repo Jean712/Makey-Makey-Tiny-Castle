@@ -16,7 +16,7 @@ public class B_Magic : MonoBehaviour
     private GameObject[] allEnemies;
     private bool asHit = false;
 
-    [Header("Sound")]
+    [Header("Audio")]
     public AudioClip impact;
 
     private void Awake()
@@ -42,7 +42,11 @@ public class B_Magic : MonoBehaviour
                 if (other.GetComponent<E_Mage>())
                 {
                     other.gameObject.GetComponentInChildren<ParticleSystem>().Play();
-                    other.GetComponent<Enemy>().adsr.PlayOneShot(other.GetComponent<Enemy>().parry);
+
+                    if (GameManager.soundOn)
+                    {
+                        other.GetComponent<Enemy>().adsr.PlayOneShot(other.GetComponent<Enemy>().parry);
+                    }
                 }
                 else
                 {
@@ -75,7 +79,11 @@ public class B_Magic : MonoBehaviour
     private void AOE()
     {
         Instantiate(explosionParticle, transform.position, transform.rotation);
-        adsr.PlayOneShot(impact);
+
+        if (GameManager.soundOn)
+        {
+            adsr.PlayOneShot(impact);
+        }
 
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 

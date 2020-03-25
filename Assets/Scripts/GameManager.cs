@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private AudioSource adsr;
+
     [Header("Developer Only")]  // Developer Only //
     [Range(0, 100)]             // Developer Only //
     public float timeScale = 1;
@@ -20,13 +22,16 @@ public class GameManager : MonoBehaviour
     public GameObject bellows2;
     public GameObject gameUI;
     public GameObject pauseUI;
+    public GameObject cross;
     public GameObject mainCamera;
     public static bool isPaused = false;
-    private bool soundOn = true;
+    public static bool soundOn = true;
     public static int currentLevel = 3;
 
     private void Awake()
     {
+        adsr = mainCamera.GetComponent<AudioSource>();
+
         pauseUI.SetActive(false);
 
         leftInput = bellows1.GetComponent<D_Bellows>().myInput;
@@ -69,14 +74,10 @@ public class GameManager : MonoBehaviour
             {
                 if (soundOn)
                 {
-                    mainCamera.GetComponent<AudioListener>().enabled = false;
-
                     soundOn = false;
                 }
                 else
                 {
-                    mainCamera.GetComponent<AudioListener>().enabled = true;
-
                     soundOn = true;
                 }
             }
@@ -92,6 +93,17 @@ public class GameManager : MonoBehaviour
 
                 isPaused = true;
             }
+        }
+
+        if (soundOn)
+        {
+            adsr.mute = false;
+            cross.SetActive(false);
+        }
+        else
+        {
+            adsr.mute = true;
+            cross.SetActive(true);
         }
     }
 

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [HideInInspector]
+    public Animator amtr;
+    [HideInInspector]
+    public Rigidbody rgbd;
+    [HideInInspector]
+    public AudioSource adsr;
+    private GameObject fire;
+
     [Header("Basic Configuration")]
     public float health = 1;
     public float damages = 1;
@@ -15,26 +23,20 @@ public class Enemy : MonoBehaviour
     public AudioClip attack;
     public AudioClip parry;
 
-    [HideInInspector]
-    public Animator amtr;
-    [HideInInspector]
-    public Rigidbody rgbd;
-    [HideInInspector]
-    public AudioSource adsr;
-
-
     private void Awake()
     {
         rgbd = GetComponent<Rigidbody>();
         amtr = GetComponent<Animator>();
         adsr = GetComponent<AudioSource>();
+        fire = transform.Find("Fire").gameObject;
 
         amtr.SetBool("Dead", false);
         amtr.SetFloat("Speed", 1);
+        fire.SetActive(false);
 
         rgbd.velocity += new Vector3(0, 0, 1) * speed;
     }
-    
+
     private void Update()
     {
         healingDelay += Time.deltaTime * 1;
@@ -54,17 +56,25 @@ public class Enemy : MonoBehaviour
         if (other.GetComponent<Castle>() != null)
         {
             amtr.Play("attack_02");
-            adsr.PlayOneShot(attack);
+
+            if (GameManager.soundOn)
+            {
+                adsr.PlayOneShot(attack);
+            }
 
             other.GetComponent<Castle>().health -= damages;
             Destroy(gameObject, 0.5f);
         }
-     
+
+        if (other.GetComponent<Lava>() != null)
+        {
+            fire.SetActive(true);
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<P_Heal>() != null & healingDelay > 1.9f & healingDelay <1.91111f)
+        if (other.GetComponent<P_Heal>() != null & healingDelay > 1.9f & healingDelay < 1.91111f)
         {
             health += 1f;
         }
