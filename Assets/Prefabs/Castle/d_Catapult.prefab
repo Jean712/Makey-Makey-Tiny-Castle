@@ -285,8 +285,8 @@ MonoBehaviour:
   myInputs: 7a0000006900000076000000
   maxHeat: 100
   cooldownBar: {fileID: 0}
-  coolingSpeed: 1
-  coolingSpeedOnBooster: 2
+  coolingSpeed: 2
+  coolingSpeedOnBooster: 7
   heatAfterCancel: 20
   overheatedCancelTime: 10
   impact: {fileID: 8300000, guid: 062148f22b62f8141ae9af51848516a1, type: 3}
@@ -308,9 +308,9 @@ MonoBehaviour:
   bullet: {fileID: 6905838584920914721, guid: cec23f654ce647b4ca955b8ed34d3363, type: 3}
   amtr: {fileID: 411695971769177741}
   target: {fileID: 4523380736752902483}
-  minShootingCooldown: 2
-  maxShootingCooldown: 1.18
-  heatingSpeed: 10
+  minShootingCooldown: 2.86
+  maxShootingCooldown: 1.68
+  heatingSpeed: 14.3
 --- !u!1001 &695329147866399197
 PrefabInstance:
   m_ObjectHideFlags: 0

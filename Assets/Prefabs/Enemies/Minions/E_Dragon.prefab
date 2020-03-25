@@ -662,12 +662,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd50a19d3ab475409d1a3759885a5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 6
   damages: 2
-  speed: 1
+  speed: 1.6
   healingDelay: 0
   flying: 1
   attack: {fileID: 8300000, guid: f589f8b26648ac849a59550d3a8cd6d9, type: 3}
+  parry: {fileID: 0}
   amtr: {fileID: 0}
   rgbd: {fileID: 0}
   adsr: {fileID: 0}
