@@ -40,14 +40,7 @@ public class GameManager : MonoBehaviour
         {
             if (slot1.GetComponent<Slot>().enemiesQueue.Count <= 0 || slot2.GetComponent<Slot>().enemiesQueue.Count <= 0)
             {
-                currentLevel++;
-
-                if (currentLevel >= 6)
-                {
-                    currentLevel = 3;
-                }
-
-                SceneManager.LoadScene("Victory");
+                StartCoroutine(Victory(3));
             }
         }
 
@@ -100,5 +93,19 @@ public class GameManager : MonoBehaviour
                 isPaused = true;
             }
         }
+    }
+
+    IEnumerator Victory(float time)
+    {
+        currentLevel++;
+
+        if (currentLevel >= 6)
+        {
+            currentLevel = 3;
+        }
+
+        yield return new WaitForSeconds(time);
+
+        SceneManager.LoadScene("Victory");
     }
 }
