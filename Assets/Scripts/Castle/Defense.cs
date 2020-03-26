@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Defense : MonoBehaviour
 {
@@ -24,9 +25,8 @@ public class Defense : MonoBehaviour
 
     [Header("Developer Only")]          // Developer Only //
     public bool canHeat = false;        // Developer Only //
-    [Range(0, 100)]                     // Developer Only //
+    [Range(0, 101)]                     // Developer Only //
     public float heat;
-    public bool overheated = false;
 
     [Header("Basic Configuration")]
     public ParticleSystem ptcl;
@@ -39,9 +39,12 @@ public class Defense : MonoBehaviour
     public GameObject cooldownBar;
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
+    private bool overheated;
+    private bool exitOverheat;
     public float heatAfterCancel;
     public float overheatedCancelTime;
     private float timer2;
+    public GameObject tutorialUI;
 
     [Header("Audio")]
     public AudioClip impact;
@@ -56,6 +59,11 @@ public class Defense : MonoBehaviour
         timer2 = overheatedCancelTime;
 
         cooldownBar.GetComponent<Slider>().maxValue = maxHeat;
+
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            tutorialUI.SetActive(false);
+        }
     }
 
     private void Update()
@@ -115,6 +123,12 @@ public class Defense : MonoBehaviour
                         adsr.PlayOneShot(overheat);
                     }
 
+                    if (SceneManager.GetActiveScene().name == "Level1" && !GameManager.overheatTutorialSeen)
+                    {
+                        StartCoroutine(OverheatTutorial(7));
+                        GameManager.overheatTutorialSeen = true;
+                    }
+
                     overheated = true;
                 }
             }
@@ -129,15 +143,30 @@ public class Defense : MonoBehaviour
             {
                 active = false;
 
+                if (!exitOverheat)
+                {
+                    heat = maxHeat;
+                }
+
                 if (!onSlot)
                 {
                     timer2 -= Time.deltaTime;
 
                     if (timer2 <= 0)
                     {
-                        heat = heatAfterCancel;
-                        overheated = false;
+                        exitOverheat = true;
                     }
+                }
+            }
+
+            if (exitOverheat)
+            {
+                heat = Mathf.Lerp(heat, heatAfterCancel, 0.1f);
+
+                if (heat >= heatAfterCancel && heat <= heatAfterCancel + 0.1f)
+                {
+                    overheated = false;
+                    exitOverheat = false;
                 }
             }
         }                                                               //Developer Only //
@@ -157,4 +186,16 @@ public class Defense : MonoBehaviour
             }
         }
     }
+
+    IEnumerator OverheatTutorial(float time)
+    {
+        tutorialUI.SetActive(true);
+        Time.timeScale = 0;
+
+        yield return new WaitForSecondsRealtime(time);
+
+        tutorialUI.SetActive(false);
+        Time.timeScale = 1;
+    }
+
 }

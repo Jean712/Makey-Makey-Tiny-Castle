@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
+  m_Color: {r: 0.6313726, g: 0.05882353, b: 0, a: 0.6862745}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -972,11 +972,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tz_MageStopToMove
-      objectReference: {fileID: 0}
-    - target: {fileID: 6281494247575931474, guid: 9f06c64a64d067347b396be987b981b6,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f06c64a64d067347b396be987b981b6, type: 3}
@@ -2408,8 +2403,8 @@ Transform:
   m_LocalPosition: {x: -1.5, y: 0, z: 39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 710186797}
   - {fileID: 1914206368}
-  - {fileID: 442086844}
   - {fileID: 2299350301487664562}
   - {fileID: 157782695}
   - {fileID: 5256411598965975313}
@@ -2417,7 +2412,7 @@ Transform:
   - {fileID: 6668146925160230583}
   - {fileID: 1200084032}
   - {fileID: 216748222}
-  - {fileID: 710186797}
+  - {fileID: 442086844}
   - {fileID: 1079212998}
   - {fileID: 596317376}
   - {fileID: 2138871411}
@@ -2908,7 +2903,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 45}
+  m_Size: {x: 12, y: 12, z: 42}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &262552183
 MeshFilter:
@@ -2926,7 +2921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262552180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 6, z: 25}
+  m_LocalPosition: {x: 7, y: 6, z: 23.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 216834018}
@@ -4138,7 +4133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 216834018}
-  m_RootOrder: 1
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &442086845
 BoxCollider:
@@ -4852,7 +4847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
+  m_Color: {r: 0.6313726, g: 0.05882353, b: 0, a: 0.6862745}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5961,7 +5956,7 @@ PrefabInstance:
     - target: {fileID: 1957183041378319074, guid: ab5c410d8089e5e4e99d9e56f45ec498,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1957183041378319074, guid: ab5c410d8089e5e4e99d9e56f45ec498,
         type: 3}
@@ -6072,7 +6067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
+  m_Color: {r: 0.6313726, g: 0.05882353, b: 0, a: 0.6862745}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6781,13 +6776,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794877229}
-  m_LocalRotation: {x: 0.0036975364, y: 0.92965066, z: -0.3683504, w: 0.007346797}
-  m_LocalPosition: {x: -1.09, y: 15.34, z: 46.9}
+  m_LocalRotation: {x: 0, y: 0.953717, z: -0.30070576, w: 0}
+  m_LocalPosition: {x: -1.5, y: 14, z: 47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 43.23, y: 179.14, z: 0.115}
+  m_LocalEulerAnglesHint: {x: 35, y: 180, z: 0}
 --- !u!1 &802924795
 GameObject:
   m_ObjectHideFlags: 0
@@ -7921,7 +7916,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 45}
+  m_Size: {x: 12, y: 12, z: 42}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &956984999
 MeshFilter:
@@ -7939,7 +7934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956984995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 6, z: 25}
+  m_LocalPosition: {x: -7, y: 6, z: 23.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 216834018}
@@ -12589,7 +12584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
+  m_Color: {r: 0.6313726, g: 0.05882353, b: 0, a: 0.6862745}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14165,8 +14160,13 @@ MonoBehaviour:
   pauseInput: 27
   bellows1: {fileID: 1020991048}
   bellows2: {fileID: 157782694}
+  canonInputs: 
+  catapultInputs: 
+  superCrossbowInputs: 
+  mageTowerInputs: 
   gameUI: {fileID: 497268238}
   pauseUI: {fileID: 507129947}
+  tutorialUIs: []
   cross: {fileID: 1562534160}
   mainCamera: {fileID: 794877229}
 --- !u!1 &1846956985 stripped
@@ -14444,7 +14444,7 @@ PrefabInstance:
     - target: {fileID: 2627274585680195641, guid: efcea80caed67064b9e21448904844ac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2627274585680195641, guid: efcea80caed67064b9e21448904844ac,
         type: 3}
@@ -16506,7 +16506,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 35, y: 4, z: 8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1914206367
 MeshFilter:
@@ -16524,11 +16524,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914206364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.05, z: -5}
-  m_LocalScale: {x: 20, y: 4, z: 15}
+  m_LocalPosition: {x: 0, y: 2.05, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 216834018}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914206369
 MonoBehaviour:
@@ -17616,7 +17616,7 @@ PrefabInstance:
     - target: {fileID: 2627274585680195641, guid: efcea80caed67064b9e21448904844ac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2627274585680195641, guid: efcea80caed67064b9e21448904844ac,
         type: 3}

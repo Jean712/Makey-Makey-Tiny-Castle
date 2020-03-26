@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         healingDelay += Time.deltaTime * 1;
+
         if (healingDelay >= 2)
         {
             healingDelay = 0;

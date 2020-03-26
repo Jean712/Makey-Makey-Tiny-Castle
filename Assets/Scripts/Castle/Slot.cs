@@ -148,7 +148,7 @@ public class Slot : MonoBehaviour
 
                         if (Input.GetKeyUp(crankInput))
                         {
-                            timer = 1f;
+                            timer = 0.1f;
                             crankRotate = true;
                         }
 
