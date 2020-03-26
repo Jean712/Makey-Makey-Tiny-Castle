@@ -10,7 +10,8 @@ public class Slot : MonoBehaviour
     public Queue<GameObject> walkingEnemiesQueue;
     [HideInInspector]
     public Queue<GameObject> flyingEnemiesQueue;
-    private GameObject actualEnemy;
+    [HideInInspector]
+    public GameObject actualEnemy;
     private GameObject actualWalkingEnemy;
     private GameObject actualFlyingEnemy;
     public AudioSource adsr;
@@ -145,7 +146,7 @@ public class Slot : MonoBehaviour
                         // Manivelle.
                         timer -= Time.deltaTime;
 
-                        if (Input.GetKeyDown(crankInput))
+                        if (Input.GetKeyUp(crankInput))
                         {
                             timer = 1f;
                             crankRotate = true;

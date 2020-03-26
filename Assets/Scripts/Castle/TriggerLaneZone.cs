@@ -11,17 +11,15 @@ public class TriggerLaneZone : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            GameObject enemy = other.gameObject;
-
-            mySlot.GetComponent<Slot>().enemiesQueue.Enqueue(enemy);
+            mySlot.GetComponent<Slot>().enemiesQueue.Enqueue(other.gameObject);
             
             if (other.GetComponent<Enemy>().flying)
             {
-                mySlot.GetComponent<Slot>().flyingEnemiesQueue.Enqueue(enemy);
+                mySlot.GetComponent<Slot>().flyingEnemiesQueue.Enqueue(other.gameObject);
             }
             else
             {
-                mySlot.GetComponent<Slot>().walkingEnemiesQueue.Enqueue(enemy);
+                mySlot.GetComponent<Slot>().walkingEnemiesQueue.Enqueue(other.gameObject);
             }
         }
     }

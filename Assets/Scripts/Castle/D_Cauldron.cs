@@ -32,38 +32,41 @@ public class D_Cauldron : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= cooldown)
+        if (!GameManager.isPaused)
         {
-            timer = cooldown;
-        }
+            timer += Time.deltaTime;
 
-        if (Input.GetKeyDown(myInput) && !active)
-        {
-            amtr.Play("Attack");
-
-            if (GameManager.soundOn)
+            if (timer >= cooldown)
             {
-                adsr.PlayOneShot(activation);
+                timer = cooldown;
             }
 
-            active = true;
-            damages = timer / cooldown * maxDamages;
-            lava.GetComponent<Lava>().damages = damages;
+            if (Input.GetKeyDown(myInput) && !active)
+            {
+                amtr.Play("Attack");
 
-            lavaLevel.SetActive(false);
-        }
+                if (GameManager.soundOn)
+                {
+                    adsr.PlayOneShot(activation);
+                }
 
-        if (active)
-        {
-            lava.transform.position = Vector3.Lerp(lava.transform.position, new Vector3(-1.5f, 0, 41 - distance), 0.05f);
+                active = true;
+                damages = timer / cooldown * maxDamages;
+                lava.GetComponent<Lava>().damages = damages;
 
-            StartCoroutine(LavaMovement(3));
-        }
-        else
-        {
-            lavaLevel.transform.position = new Vector3(-1.5f, timer / cooldown + 5, 38.5f);
+                lavaLevel.SetActive(false);
+            }
+
+            if (active)
+            {
+                lava.transform.position = Vector3.Lerp(lava.transform.position, new Vector3(-1.5f, 0, 41 - distance), 0.05f);
+
+                StartCoroutine(LavaMovement(3));
+            }
+            else
+            {
+                lavaLevel.transform.position = new Vector3(-1.5f, timer / cooldown + 5, 38.5f);
+            }
         }
     }
 

@@ -63,103 +63,106 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0)
+        if (!GameManager.isPaused)
         {
-            switch (round)
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
             {
-                case 1:
-                    for (int i = 0; i < targets1.Length; i++)
-                    {
-                        Instantiate(enemies1[i], targets1[i]);
-                    }
+                switch (round)
+                {
+                    case 1:
+                        for (int i = 0; i < targets1.Length; i++)
+                        {
+                            Instantiate(enemies1[i], targets1[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 2:
-                    for (int i = 0; i < targets2.Length; i++)
-                    {
-                        Instantiate(enemies2[i], targets2[i]);
-                    }
+                    case 2:
+                        for (int i = 0; i < targets2.Length; i++)
+                        {
+                            Instantiate(enemies2[i], targets2[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 3:
-                    for (int i = 0; i < targets3.Length; i++)
-                    {
-                        Instantiate(enemies3[i], targets3[i]);
-                    }
+                    case 3:
+                        for (int i = 0; i < targets3.Length; i++)
+                        {
+                            Instantiate(enemies3[i], targets3[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 4:
-                    for (int i = 0; i < targets4.Length; i++)
-                    {
-                        Instantiate(enemies4[i], targets4[i]);
-                    }
+                    case 4:
+                        for (int i = 0; i < targets4.Length; i++)
+                        {
+                            Instantiate(enemies4[i], targets4[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 5:
-                    for (int i = 0; i < targets5.Length; i++)
-                    {
-                        Instantiate(enemies5[i], targets5[i]);
-                    }
+                    case 5:
+                        for (int i = 0; i < targets5.Length; i++)
+                        {
+                            Instantiate(enemies5[i], targets5[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 6:
-                    for (int i = 0; i < targets6.Length; i++)
-                    {
-                        Instantiate(enemies6[i], targets6[i]);
-                    }
+                    case 6:
+                        for (int i = 0; i < targets6.Length; i++)
+                        {
+                            Instantiate(enemies6[i], targets6[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 7:
-                    for (int i = 0; i < targets7.Length; i++)
-                    {
-                        Instantiate(enemies7[i], targets7[i]);
-                    }
+                    case 7:
+                        for (int i = 0; i < targets7.Length; i++)
+                        {
+                            Instantiate(enemies7[i], targets7[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 8:
-                    for (int i = 0; i < targets8.Length; i++)
-                    {
-                        Instantiate(enemies8[i], targets8[i]);
-                    }
+                    case 8:
+                        for (int i = 0; i < targets8.Length; i++)
+                        {
+                            Instantiate(enemies8[i], targets8[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 9:
-                    for (int i = 0; i < targets9.Length; i++)
-                    {
-                        Instantiate(enemies9[i], targets9[i]);
-                    }
+                    case 9:
+                        for (int i = 0; i < targets9.Length; i++)
+                        {
+                            Instantiate(enemies9[i], targets9[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 10:
-                    for (int i = 0; i < targets10.Length; i++)
-                    {
-                        Instantiate(enemies10[i], targets10[i]);
-                    }
+                    case 10:
+                        for (int i = 0; i < targets10.Length; i++)
+                        {
+                            Instantiate(enemies10[i], targets10[i]);
+                        }
 
-                    break;
+                        break;
 
-                case 11:
-                    for (int i = 0; i < targets11.Length; i++)
-                    {
-                        Instantiate(enemies11[i], targets11[i]);
-                    }
+                    case 11:
+                        for (int i = 0; i < targets11.Length; i++)
+                        {
+                            Instantiate(enemies11[i], targets11[i]);
+                        }
 
-                    break;
+                        break;
+                }
+
+                round++;
+                timer = roundCooldown;
             }
-
-            round++;
-            timer = roundCooldown;
         }
     }
 }

@@ -28,11 +28,15 @@ public class Enemy : MonoBehaviour
         rgbd = GetComponent<Rigidbody>();
         amtr = GetComponent<Animator>();
         adsr = GetComponent<AudioSource>();
-        fire = transform.Find("Fire").gameObject;
+
+        if (GetComponent<E_Dragon>() == null)
+        {
+            fire = transform.Find("Fire").gameObject;
+            fire.SetActive(false);
+        }
 
         amtr.SetBool("Dead", false);
         amtr.SetFloat("Speed", 1);
-        fire.SetActive(false);
 
         rgbd.velocity += new Vector3(0, 0, 1) * speed;
     }

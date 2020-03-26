@@ -41,9 +41,9 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Victoire.
-        if (spawner.GetComponent<Spawner>().round > 12)
+        if (spawner.GetComponent<Spawner>().round >= 13)
         {
-            if (slot1.GetComponent<Slot>().enemiesQueue.Count <= 0 || slot2.GetComponent<Slot>().enemiesQueue.Count <= 0)
+            if (slot1.GetComponent<Slot>().actualEnemy == null && slot2.GetComponent<Slot>().actualEnemy == null)
             {
                 StartCoroutine(Victory(3));
             }

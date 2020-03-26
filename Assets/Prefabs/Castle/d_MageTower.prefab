@@ -199,8 +199,7 @@ MonoBehaviour:
   overheatedCancelTime: 10
   impact: {fileID: 8300000, guid: 062148f22b62f8141ae9af51848516a1, type: 3}
   shoot: {fileID: 8300000, guid: 498a372c991ad8742bc2962e0c7827b1, type: 3}
-  overheat: {fileID: 8300000, guid: 6a650589872347c4ba01263cc45319ec, type: 3}
-  recovery: {fileID: 8300000, guid: f48a6a6d3c3e7fb43afe829aa288d1f1, type: 3}
+  overheat: {fileID: 8300000, guid: 6a83ff38fe7f48643a79365859b09c53, type: 3}
 --- !u!114 &430932700048789558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6905838584920914721, guid: 960feab19855b334b85866c81e7ab7ef, type: 3}
-  amtr: {fileID: 5827223512696156847}
   minShootingCooldown: 1
   maxShootingCooldown: 0.59
   heatingSpeed: 5
