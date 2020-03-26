@@ -71,6 +71,13 @@ public class Slot : MonoBehaviour
                         actualEnemy = enemiesQueue.Dequeue();
                     }
                 }
+                else if (actualEnemy != null)
+                {
+                    if (actualEnemy.GetComponent<Enemy>().health <= 0)
+                    {
+                        actualEnemy = null;
+                    }
+                }
 
                 if (walkingEnemiesQueue.Count >= 1)
                 {
@@ -86,6 +93,13 @@ public class Slot : MonoBehaviour
                         actualWalkingEnemy = walkingEnemiesQueue.Dequeue();
                     }
                 }
+                else if (actualWalkingEnemy != null)
+                {
+                    if (actualWalkingEnemy.GetComponent<Enemy>().health <= 0)
+                    {
+                        actualWalkingEnemy = null;
+                    }
+                }
 
                 if (flyingEnemiesQueue.Count >= 1)
                 {
@@ -99,6 +113,13 @@ public class Slot : MonoBehaviour
                     else
                     {
                         actualFlyingEnemy = flyingEnemiesQueue.Dequeue();
+                    }
+                }
+                else if (actualFlyingEnemy != null)
+                {
+                    if (actualFlyingEnemy.GetComponent<Enemy>().health <= 0)
+                    {
+                        actualFlyingEnemy = null;
                     }
                 }
 

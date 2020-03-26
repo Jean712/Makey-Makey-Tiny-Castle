@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Basic Configuration")]
     public GameObject spawner;
+    private bool finalRoundActivated;
     public GameObject slot1;
     public GameObject slot2;
     public KeyCode pauseInput;
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
     public static int currentLevel = 3;
     private bool normalize;
 
+    [Header("Audio")]
+    public AudioClip level;
+    public AudioClip finalRound;
+
     private void Awake()
     {
         adsr = mainCamera.GetComponent<AudioSource>();
@@ -50,18 +55,43 @@ public class GameManager : MonoBehaviour
                 tutorialUIs[i].SetActive(false);
             }
         }
+
+        adsr.PlayOneShot(level);
     }
 
     private void Update()
     {
-        Debug.Log(currentLevel);
-
         // Victoire.
         if (spawner.GetComponent<Spawner>().round >= 13)
         {
             if (slot1.GetComponent<Slot>().actualEnemy == null && slot2.GetComponent<Slot>().actualEnemy == null)
             {
                 StartCoroutine(Victory(3));
+            }
+        }
+
+        // Musique manche finale.
+        if (spawner.GetComponent<Spawner>().round == 11 && spawner.GetComponent<Spawner>().timer <= 7.5f)
+        {
+            bool lerpEnded = false;
+
+            if (!finalRoundActivated)
+            {
+                if (!lerpEnded)
+                {
+                    adsr.volume = Mathf.Lerp(adsr.volume, 0, 0.05f);
+                }
+
+                if (adsr.volume >= 0 && adsr.volume <= 0.001f)
+                {
+                    lerpEnded = true;
+
+                    adsr.volume = 0.3f;
+                    adsr.Stop();
+                    adsr.PlayOneShot(finalRound);
+
+                    finalRoundActivated = true;
+                }
             }
         }
 

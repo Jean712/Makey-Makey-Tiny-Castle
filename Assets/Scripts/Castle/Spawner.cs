@@ -8,8 +8,9 @@ public class Spawner : MonoBehaviour
     public int round;
 
     [Header("Basic Configuration")]
-    public float roundCooldown = 3;
-    private float timer;
+    public float roundCooldown;
+    [HideInInspector]
+    public float timer;
 
     [Header("Round 1")]
     public Transform[] targets1;
@@ -58,7 +59,7 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         round = 1;
-        timer = 5;
+        timer = 2;
     }
 
     private void Update()
