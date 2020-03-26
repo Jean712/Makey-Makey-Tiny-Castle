@@ -6068,7 +6068,7 @@ MonoBehaviour:
   adsr: {fileID: 0}
   health: 12
   damages: 6
-  speed: 1.2
+  speed: 1
   healingDelay: 0
   flying: 0
   attack: {fileID: 8300000, guid: f67294fa64fa23141af835ab29cb4d22, type: 3}

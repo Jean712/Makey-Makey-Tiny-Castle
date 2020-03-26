@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 75
-  damages: 1
+  damages: 1.3
   impact: {fileID: 8300000, guid: 9829939aec330e049a4a9912f20cdaf9, type: 3}
 --- !u!1001 &7446371115052599142
 PrefabInstance:
