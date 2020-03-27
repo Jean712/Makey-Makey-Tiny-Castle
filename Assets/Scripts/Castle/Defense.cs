@@ -181,7 +181,7 @@ public class Defense : MonoBehaviour
         }                                                               //Developer Only //
 
         // Fin tutoriel.
-        if (tutorialUI.activeSelf && Input.GetKeyDown(pauseInput))
+        if (SceneManager.GetActiveScene().name == "Level1" && tutorialUI.activeSelf && Input.GetKeyDown(pauseInput))
         {
             tutorialUI.SetActive(false);
             Time.timeScale = 1;

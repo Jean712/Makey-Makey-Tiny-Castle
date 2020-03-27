@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class GameManager : MonoBehaviour
     public static bool tutorialActive;
     public GameObject gameUI;
     public GameObject pauseUI;
+    public GameObject progressionBar;
+    private Image borderBlack;
+    private Image skullBlack;
     public GameObject[] tutorialUIs;
     public GameObject cross;
     public GameObject mainCamera;
@@ -47,6 +51,9 @@ public class GameManager : MonoBehaviour
         leftInput = bellows1.GetComponent<D_Bellows>().myInput;
         rightInput = bellows2.GetComponent<D_Bellows>().myInput;
 
+        borderBlack = progressionBar.transform.Find("BorderBlack").GetComponent<Image>();
+        skullBlack = progressionBar.transform.Find("SkullBlack").GetComponent<Image>();
+
         pauseUI.SetActive(false);
 
         if (SceneManager.GetActiveScene().name == "Level1")
@@ -62,6 +69,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // Barre de progression.
+        progressionBar.GetComponent<Slider>().value = Mathf.Lerp(progressionBar.GetComponent<Slider>().value, spawner.GetComponent<Spawner>().round - 1, 0.05f);
+
         // Victoire.
         if (spawner.GetComponent<Spawner>().round >= 13)
         {
@@ -78,6 +88,16 @@ public class GameManager : MonoBehaviour
 
             if (!finalRoundActivated)
             {
+                Color tmp1 = borderBlack.color;
+                tmp1.a = 1;
+
+                borderBlack.color = Color.Lerp(borderBlack.color, tmp1, 0.05f);
+
+                Color tmp2 = skullBlack.color;
+                tmp2.a = 1;
+
+                skullBlack.color = Color.Lerp(skullBlack.color, tmp2, 0.05f);
+
                 if (!lerpEnded)
                 {
                     adsr.volume = Mathf.Lerp(adsr.volume, 0, 0.05f);
@@ -198,7 +218,7 @@ public class GameManager : MonoBehaviour
         // Fin tutoriels.
         for (int i = 0; i < tutorialUIs.Length; i++)
         {
-            if (tutorialUIs[i].activeSelf && Input.GetKeyDown(pauseInput))
+            if (SceneManager.GetActiveScene().name == "Level1" && tutorialUIs[i].activeSelf && Input.GetKeyDown(pauseInput))
             {
                 tutorialUIs[i].SetActive(false);
                 Time.timeScale = 1;

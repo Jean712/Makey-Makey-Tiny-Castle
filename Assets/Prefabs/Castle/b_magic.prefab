@@ -323,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 2848986587674960482, guid: d5fd3f93cf86c0842933615105c6f574,
         type: 3}
       propertyPath: m_Name
-      value: par_DragonTest
+      value: par_Magic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5fd3f93cf86c0842933615105c6f574, type: 3}
