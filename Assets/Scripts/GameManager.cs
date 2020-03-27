@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public KeyCode[] mageTowerInputs;
     private bool mageTowerTutorialSeen;
     public static bool overheatTutorialSeen;
+    public static bool tutorialActive;
     public GameObject gameUI;
     public GameObject pauseUI;
     public GameObject[] tutorialUIs;
@@ -128,7 +129,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(pauseInput))
+            if (Input.GetKeyDown(pauseInput) && !tutorialActive)
             {
                 Time.timeScale = 0;
 
@@ -139,14 +140,15 @@ public class GameManager : MonoBehaviour
             }
 
             // Tutoriel.
-            if (SceneManager.GetActiveScene().name == "Level1")
+            if (SceneManager.GetActiveScene().name == "Level1" && !tutorialActive)
             {
                 for (int i = 0; i < canonInputs.Length; i++)
                 {
                     if (Input.GetKeyDown(canonInputs[i]) && !canonTutorialSeen)
                     {
-                        StartCoroutine(CanonTutorial(7));
-                        canonTutorialSeen = true;
+                        tutorialActive = true;
+                        tutorialUIs[0].SetActive(true);
+                        Time.timeScale = 0;
                     }
                 }
 
@@ -154,8 +156,9 @@ public class GameManager : MonoBehaviour
                 {
                     if (Input.GetKeyDown(catapultInputs[i]) && !catapultTutorialSeen)
                     {
-                        StartCoroutine(CatapultTutorial(7));
-                        catapultTutorialSeen = true;
+                        tutorialActive = true;
+                        tutorialUIs[1].SetActive(true);
+                        Time.timeScale = 0;
                     }
                 }
 
@@ -163,8 +166,9 @@ public class GameManager : MonoBehaviour
                 {
                     if (Input.GetKeyDown(superCrossbowInputs[i]) && !superCrossbowTutorialSeen)
                     {
-                        StartCoroutine(SuperCrossbowTutorial(7));
-                        superCrossbowTutorialSeen = true;
+                        tutorialActive = true;
+                        tutorialUIs[2].SetActive(true);
+                        Time.timeScale = 0;
                     }
                 }
 
@@ -172,8 +176,9 @@ public class GameManager : MonoBehaviour
                 {
                     if (Input.GetKeyDown(mageTowerInputs[i]) && !mageTowerTutorialSeen)
                     {
-                        StartCoroutine(MageTowerTutorial(7));
-                        mageTowerTutorialSeen = true;
+                        tutorialActive = true;
+                        tutorialUIs[3].SetActive(true);
+                        Time.timeScale = 0;
                     }
                 }
             }
@@ -188,6 +193,37 @@ public class GameManager : MonoBehaviour
         {
             adsr.mute = true;
             cross.SetActive(true);
+        }
+
+        // Fin tutoriels.
+        for (int i = 0; i < tutorialUIs.Length; i++)
+        {
+            if (tutorialUIs[i].activeSelf && Input.GetKeyDown(pauseInput))
+            {
+                tutorialUIs[i].SetActive(false);
+                Time.timeScale = 1;
+
+                switch (i)
+                {
+                    case 0:
+                        canonTutorialSeen = true;
+                        break;
+
+                    case 1:
+                        catapultTutorialSeen = true;
+                        break;
+
+                    case 2:
+                        superCrossbowTutorialSeen = true;
+                        break;
+
+                    case 3:
+                        mageTowerTutorialSeen = true;
+                        break;
+                }
+
+                StartCoroutine(EndTutorial(0.5f));
+            }
         }
     }
 
@@ -209,47 +245,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Victory");
     }
 
-    IEnumerator CanonTutorial(float time)
+    IEnumerator EndTutorial(float time)
     {
-        tutorialUIs[0].SetActive(true);
-        Time.timeScale = 0;
-
         yield return new WaitForSecondsRealtime(time);
 
-        tutorialUIs[0].SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    IEnumerator CatapultTutorial(float time)
-    {
-        tutorialUIs[1].SetActive(true);
-        Time.timeScale = 0;
-
-        yield return new WaitForSecondsRealtime(time);
-
-        tutorialUIs[1].SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    IEnumerator SuperCrossbowTutorial(float time)
-    {
-        tutorialUIs[2].SetActive(true);
-        Time.timeScale = 0;
-
-        yield return new WaitForSecondsRealtime(time);
-
-        tutorialUIs[2].SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    IEnumerator MageTowerTutorial(float time)
-    {
-        tutorialUIs[3].SetActive(true);
-        Time.timeScale = 0;
-
-        yield return new WaitForSecondsRealtime(time);
-
-        tutorialUIs[3].SetActive(false);
-        Time.timeScale = 1;
+        tutorialActive = false;
     }
 }

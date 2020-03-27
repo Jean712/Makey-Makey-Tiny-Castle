@@ -35,8 +35,10 @@ public class Defense : MonoBehaviour
     private float timer1;
     public Transform myLocation;
     public KeyCode[] myInputs;
+    public KeyCode pauseInput;
     public float maxHeat;
     public GameObject cooldownBar;
+    public GameObject overheatUI;
     public float coolingSpeed = 1;
     public float coolingSpeedOnBooster = 2;
     private bool overheated;
@@ -50,6 +52,7 @@ public class Defense : MonoBehaviour
     public AudioClip impact;
     public AudioClip shoot;
     public AudioClip overheat;
+    public AudioClip recovery;
 
     private void Awake()
     {
@@ -59,6 +62,7 @@ public class Defense : MonoBehaviour
         timer2 = overheatedCancelTime;
 
         cooldownBar.GetComponent<Slider>().maxValue = maxHeat;
+        overheatUI.SetActive(false);
 
         if (SceneManager.GetActiveScene().name == "Level1")
         {
@@ -123,12 +127,6 @@ public class Defense : MonoBehaviour
                         adsr.PlayOneShot(overheat);
                     }
 
-                    if (SceneManager.GetActiveScene().name == "Level1" && !GameManager.overheatTutorialSeen)
-                    {
-                        StartCoroutine(OverheatTutorial(7));
-                        GameManager.overheatTutorialSeen = true;
-                    }
-
                     overheated = true;
                 }
             }
@@ -141,7 +139,16 @@ public class Defense : MonoBehaviour
 
             if (overheated)
             {
+                // Tutoriel.
+                if (SceneManager.GetActiveScene().name == "Level1" && !GameManager.overheatTutorialSeen && !GameManager.tutorialActive)
+                {
+                    GameManager.tutorialActive = true;
+                    tutorialUI.SetActive(true);
+                    Time.timeScale = 0;
+                }
+
                 active = false;
+                overheatUI.SetActive(true);
 
                 if (!exitOverheat)
                 {
@@ -165,11 +172,23 @@ public class Defense : MonoBehaviour
 
                 if (heat >= heatAfterCancel && heat <= heatAfterCancel + 0.1f)
                 {
+                    adsr.PlayOneShot(recovery);
                     overheated = false;
+                    overheatUI.SetActive(false);
                     exitOverheat = false;
                 }
             }
         }                                                               //Developer Only //
+
+        // Fin tutoriel.
+        if (tutorialUI.activeSelf && Input.GetKeyDown(pauseInput))
+        {
+            tutorialUI.SetActive(false);
+            Time.timeScale = 1;
+            GameManager.overheatTutorialSeen = true;
+
+            StartCoroutine(EndTutorial(0.5f));
+        }
 
         cooldownBar.GetComponent<Slider>().value = heat;
     }
@@ -187,15 +206,10 @@ public class Defense : MonoBehaviour
         }
     }
 
-    IEnumerator OverheatTutorial(float time)
+    IEnumerator EndTutorial(float time)
     {
-        tutorialUI.SetActive(true);
-        Time.timeScale = 0;
-
         yield return new WaitForSecondsRealtime(time);
 
-        tutorialUI.SetActive(false);
-        Time.timeScale = 1;
+        GameManager.tutorialActive = false;
     }
-
 }

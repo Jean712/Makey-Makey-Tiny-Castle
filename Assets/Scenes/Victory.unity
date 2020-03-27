@@ -536,6 +536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myInputs: 640000006b000000
   mainCamera: {fileID: 1534361984}
+  background: {fileID: 31449204}
+  confirmation: {fileID: 8300000, guid: 4b8b2458d77c8114a8778642f14c9d65, type: 3}
 --- !u!4 &1572783959
 Transform:
   m_ObjectHideFlags: 0

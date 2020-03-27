@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 
     [Header("Basic Configuration")]
     public float roundCooldown;
+    public GameObject fX;
     [HideInInspector]
     public float timer;
 
@@ -60,6 +61,8 @@ public class Spawner : MonoBehaviour
     {
         round = 1;
         timer = 2;
+
+        fX.SetActive(false);
     }
 
     private void Update()
@@ -78,12 +81,22 @@ public class Spawner : MonoBehaviour
                             Instantiate(enemies1[i], targets1[i]);
                         }
 
+                        if (targets1.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
+                        }
+
                         break;
 
                     case 2:
                         for (int i = 0; i < targets2.Length; i++)
                         {
                             Instantiate(enemies2[i], targets2[i]);
+                        }
+
+                        if (targets2.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
                         }
 
                         break;
@@ -94,12 +107,22 @@ public class Spawner : MonoBehaviour
                             Instantiate(enemies3[i], targets3[i]);
                         }
 
+                        if (targets3.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
+                        }
+
                         break;
 
                     case 4:
                         for (int i = 0; i < targets4.Length; i++)
                         {
                             Instantiate(enemies4[i], targets4[i]);
+                        }
+
+                        if (targets4.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
                         }
 
                         break;
@@ -110,12 +133,22 @@ public class Spawner : MonoBehaviour
                             Instantiate(enemies5[i], targets5[i]);
                         }
 
+                        if (targets5.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
+                        }
+
                         break;
 
                     case 6:
                         for (int i = 0; i < targets6.Length; i++)
                         {
                             Instantiate(enemies6[i], targets6[i]);
+                        }
+
+                        if (targets6.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
                         }
 
                         break;
@@ -126,12 +159,22 @@ public class Spawner : MonoBehaviour
                             Instantiate(enemies7[i], targets7[i]);
                         }
 
+                        if (targets7.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
+                        }
+
                         break;
 
                     case 8:
                         for (int i = 0; i < targets8.Length; i++)
                         {
                             Instantiate(enemies8[i], targets8[i]);
+                        }
+
+                        if (targets8.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
                         }
 
                         break;
@@ -142,12 +185,22 @@ public class Spawner : MonoBehaviour
                             Instantiate(enemies9[i], targets9[i]);
                         }
 
+                        if (targets9.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
+                        }
+
                         break;
 
                     case 10:
                         for (int i = 0; i < targets10.Length; i++)
                         {
                             Instantiate(enemies10[i], targets10[i]);
+                        }
+
+                        if (targets10.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
                         }
 
                         break;
@@ -158,6 +211,11 @@ public class Spawner : MonoBehaviour
                             Instantiate(enemies11[i], targets11[i]);
                         }
 
+                        if (targets11.Length >= 1)
+                        {
+                            StartCoroutine(Invocation(3.5f));
+                        }
+
                         break;
                 }
 
@@ -165,5 +223,14 @@ public class Spawner : MonoBehaviour
                 timer = roundCooldown;
             }
         }
+    }
+
+    IEnumerator Invocation(float time)
+    {
+        fX.SetActive(true);
+
+        yield return new WaitForSeconds(time);
+
+        fX.SetActive(false);
     }
 }

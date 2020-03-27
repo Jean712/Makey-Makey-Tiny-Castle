@@ -231,21 +231,24 @@ MonoBehaviour:
   adsr: {fileID: 0}
   canHeat: 1
   heat: 0
-  overheated: 0
   ptcl: {fileID: 1556651898218146059}
   amtr: {fileID: 6949348324564387890}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
   myInputs: 650000006f00000062000000
+  pauseInput: 27
   maxHeat: 100
   cooldownBar: {fileID: 0}
+  overheatUI: {fileID: 0}
   coolingSpeed: 2
   coolingSpeedOnBooster: 7
   heatAfterCancel: 20
   overheatedCancelTime: 10
+  tutorialUI: {fileID: 0}
   impact: {fileID: 8300000, guid: 062148f22b62f8141ae9af51848516a1, type: 3}
   shoot: {fileID: 8300000, guid: 3cc3dd8b0993d394fb5be5f627f38e7e, type: 3}
   overheat: {fileID: 8300000, guid: 6a83ff38fe7f48643a79365859b09c53, type: 3}
+  recovery: {fileID: 8300000, guid: 4bda8cad30f32504c962a224a3604a11, type: 3}
 --- !u!114 &2389112357253869134
 MonoBehaviour:
   m_ObjectHideFlags: 0
