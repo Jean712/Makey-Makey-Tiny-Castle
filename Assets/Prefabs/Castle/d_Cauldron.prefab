@@ -193,8 +193,7 @@ MonoBehaviour:
   lavaLevel: {fileID: 7655930069827554087}
   amtr: {fileID: 7773681414559960172}
   myInput: 323
-  active: 0
-  distance: 7
+  distance: 12
   maxDamages: 16
   cooldown: 60
   activation: {fileID: 8300000, guid: d96808e02a310904bab2b912a0e6fea0, type: 3}

@@ -75,9 +75,12 @@ public class GameManager : MonoBehaviour
         // Victoire.
         if (spawner.GetComponent<Spawner>().round >= 13)
         {
-            if (slot1.GetComponent<Slot>().actualEnemy == null && slot2.GetComponent<Slot>().actualEnemy == null)
+            if (slot1.GetComponent<Slot>().enemiesQueue.Count == 0 && slot2.GetComponent<Slot>().enemiesQueue.Count == 0)
             {
-                StartCoroutine(Victory(3));
+                if (slot1.GetComponent<Slot>().actualEnemy == null && slot2.GetComponent<Slot>().actualEnemy == null)
+                {
+                    StartCoroutine(Victory(3));
+                }
             }
         }
 
