@@ -23681,11 +23681,6 @@ PrefabInstance:
       propertyPath: myInput
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 2299350301020724216, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
-        type: 3}
-      propertyPath: infinite
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2299350301020724217, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
         type: 3}
       propertyPath: m_Name
