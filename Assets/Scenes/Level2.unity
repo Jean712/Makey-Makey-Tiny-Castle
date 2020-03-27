@@ -1669,7 +1669,7 @@ PrefabInstance:
     - target: {fileID: 2299350301020724216, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
         type: 3}
       propertyPath: myInput
-      value: 107
+      value: 121
       objectReference: {fileID: 0}
     - target: {fileID: 2299350301020724217, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
         type: 3}
@@ -2435,22 +2435,22 @@ PrefabInstance:
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[0]
-      value: 99
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[1]
-      value: 118
+      value: 276
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[2]
-      value: 98
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[3]
-      value: 110
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12537dbefe41acc4dad143527fb8129a, type: 3}
@@ -10645,22 +10645,22 @@ PrefabInstance:
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[0]
-      value: 117
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[1]
-      value: 105
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[2]
-      value: 111
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[3]
-      value: 112
+      value: 103
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
@@ -10680,7 +10680,7 @@ PrefabInstance:
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: crankInput
-      value: 109
+      value: 273
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12537dbefe41acc4dad143527fb8129a, type: 3}
@@ -16099,7 +16099,7 @@ MonoBehaviour:
   spawner: {fileID: 1368186019}
   slot1: {fileID: 1846956985}
   slot2: {fileID: 199835907}
-  pauseInput: 27
+  pauseInput: 32
   bellows1: {fileID: 1020991048}
   bellows2: {fileID: 157782694}
   canonInputs: 
@@ -19819,12 +19819,7 @@ PrefabInstance:
     - target: {fileID: 2299350301020724216, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
         type: 3}
       propertyPath: myInput
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299350301020724216, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
-        type: 3}
-      propertyPath: infinite
-      value: 0
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 2299350301020724217, guid: 25ecdc98c2d223e4c99bcfe2013cb934,
         type: 3}
@@ -22046,22 +22041,22 @@ PrefabInstance:
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[0]
-      value: 97
+      value: 117
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[1]
-      value: 122
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[2]
-      value: 101
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: myInputs.Array.data[3]
-      value: 114
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
@@ -22076,7 +22071,7 @@ PrefabInstance:
     - target: {fileID: 7478516845013758127, guid: 12537dbefe41acc4dad143527fb8129a,
         type: 3}
       propertyPath: crankInput
-      value: 113
+      value: 274
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8269141981611887200, guid: 12537dbefe41acc4dad143527fb8129a, type: 3}

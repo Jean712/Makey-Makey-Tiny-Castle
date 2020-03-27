@@ -192,7 +192,7 @@ MonoBehaviour:
   lava: {fileID: 0}
   lavaLevel: {fileID: 7655930069827554087}
   amtr: {fileID: 7773681414559960172}
-  myInput: 103
+  myInput: 323
   active: 0
   distance: 7
   maxDamages: 16

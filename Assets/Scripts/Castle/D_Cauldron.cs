@@ -11,7 +11,7 @@ public class D_Cauldron : MonoBehaviour
     public GameObject lavaLevel;
     public Animator amtr;
     public KeyCode myInput;
-    public bool active;
+    private bool active;
     public float distance = 1;
     public float maxDamages;
     private float damages;

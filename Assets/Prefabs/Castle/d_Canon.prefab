@@ -236,8 +236,8 @@ MonoBehaviour:
   amtr: {fileID: 6596999718576918446}
   timeBeforeShooting: 1
   myLocation: {fileID: 0}
-  myInputs: 610000007500000063000000
-  pauseInput: 27
+  myInputs: 750000006600000013010000
+  pauseInput: 32
   maxHeat: 100
   cooldownBar: {fileID: 0}
   overheatUI: {fileID: 0}

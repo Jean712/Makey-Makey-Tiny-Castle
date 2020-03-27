@@ -15,7 +15,6 @@ public class D_Bellows : MonoBehaviour
     public float tornadoSpeed;
     public GameObject tornado;
     public KeyCode myInput;
-    public float baseSpeed;
     public float speedReduction;
     public float cooldown;
     private float timer;

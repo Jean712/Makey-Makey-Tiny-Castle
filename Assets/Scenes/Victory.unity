@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4e80e5a052f434082391f42cc5c68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myInputs: 640000006b000000
+  myInputs: 7300000079000000
   mainCamera: {fileID: 1534361984}
   background: {fileID: 31449204}
   confirmation: {fileID: 8300000, guid: 4b8b2458d77c8114a8778642f14c9d65, type: 3}
